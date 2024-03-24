@@ -9,18 +9,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -58,9 +50,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us, ru";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -105,10 +97,21 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  # What i added starts here.
+
+  boot.kernelPackages = pkgs.linuxPackages_6_8;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   
   nixpkgs.config.nvidia.acceptLicense = true;
+
+  # Enable OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
@@ -160,26 +163,28 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     git
+     neofetch
+     docker
+     nodejs_20
+     python3
      telegram-desktop
      flameshot
      google-chrome
-     neovim
-     steam
-     vscode-with-extensions
      opera
-     git
-     docker
-     nodejs_20
-     qbittorrent
+     vscode-fhs
+     steam
      lutris
-     appimage-run
-     godot_4
      mangohud
      wine-wayland
-     neofetch
+     qbittorrent
+     godot_4
+     appimage-run
      lshw
+     bleachbit
+     baobab
+     reaper
   ];
   
   nix.optimise.automatic = true;
