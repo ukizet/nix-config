@@ -84,7 +84,6 @@
     description = "sas";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
     #  thunderbird
     ];
   };
@@ -185,6 +184,12 @@
      bleachbit
      baobab
      reaper
+     obsidian
+     rclone
+     unzip
+     zulu17
+     vlc
+     bottles
   ];
   
   nix.optimise.automatic = true;
