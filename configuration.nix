@@ -133,9 +133,9 @@
      nodejs_20
      python3
      telegram-desktop
-     flameshot
+     # flameshot | Screenshots tool
      google-chrome
-     opera
+     opera # Browser with VPN
      vscode-fhs
      steam
      lutris
@@ -151,16 +151,21 @@
      obsidian
      rclone
      unzip
-     zulu17
+     #zulu17 | Java 17
      vlc
      bottles
      xmind
      rustdesk-flutter
      (pkgs.callPackage (import ./bun-baseline.nix) { })
+     obs-studio
+     # mysql80
+     # php
+     # apacheHttpd
+     # rustup
   ];
 
   nix.optimise.automatic = true;
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.05";
 
 }
