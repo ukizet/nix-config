@@ -162,6 +162,9 @@
      # php
      # apacheHttpd
      # rustup
+     direnv
+     cargo-tauri
+     rustup
   ];
 
   nix.optimise.automatic = true;
