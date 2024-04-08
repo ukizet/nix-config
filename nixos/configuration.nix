@@ -152,7 +152,7 @@
   ];
 
   fonts.fonts = with pkgs; [
-	  fira-code-nerdfont
+    fira-code-nerdfont
 	];
 
   nix.optimise.automatic = true;
