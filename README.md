@@ -1,3 +1,2 @@
-config works normal only if u use unstable [channel](https://nixos.wiki/wiki/Nix_channels).
-
-It is configuration.nix file from NixOS. Here you are.. like.. setting (declaring) up your whole system.
+In the root directory: `sudo nixos-rebuild switch --flake .`, this command will rebuilt whole nixos system and switch to created generation.
+Git needs to track all files in root directory, otherwise nix will give errors.
