@@ -151,7 +151,7 @@
      obsidian
      rclone
      unzip
-     #zulu17 | Java 17
+     zulu17
      vlc
      bottles
      xmind
@@ -162,12 +162,24 @@
      # php
      # apacheHttpd
      # rustup
-     direnv
-     cargo-tauri
+     #direnv
+     #cargo-tauri
      rustup
   ];
 
+  #console = {
+  #  earlySetup = true;
+  #  font = "${pkgs.terminus-nerdfont}/share/consolefonts/ter-132n.psf.gz";
+  #  packages = with pkgs; [ terminus-nerdfont ];
+  #  keyMap = "us";
+  #};
+  
+  fonts.packages = with pkgs; [
+		terminus-nerdfont
+	];
+
   nix.optimise.automatic = true;
+  nix.optimise.dates = [ "03:45" ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.05";
 
