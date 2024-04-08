@@ -63,9 +63,6 @@
     isNormalUser = true;
     description = "sas";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   # Enable automatic login for the user.
@@ -92,14 +89,11 @@
     driSupport32Bit = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
   hardware.nvidia = {
 
-    # Modesetting is required.
     modesetting.enable = true;
-
 
     powerManagement.enable = false;
 
@@ -115,7 +109,6 @@
   hardware.nvidia.prime = {
     sync.enable = true;
 
-    # Make sure to use the correct Bus ID values for your system!
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
   };
@@ -123,59 +116,43 @@
   programs.steam.enable = true;
   virtualisation.docker.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     git
-     neofetch
-     docker
-     nodejs_20
-     python3
-     telegram-desktop
-     # flameshot | Screenshots tool
-     google-chrome
-     opera # Browser with VPN
-     vscode-fhs
-     steam
-     lutris
-     mangohud
-     wine-wayland
-     qbittorrent
-     godot_4
-     appimage-run
-     lshw
-     bleachbit
-     baobab
-     reaper
-     obsidian
-     rclone
-     unzip
-     zulu17
-     vlc
-     bottles
-     xmind
-     rustdesk-flutter
-     (pkgs.callPackage (import ./bun-baseline.nix) { })
-     obs-studio
-     # mysql80
-     # php
-     # apacheHttpd
-     # rustup
-     #direnv
-     #cargo-tauri
-     rustup
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
+    neofetch
+    docker
+    nodejs_20
+    python3
+    telegram-desktop
+    google-chrome
+    opera # Browser with VPN
+    vscode-fhs
+    steam
+    lutris
+    mangohud
+    wine-wayland
+    qbittorrent
+    godot_4
+    appimage-run
+    lshw
+    bleachbit
+    baobab
+    reaper
+    obsidian
+    rclone
+    unzip
+    zulu17
+    vlc
+    bottles
+    xmind
+    rustdesk-flutter
+    (pkgs.callPackage (import ./bun-baseline.nix) { })
+    obs-studio
+    rustup
   ];
 
-  #console = {
-  #  earlySetup = true;
-  #  font = "${pkgs.terminus-nerdfont}/share/consolefonts/ter-132n.psf.gz";
-  #  packages = with pkgs; [ terminus-nerdfont ];
-  #  keyMap = "us";
-  #};
-  
-  fonts.packages = with pkgs; [
-		terminus-nerdfont
+  fonts.fonts = with pkgs; [
+	  fira-code-nerdfont
 	];
 
   nix.optimise.automatic = true;
