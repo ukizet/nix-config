@@ -115,6 +115,10 @@
 
   programs.steam.enable = true;
   virtualisation.docker.enable = true;
+  services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "net.xmind.XMind"
+  ];
 
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -132,7 +136,6 @@
     mangohud
     wine-wayland
     qbittorrent
-    godot_4
     appimage-run
     lshw
     bleachbit
@@ -144,14 +147,15 @@
     zulu17
     vlc
     bottles
-    xmind
     rustdesk-flutter
     (pkgs.callPackage (import ./bun-baseline.nix) { })
     obs-studio
     rustup
+    minetest
+    gamemode
   ];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     fira-code-nerdfont
   ];
 
