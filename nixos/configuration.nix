@@ -144,6 +144,7 @@
     obsidian
     rclone
     unzip
+    zulu8
     zulu17
     vlc
     bottles
@@ -153,6 +154,7 @@
     rustup
     minetest
     gamemode
+    steamPackages.steamcmd
   ];
 
   fonts.packages = with pkgs; [
