@@ -155,6 +155,7 @@
     minetest
     gamemode
     steamPackages.steamcmd
+    godot_4
   ];
 
   fonts.packages = with pkgs; [
