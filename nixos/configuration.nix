@@ -34,11 +34,12 @@
       LC_TIME = "uk_UA.UTF-8";
     };
   };
-
-  # Enable the X11 windowing system.
+  
   services = {
     xserver = {
+      # Enable the X11 windowing system.
       enable = true;
+
       # Enable the GNOME Desktop Environment.
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
@@ -71,7 +72,6 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   users.users.sas = {
@@ -97,6 +97,8 @@
   };
 
   hardware = {
+    pulseaudio.enable = false;
+
     # Enable OpenGL
     opengl = {
       enable = true;
@@ -121,14 +123,7 @@
 
   programs.steam.enable = true;
   
-  virtualisation.docker = {
-  	enable = true;
-  	#storageDriver = "ext4";
-  	rootless = {
-			enable = true;
-			setSocketVariable = true;
-		};
-  };
+  virtualisation.docker.enable = true;
   
   services.flatpak = {
   	enable = true;
