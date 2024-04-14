@@ -117,7 +117,7 @@
   
   virtualisation.docker.enable = true;
   #virtualisation.docker.storageDriver = "ext4";
-  vvirtualisation.docker.rootless = {
+  virtualisation.docker.rootless = {
   	enable = true;
   	setSocketVariable = true;
   };
