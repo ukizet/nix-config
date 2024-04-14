@@ -62,7 +62,7 @@
   users.users.sas = {
     isNormalUser = true;
     description = "sas";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
   };
 
   # Enable automatic login for the user.
@@ -114,7 +114,14 @@
   };
 
   programs.steam.enable = true;
+  
   virtualisation.docker.enable = true;
+  #virtualisation.docker.storageDriver = "ext4";
+  vvirtualisation.docker.rootless = {
+  	enable = true;
+  	setSocketVariable = true;
+  }
+  
   services.flatpak.enable = true;
   services.flatpak.packages = [
     "net.xmind.XMind"
