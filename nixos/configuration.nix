@@ -61,13 +61,20 @@
     };
     printing.enable = true;
     pipewire = {
-    enable = true;
-    alsa = {
       enable = true;
-      support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
     };
-    pulse.enable = true;
-  };
+
+    flatpak = {
+      enable = true;
+      packages = [
+        "net.xmind.XMind"
+      ];
+    };
   };
 
   # Enable sound with pipewire.
@@ -125,13 +132,6 @@
   
   virtualisation.docker.enable = true;
   
-  services.flatpak = {
-  	enable = true;
-  	packages = [
-		  "net.xmind.XMind"
-		];
-  };
-
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
