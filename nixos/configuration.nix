@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -15,7 +16,7 @@
     hostName = "nixos"; # Define your hostname.
     networkmanager.enable = true;
   };
-  
+
   # Set your time zone.
   time.timeZone = "Europe/Kyiv";
 
@@ -34,7 +35,7 @@
       LC_TIME = "uk_UA.UTF-8";
     };
   };
-  
+
   services = {
     xserver = {
       # Enable the X11 windowing system.
@@ -57,7 +58,7 @@
       };
 
       # Enable nvidia drivers
-      videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+      videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
     };
     printing.enable = true;
     pipewire = {
@@ -84,7 +85,7 @@
   users.users.sas = {
     isNormalUser = true;
     description = "sas";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
@@ -129,9 +130,9 @@
   };
 
   programs.steam.enable = true;
-  
+
   virtualisation.docker.enable = true;
-  
+
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
@@ -169,6 +170,10 @@
     steamPackages.steamcmd
     godot_4
     nixpkgs-fmt
+    libreoffice
+    sqlite
+    gcc
+    thunderbird
   ];
 
   fonts.packages = with pkgs; [
@@ -176,11 +181,11 @@
   ];
 
   nix = {
-  	optimise = {
-  		automatic = true;
-  		dates = [ "03:45" ];
-  	};
-  	settings.experimental-features = [ "nix-command" "flakes" ];
+  optimise = {
+    automatic = true;
+    dates = [ "03:45" ];
+  };
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
   system.stateVersion = "23.05";
 
