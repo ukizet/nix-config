@@ -68,12 +68,14 @@
         support32Bit = true;
       };
       pulse.enable = true;
+      jack.enable = true;
     };
 
     flatpak = {
       enable = true;
       packages = [
         "net.xmind.XMind"
+        "com.github.tchx84.Flatseal"
       ];
     };
   };
@@ -174,6 +176,9 @@
     sqlite
     gcc
     thunderbird
+    stremio
+    pkgsi686Linux.gperftools
+    logseq
   ];
 
   fonts.packages = with pkgs; [
@@ -181,10 +186,10 @@
   ];
 
   nix = {
-  optimise = {
-    automatic = true;
-    dates = [ "03:45" ];
-  };
+  	optimise = {
+		  automatic = true;
+		  dates = [ "03:45" ];
+  	};
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
   system.stateVersion = "23.05";
