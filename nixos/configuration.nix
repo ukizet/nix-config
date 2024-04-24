@@ -159,7 +159,7 @@
     obsidian
     rclone
     unzip
-    zulu8
+    #zulu8
     zulu17
     vlc
     bottles
@@ -179,6 +179,7 @@
     stremio
     pkgsi686Linux.gperftools
     logseq
+    wl-clipboard
   ];
 
   fonts.packages = with pkgs; [
@@ -188,7 +189,12 @@
   nix = {
   	optimise = {
 		  automatic = true;
-		  dates = [ "03:45" ];
+		  dates = "weekly";
+  	};
+  	gc = {
+  		automatic = true;
+		  dates = "weekly";
+		  options = "--delete-older-than 30d";
   	};
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
