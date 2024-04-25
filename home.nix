@@ -27,7 +27,8 @@
         ";
         gs = "git status";
         gcam = "git commit -am";
-        gp = "git push";
+        gpush = "git push";
+        gpull = "git pull";
         gad = "git add .";
         scmd = "steamcmd";
       };
