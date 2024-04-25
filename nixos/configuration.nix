@@ -77,6 +77,7 @@
         "net.xmind.XMind"
         "com.github.tchx84.Flatseal"
         "io.github.peazip.PeaZip"
+        "org.qbittorrent.qBittorrent"
       ];
     };
   };
@@ -150,7 +151,6 @@
     lutris
     mangohud
     wine-wayland
-    qbittorrent
     appimage-run
     lshw
     bleachbit
