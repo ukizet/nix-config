@@ -7,29 +7,29 @@
   };
 
   outputs = { self, nixpkgs, nix-flatpak, ... }:
-  let 
-    system = "x86_64-linux";
+    let
+      system = "x86_64-linux";
 
-    pkgs = import nixpkgs {
-      inherit system;
+      pkgs = import nixpkgs {
+        inherit system;
 
-      config = {
-        allowUnfree = true;
+        config = {
+          allowUnfree = true;
+        };
+      };
+
+    in
+    {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit system; };
+
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+            ./nixos/configuration.nix
+          ];
+        };
       };
     };
-
-  in
-  {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
-
-      	modules = [
-      		nix-flatpak.nixosModules.nix-flatpak
-      	  ./nixos/configuration.nix
-      	];
-      };
-    };
-  };
 }
   
