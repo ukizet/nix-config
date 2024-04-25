@@ -37,6 +37,12 @@
   };
 
   services = {
+		# Enable automatic login for the user.
+		displayManager.autoLogin = {
+			enable = true;
+			user = "sas";
+		};
+  
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -49,12 +55,6 @@
       xkb = {
         layout = "us, ru";
         variant = "";
-      };
-
-      # Enable automatic login for the user.
-      displayManager.autoLogin = {
-        enable = true;
-        user = "sas";
       };
 
       # Enable nvidia drivers
@@ -189,7 +189,7 @@
   nix = {
   	optimise = {
 		  automatic = true;
-		  dates = "weekly";
+		  dates = [ "weekly" ];
   	};
   	gc = {
   		automatic = true;
