@@ -13,7 +13,27 @@
     bash = {
       enable = true;
       shellAliases = {
-        lms = "ls -l";
+        rebuild = "sudo nixos-rebuild switch --flake ~/mysystem/";
+        upgraderebuild = "
+          cd ~/mysystem/ &&
+          nix flake update &&
+          sudo nixos-rebuild switch --flake .
+        ";
+        nixclean="
+          sudo nix-collect-garbage -d &&
+          nix-collect-garbage -d &&
+          nix-store --optimise &&
+          nix-store --gc
+        ";
+        gs="git status";
+        gcam="git commit -am";
+        gp="git push";
+        gad="git add .";
+        scmd="
+          steamcmd <<EOF
+          login anonymous
+          EOF
+        "; 
       };
     };
   };
