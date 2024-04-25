@@ -22,8 +22,8 @@
         nixclean = "
           sudo nix-collect-garbage -d &&
           nix-collect-garbage -d &&
-          nix-store --optimise &&
-          nix-store --gc
+          sudo nix-store --optimise &&
+          sudo nix-store --gc
         ";
         gs = "git status";
         gcam = "git commit -am";
