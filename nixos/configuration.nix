@@ -37,12 +37,12 @@
   };
 
   services = {
-		# Enable automatic login for the user.
-		displayManager.autoLogin = {
-			enable = true;
-			user = "sas";
-		};
-  
+    # Enable automatic login for the user.
+    displayManager.autoLogin = {
+      enable = true;
+      user = "sas";
+    };
+
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -187,15 +187,15 @@
   ];
 
   nix = {
-  	optimise = {
-		  automatic = true;
-		  dates = [ "weekly" ];
-  	};
-  	gc = {
-  		automatic = true;
-		  dates = "weekly";
-		  options = "--delete-older-than 30d";
-  	};
+    optimise = {
+      automatic = true;
+      dates = [ "weekly" ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
   system.stateVersion = "23.05";
