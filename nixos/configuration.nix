@@ -76,6 +76,7 @@
       packages = [
         "net.xmind.XMind"
         "com.github.tchx84.Flatseal"
+        "io.github.peazip.PeaZip"
       ];
     };
   };
@@ -137,7 +138,6 @@
 
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    # git
     neofetch
     docker
     nodejs_20
@@ -154,12 +154,10 @@
     appimage-run
     lshw
     bleachbit
-    baobab
     reaper
     obsidian
     rclone
     unzip
-    #zulu8
     zulu17
     vlc
     bottles

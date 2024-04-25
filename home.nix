@@ -19,21 +19,17 @@
           nix flake update &&
           sudo nixos-rebuild switch --flake .
         ";
-        nixclean="
+        nixclean = "
           sudo nix-collect-garbage -d &&
           nix-collect-garbage -d &&
           nix-store --optimise &&
           nix-store --gc
         ";
-        gs="git status";
-        gcam="git commit -am";
-        gp="git push";
-        gad="git add .";
-        scmd="
-          steamcmd <<EOF
-          login anonymous
-          EOF
-        "; 
+        gs = "git status";
+        gcam = "git commit -am";
+        gp = "git push";
+        gad = "git add .";
+        scmd = "steamcmd";
       };
     };
   };
