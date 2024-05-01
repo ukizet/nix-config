@@ -13,11 +13,11 @@
     bash = {
       enable = true;
       shellAliases = {
-        rebuild = "sudo nixos-rebuild switch --flake ~/mysystem/";
+        rebuild = "cd ~/mysystem/ && sudo nixos-rebuild switch --flake .";
         upgraderebuild = "
           cd ~/mysystem/ &&
           nix flake update &&
-          sudo nixos-rebuild switch --update --flake .
+          sudo nixos-rebuild switch --upgrade --flake .
         ";
         nixclean = "
           sudo nix-collect-garbage -d &&

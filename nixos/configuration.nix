@@ -127,13 +127,20 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
+      	sync.enable = true;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
   };
 
-  programs.steam.enable = true;
+  programs = {
+		steam = {
+			enable = true;
+			gamescopeSession.enable = true;
+		};
+		gamemode.enable = true;
+  };
 
   virtualisation.docker.enable = true;
 
@@ -147,7 +154,6 @@
     google-chrome
     opera # Browser with VPN
     vscode-fhs
-    steam
     lutris
     mangohud
     wine-wayland
@@ -166,7 +172,6 @@
     obs-studio
     rustup
     minetest
-    gamemode
     steamPackages.steamcmd
     godot_4
     nixpkgs-fmt
