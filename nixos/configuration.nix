@@ -183,6 +183,7 @@
     pkgsi686Linux.gperftools
     logseq
     wl-clipboard
+    kdePackages.kdenlive
   ];
 
   fonts.packages = with pkgs; [
