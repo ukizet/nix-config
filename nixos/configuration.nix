@@ -78,6 +78,7 @@
         "com.github.tchx84.Flatseal"
         "io.github.peazip.PeaZip"
         "org.qbittorrent.qBittorrent"
+        "org.telegram.desktop"
       ];
     };
   };
@@ -150,7 +151,6 @@
     docker
     nodejs_20
     python3
-    telegram-desktop
     google-chrome
     opera # Browser with VPN
     vscode-fhs
