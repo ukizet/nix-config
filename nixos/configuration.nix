@@ -159,7 +159,7 @@
     vscode-fhs
     lutris
     mangohud
-    wine-wayland
+    wineWow64Packages.unstableFull
     appimage-run
     lshw
     bleachbit
@@ -185,6 +185,7 @@
     pkgsi686Linux.gperftools
     logseq
     wl-clipboard
+    postman
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
