@@ -14,10 +14,11 @@
       enable = true;
       shellAliases = {
         rebuild = "cd ~/mysystem/ && sudo nixos-rebuild switch --flake .";
+        rebuildboot = "cd ~/mysystem/ && sudo nixos-rebuild boot --flake .";
         upgraderebuild = "
           cd ~/mysystem/ &&
           nix flake update &&
-          sudo nixos-rebuild switch --flake .
+          sudo nixos-rebuild boot --flake .
         ";
         nixclean = "
           sudo nix-collect-garbage -d &&

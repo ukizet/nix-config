@@ -79,6 +79,10 @@
         "io.github.peazip.PeaZip"
         "org.qbittorrent.qBittorrent"
         "org.telegram.desktop"
+        "org.kde.kdenlive"
+        "com.dec05eba.gpu_screen_recorder"
+        "com.obsproject.Studio"
+        "com.usebottles.bottles"
       ];
     };
   };
@@ -165,7 +169,6 @@
     unzip
     zulu17
     vlc
-    bottles
     rustdesk-flutter
     (pkgs.callPackage (import ./bun-baseline.nix) { })
     obs-studio
@@ -182,7 +185,6 @@
     pkgsi686Linux.gperftools
     logseq
     wl-clipboard
-    kdePackages.kdenlive
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
