@@ -185,6 +185,8 @@
     kdePackages.kdenlive
   ];
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   fonts.packages = with pkgs; [
     fira-code-nerdfont
   ];
