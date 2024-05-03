@@ -17,7 +17,7 @@
         upgraderebuild = "
           cd ~/mysystem/ &&
           nix flake update &&
-          sudo nixos-rebuild switch --upgrade --flake .
+          sudo nixos-rebuild switch --flake .
         ";
         nixclean = "
           sudo nix-collect-garbage -d &&
