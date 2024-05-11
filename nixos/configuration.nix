@@ -132,7 +132,7 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
-      	sync.enable = true;
+        sync.enable = true;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
@@ -140,11 +140,11 @@
   };
 
   programs = {
-		steam = {
-			enable = true;
-			gamescopeSession.enable = true;
-		};
-		gamemode.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    gamemode.enable = true;
   };
 
   virtualisation.docker.enable = true;
@@ -157,6 +157,7 @@
     google-chrome
     opera # Browser with VPN
     vscode-fhs
+    vscodium-fhs
     lutris
     mangohud
     wineWow64Packages.unstableFull
@@ -185,7 +186,11 @@
     pkgsi686Linux.gperftools
     logseq
     wl-clipboard
-    postman
+    spotube
+    firefox
+    ungoogled-chromium
+    bitwarden
+    bitwig-studio
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
