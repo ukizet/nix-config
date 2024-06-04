@@ -83,6 +83,9 @@
         "com.dec05eba.gpu_screen_recorder"
         "com.obsproject.Studio"
         "com.usebottles.bottles"
+        "com.bitwig.BitwigStudio"
+        "io.lmms.LMMS"
+        "org.ardour.Ardour"
       ];
     };
   };
@@ -190,7 +193,6 @@
     firefox
     ungoogled-chromium
     bitwarden
-    bitwig-studio
     brave
   ];
 
