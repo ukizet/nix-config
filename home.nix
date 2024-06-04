@@ -32,6 +32,7 @@
         gpull = "git pull";
         gad = "git add .";
         scmd = "steamcmd";
+        vim = "nvim";
       };
     };
   };

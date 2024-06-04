@@ -191,6 +191,7 @@
     ungoogled-chromium
     bitwarden
     bitwig-studio
+    brave
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
