@@ -79,11 +79,8 @@
         "io.github.peazip.PeaZip"
         "org.qbittorrent.qBittorrent"
         "org.telegram.desktop"
-        "org.kde.kdenlive"
         "com.dec05eba.gpu_screen_recorder"
-        "com.obsproject.Studio"
         "com.usebottles.bottles"
-        "com.bitwig.BitwigStudio"
         "io.lmms.LMMS"
         "org.ardour.Ardour"
       ];
@@ -194,6 +191,10 @@
     ungoogled-chromium
     bitwarden
     brave
+    localsend
+    bisq-desktop
+    kdePackages.kdenlive
+    bitwig-studio
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
