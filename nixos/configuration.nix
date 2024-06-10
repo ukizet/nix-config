@@ -3,13 +3,15 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+		  systemd-boot.enable = true;
+		  efi.canTouchEfiVariables = true;
+		};
+    kernelPackages = pkgs.linuxPackages_6_8;
   };
 
   networking = {
@@ -17,10 +19,8 @@
     networkmanager.enable = true;
   };
 
-  # Set your time zone.
   time.timeZone = "Europe/Kyiv";
 
-  # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -37,26 +37,16 @@
   };
 
   services = {
-    # Enable automatic login for the user.
     displayManager.autoLogin = {
       enable = true;
       user = "sas";
     };
-
     xserver = {
-      # Enable the X11 windowing system.
       enable = true;
-
       # Enable the GNOME Desktop Environment.
       displayManager.gdm.enable = true;
+      displayManager.gdm.wayland.enable = true;
       desktopManager.gnome.enable = true;
-
-      # Configure keymap in X11
-      xkb = {
-        layout = "us, ru";
-        variant = "";
-      };
-
       # Enable nvidia drivers
       videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
     };
@@ -103,8 +93,6 @@
     "autovt@tty1".enable = false;
   };
 
-  # What i added starts here.
-
   boot.kernelPackages = pkgs.linuxPackages_6_8;
 
   # Allow unfree packages
@@ -132,7 +120,6 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
-        sync.enable = true;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
@@ -149,55 +136,52 @@
 
   virtualisation.docker.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    neofetch
-    nodejs_20
-    python3
-    google-chrome
-    opera # Browser with VPN
-    vscode-fhs
-    vscodium-fhs
-    lutris
-    mangohud
-    wineWow64Packages.unstableFull
-    appimage-run
-    lshw
-    bleachbit
-    reaper
-    obsidian
-    rclone
-    unzip
-    zulu17
-    vlc
-    rustdesk-flutter
-    (pkgs.callPackage (import ./bun-baseline.nix) { })
-    obs-studio
-    rustup
-    minetest
-    steamPackages.steamcmd
-    godot_4
-    nixpkgs-fmt
-    libreoffice
-    sqlite
-    gcc
-    thunderbird
-    stremio
-    pkgsi686Linux.gperftools
-    logseq
-    wl-clipboard
-    spotube
-    firefox
-    ungoogled-chromium
-    bitwarden
-    brave
-    localsend
-    bisq-desktop
-    kdePackages.kdenlive
-    bitwig-studio
-  ];
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment = {
+  	sessionVariables.NIXOS_OZONE_WL = "1";
+  	systemPackages = with pkgs; [
+		  neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+		  neofetch
+		  nodejs_20
+		  python3
+		  google-chrome
+		  opera # Browser with VPN
+		  vscode-fhs
+		  vscodium-fhs
+		  lutris
+		  mangohud
+		  wineWow64Packages.unstableFull
+		  appimage-run
+		  lshw
+		  obsidian
+		  rclone
+		  unzip
+		  zulu17
+		  vlc
+		  rustdesk-flutter
+		  (pkgs.callPackage (import ./bun-baseline.nix) { })
+		  obs-studio
+		  rustup
+		  steamPackages.steamcmd
+		  godot_4
+		  nixpkgs-fmt
+		  sqlite
+		  gcc
+		  thunderbird
+		  stremio
+		  pkgsi686Linux.gperftools
+		  logseq
+		  wl-clipboard
+		  spotube
+		  firefox
+		  ungoogled-chromium
+		  bitwarden
+		  brave
+		  localsend
+		  bisq-desktop
+		  kdePackages.kdenlive
+		  bitwig-studio
+  	];
+  };
 
   fonts.packages = with pkgs; [
     fira-code-nerdfont
