@@ -8,9 +8,9 @@
 
   boot = {
     loader = {
-		  systemd-boot.enable = true;
-		  efi.canTouchEfiVariables = true;
-		};
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
     kernelPackages = pkgs.linuxPackages_6_8;
   };
 
@@ -64,158 +64,157 @@
     flatpak = {
       enable = true;
       update.auto = {
-				enable = true;
-				onCalendar = "monthly"; # Default value
-			};
+        enable = true;
+        onCalendar = "monthly"; # Default value
+      };
       overrides = {
-				global = {
-				  # Force Wayland by default
-				  Context.sockets = ["wayland" "!x11" "fallback-x11"];
+        global = {
+          # Force Wayland by default
+          Context.sockets = [ "wayland" "!x11" "fallback-x11" ];
 
-				  Environment = {
-				    # Fix un-themed cursor in some Wayland apps
-				    XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
+          Environment = {
+            # Fix un-themed cursor in some Wayland apps
+            XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
 
-				    # Force correct theme for some GTK apps
-				    GTK_THEME = "Adwaita:dark";
-				  };
-				};
-      packages = [
-        "net.xmind.XMind"
-        "com.github.tchx84.Flatseal"
-        "io.github.peazip.PeaZip"
-        "org.qbittorrent.qBittorrent"
-        "org.telegram.desktop"
-        "com.dec05eba.gpu_screen_recorder"
-        "com.usebottles.bottles"
-        "io.lmms.LMMS"
-        "org.ardour.Ardour"
+            # Force correct theme for some GTK apps
+            GTK_THEME = "Adwaita:dark";
+          };
+        };
+        packages = [
+          "net.xmind.XMind"
+          "com.github.tchx84.Flatseal"
+          "io.github.peazip.PeaZip"
+          "org.qbittorrent.qBittorrent"
+          "org.telegram.desktop"
+          "com.dec05eba.gpu_screen_recorder"
+          "com.usebottles.bottles"
+          "io.lmms.LMMS"
+          "org.ardour.Ardour"
+        ];
+      };
+    };
+
+    # Enable sound with pipewire.
+    sound.enable = true;
+    security.rtkit.enable = true;
+
+    users.users.sas = {
+      isNormalUser = true;
+      description = "sas";
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
+    };
+
+    # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+    systemd.services = {
+      "getty@tty1".enable = false;
+      "autovt@tty1".enable = false;
+    };
+
+    boot.kernelPackages = pkgs.linuxPackages_6_8;
+
+    # Allow unfree packages
+    nixpkgs.config = {
+      allowUnfree = true;
+      nvidia.acceptLicense = true;
+    };
+
+    hardware = {
+      pulseaudio.enable = false;
+
+      # Enable OpenGL
+      opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+      };
+      nvidia = {
+        modesetting.enable = true;
+        powerManagement = {
+          enable = false;
+          finegrained = false;
+        };
+        open = false;
+        nvidiaSettings = true;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        prime = {
+          intelBusId = "PCI:0:2:0";
+          nvidiaBusId = "PCI:1:0:0";
+        };
+      };
+    };
+
+    programs = {
+      steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+      };
+      gamemode.enable = true;
+    };
+
+    virtualisation.docker.enable = true;
+
+    environment = {
+      sessionVariables.NIXOS_OZONE_WL = "1";
+      systemPackages = with pkgs; [
+        neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+        neofetch
+        nodejs_20
+        python3
+        google-chrome
+        opera # Browser with VPN
+        vscode-fhs
+        vscodium-fhs
+        lutris
+        mangohud
+        wineWow64Packages.unstableFull
+        appimage-run
+        lshw
+        obsidian
+        rclone
+        unzip
+        zulu17
+        vlc
+        rustdesk-flutter
+        (pkgs.callPackage (import ./bun-baseline.nix) { })
+        obs-studio
+        rustup
+        steamPackages.steamcmd
+        godot_4
+        nixpkgs-fmt
+        sqlite
+        gcc
+        thunderbird
+        stremio
+        pkgsi686Linux.gperftools
+        logseq
+        wl-clipboard
+        spotube
+        firefox
+        ungoogled-chromium
+        bitwarden
+        brave
+        localsend
+        bisq-desktop
+        kdePackages.kdenlive
+        bitwig-studio
       ];
     };
-  };
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  security.rtkit.enable = true;
+    fonts.packages = with pkgs; [
+      fira-code-nerdfont
+    ];
 
-  users.users.sas = {
-    isNormalUser = true;
-    description = "sas";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-  };
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services = {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-  };
-
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
-
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    nvidia.acceptLicense = true;
-  };
-
-  hardware = {
-    pulseaudio.enable = false;
-
-    # Enable OpenGL
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement = {
-        enable = false;
-        finegrained = false;
+    nix = {
+      optimise = {
+        automatic = true;
+        dates = [ "weekly" ];
       };
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      prime = {
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
       };
+      settings.experimental-features = [ "nix-command" "flakes" ];
     };
-  };
-
-  programs = {
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-    gamemode.enable = true;
-  };
-
-  virtualisation.docker.enable = true;
-
-  environment = {
-  	sessionVariables.NIXOS_OZONE_WL = "1";
-  	systemPackages = with pkgs; [
-		  neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-		  neofetch
-		  nodejs_20
-		  python3
-		  google-chrome
-		  opera # Browser with VPN
-		  vscode-fhs
-		  vscodium-fhs
-		  lutris
-		  mangohud
-		  wineWow64Packages.unstableFull
-		  appimage-run
-		  lshw
-		  obsidian
-		  rclone
-		  unzip
-		  zulu17
-		  vlc
-		  rustdesk-flutter
-		  (pkgs.callPackage (import ./bun-baseline.nix) { })
-		  obs-studio
-		  rustup
-		  steamPackages.steamcmd
-		  godot_4
-		  nixpkgs-fmt
-		  sqlite
-		  gcc
-		  thunderbird
-		  stremio
-		  pkgsi686Linux.gperftools
-		  logseq
-		  wl-clipboard
-		  spotube
-		  firefox
-		  ungoogled-chromium
-		  bitwarden
-		  brave
-		  localsend
-		  bisq-desktop
-		  kdePackages.kdenlive
-		  bitwig-studio
-  	];
-  };
-
-  fonts.packages = with pkgs; [
-    fira-code-nerdfont
-  ];
-
-  nix = {
-    optimise = {
-      automatic = true;
-      dates = [ "weekly" ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
-  system.stateVersion = "23.05";
-
-}
+    system.stateVersion = "23.05";
+  }
