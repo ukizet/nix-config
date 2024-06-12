@@ -22,9 +22,9 @@
         ";
         nixclean = "
           sudo nix-collect-garbage -d &&
-          nix-collect-garbage -d &&
+          sudo nix-store --gc &&
           sudo nix-store --optimise &&
-          sudo nix-store --gc
+          nix-collect-garbage -d
         ";
         gs = "git status";
         gcam = "git commit -am";
