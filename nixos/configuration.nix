@@ -45,7 +45,6 @@
           enable = true;
           wayland = true;
         };
-        sessionCommands = "systemctl --user import-environment QT_PLUGIN_PATH";
       };
       desktopManager.gnome.enable = true;
 
@@ -71,7 +70,7 @@
       overrides = {
         global = {
           # Force Wayland by default
-          Context.sockets = [ "wayland" "!x11" "fallback-x11" ];
+          Context.sockets = [ "wayland" "!x11" "!fallback-x11" ];
 
           Environment = {
             # Fix un-themed cursor in some Wayland apps
@@ -98,6 +97,7 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
+
   security.rtkit.enable = true;
 
   users.users.sas = {
@@ -152,9 +152,6 @@
   virtualisation.docker.enable = true;
 
   environment = {
-    variables = {
-      QT_QPA_PLATFORM="xcb";
-    };
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
