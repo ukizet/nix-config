@@ -37,15 +37,16 @@
   };
 
   services = {
-    displayManager.autoLogin = {
-      enable = true;
-      user = "sas";
-    };
     xserver = {
       enable = true;
       # Enable the GNOME Desktop Environment.
-      displayManager.gdm.enable = true;
-      displayManager.gdm.wayland = true;
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
+        sessionCommands = "systemctl --user import-environment QT_PLUGIN_PATH";
+      };
       desktopManager.gnome.enable = true;
 
       # Enable nvidia drivers
@@ -105,7 +106,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services = {
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false;
@@ -152,6 +152,9 @@
   virtualisation.docker.enable = true;
 
   environment = {
+    variables = {
+      QT_QPA_PLATFORM="xcb";
+    };
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
