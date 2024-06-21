@@ -9,3 +9,4 @@ Git needs to track all files in root directory, otherwise nix will give errors.
 - https://zero-to-nix.com/
 - https://edolstra.github.io/pubs/phd-thesis.pdf
 - https://github.com/nix-community/disko
+- [nixpkgs](https://github.com/NixOS/nixpkgs)
