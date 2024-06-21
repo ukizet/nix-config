@@ -88,9 +88,8 @@
         "org.qbittorrent.qBittorrent"
         "org.telegram.desktop"
         "com.dec05eba.gpu_screen_recorder"
-        "com.usebottles.bottles"
-        "io.lmms.LMMS"
-        "org.ardour.Ardour"
+        "com.bitwig.BitwigStudio"
+        "io.github.giantpinkrobots.flatsweep"
       ];
     };
   };
@@ -155,46 +154,53 @@
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      neofetch
+      wl-clipboard # neovim requiring this
+      unzip
+      rustdesk-flutter # remote desktop
+      (pkgs.callPackage (import ./bun-baseline.nix) { })
+      obs-studio # screen capture
+      thunderbird # mail
+      bitwarden # password manager
+      localsend # files sharing
+      bisq-desktop # open source cryptoexchange
+      bottles # wineprefix manager
+      # nixos related
+      nixpkgs-fmt
+      appimage-run # workaround for appimages
+      # computer info
+      neofetch # os info
+      lshw # extended hardware info
+      # media
+      vlc # music & video player
+      stremio # movies & anime & shows
+      spotube # music
+      kdePackages.kdenlive # video editing
+      # related to languages
       nodejs_20
       python3
+      rustup
+      gcc
+      sqlite
+      # browsers
       google-chrome
+      ungoogled-chromium
+      brave
       opera # Browser with VPN
+      firefox
+      # coding
       vscode-fhs
       vscodium-fhs
-      lutris
-      mangohud
-      wineWow64Packages.unstableFull
-      appimage-run
-      lshw
+      # notes related
+      logseq
       obsidian
       rclone
-      unzip
+      # games related
+      lutris
+      mangohud
+      wineWowPackages.waylandFull
       zulu17
-      vlc
-      rustdesk-flutter
-      (pkgs.callPackage (import ./bun-baseline.nix) { })
-      obs-studio
-      rustup
-      steamPackages.steamcmd
       godot_4
-      nixpkgs-fmt
-      sqlite
-      gcc
-      thunderbird
-      stremio
-      pkgsi686Linux.gperftools
-      logseq
-      wl-clipboard
-      spotube
-      firefox
-      ungoogled-chromium
-      bitwarden
-      brave
-      localsend
-      bisq-desktop
-      kdePackages.kdenlive
-      bitwig-studio
+      steamPackages.steamcmd
     ];
   };
 

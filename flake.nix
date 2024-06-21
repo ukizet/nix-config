@@ -31,7 +31,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.sas = import ./home.nix;
+            home-manager.users.sas = import nixos/home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
