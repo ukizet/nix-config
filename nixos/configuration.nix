@@ -88,8 +88,8 @@
         "org.qbittorrent.qBittorrent"
         "org.telegram.desktop"
         "com.dec05eba.gpu_screen_recorder"
-        "com.bitwig.BitwigStudio"
         "io.github.giantpinkrobots.flatsweep"
+        "com.usebottles.bottles"
       ];
     };
   };
@@ -163,7 +163,6 @@
       bitwarden # password manager
       localsend # files sharing
       bisq-desktop # open source cryptoexchange
-      bottles # wineprefix manager
       # nixos related
       nixpkgs-fmt
       appimage-run # workaround for appimages
@@ -175,6 +174,7 @@
       stremio # movies & anime & shows
       spotube # music
       kdePackages.kdenlive # video editing
+      bitwig-studio
       # related to languages
       nodejs_20
       python3
