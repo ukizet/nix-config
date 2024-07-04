@@ -90,7 +90,6 @@
         "com.dec05eba.gpu_screen_recorder"
         "io.github.giantpinkrobots.flatsweep"
         "com.usebottles.bottles"
-        "com.hunterwittenborn.Celeste"
       ];
     };
   };
