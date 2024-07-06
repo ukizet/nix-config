@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       my-disk = {
-        device = "/dev/vda";
+        device = "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";
@@ -17,7 +17,7 @@
               };
             };
             swap = {
-              size = "4G";
+              size = "8G";
               content = {
                 type = "swap";
                 resumeDevice = true;
