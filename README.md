@@ -1,7 +1,7 @@
 In the root directory: `sudo nixos-rebuild switch --flake .`, this command will rebuilt whole nixos system and switch to created generation.
 Git needs to track all files in root directory, otherwise nix will give errors.
 
-`curl https://raw.githubusercontent.com/ukizet/nix-config/stable(24.05)-for-vm/newinstall.sh -o ~/newinstall.sh`
+`curl "https://raw.githubusercontent.com/ukizet/nix-config/stable(24.05)-for-vm/newinstall.sh -o ~/newinstall.sh"`
 
 ## Useful links
 - https://nixos.org/manual/nixos/stable/
