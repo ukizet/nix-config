@@ -8,5 +8,7 @@ Git needs to track all files in root directory, otherwise nix will give errors.
 - https://home-manager-options.extranix.com/
 - https://zero-to-nix.com/
 - https://edolstra.github.io/pubs/phd-thesis.pdf
-- https://github.com/nix-community/disko
+- disko 
+  - https://github.com/nix-community/disko
+  - https://github.com/nix-community/disko/blob/master/docs/quickstart.md
 - [nixpkgs](https://github.com/NixOS/nixpkgs)
