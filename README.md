@@ -14,3 +14,4 @@ Git needs to track all files in root directory, otherwise nix will give errors.
   - https://github.com/nix-community/disko
   - https://github.com/nix-community/disko/blob/master/docs/quickstart.md
 - [nixpkgs](https://github.com/NixOS/nixpkgs)
+- [declarative gnome config](https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/)
