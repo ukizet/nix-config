@@ -61,38 +61,6 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    flatpak = {
-      enable = true;
-      update.auto = {
-        enable = true;
-        onCalendar = "monthly"; # Default value
-      };
-      overrides = {
-        global = {
-          # Force Wayland by default
-          Context.sockets = [ "wayland" "!x11" "!fallback-x11" ];
-
-          Environment = {
-            # Fix un-themed cursor in some Wayland apps
-            XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-
-            # Force correct theme for some GTK apps
-            GTK_THEME = "Adwaita:dark";
-          };
-        };
-      };
-      packages = [
-        "net.xmind.XMind"
-        "com.github.tchx84.Flatseal"
-        "io.github.peazip.PeaZip"
-        "org.qbittorrent.qBittorrent"
-        "org.telegram.desktop"
-        "com.dec05eba.gpu_screen_recorder"
-        "io.github.giantpinkrobots.flatsweep"
-        "com.usebottles.bottles"
-        "org.gnome.Boxes"
-      ];
-    };
   };
 
   # Enable sound with pipewire.
@@ -158,12 +126,10 @@
       wl-clipboard # neovim requiring this
       unzip
       rustdesk-flutter # remote desktop
-      (pkgs.callPackage (import ./bun-baseline.nix) { })
       obs-studio # screen capture
       thunderbird # mail
       bitwarden # password manager
       localsend # files sharing
-      bisq-desktop # open source cryptoexchange
       # nixos related
       nixpkgs-fmt
       appimage-run # workaround for appimages
