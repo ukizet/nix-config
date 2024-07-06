@@ -1,6 +1,7 @@
 `sudo nixos-rebuild switch --upgrade`
 
 ## Useful links
+- https://search.nixos.org/options
 - https://nixos.org/manual/nixos/stable/
 - https://nixos.org/manual/nix/stable/introduction
 - https://nixos.org/guides/nix-pills/06-our-first-derivation
