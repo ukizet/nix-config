@@ -1,4 +1,5 @@
 curl "https://raw.githubusercontent.com/ukizet/nix-config/stable(24.05)-for-vm/nixos/disk-config.nix" -o ~/disk-config.nix &&
+echo "Downloaded disk-config.nix..."
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ~/disk-config.nix
 echo "Disk was formatted..."
 mount | grep /mnt
