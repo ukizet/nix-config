@@ -20,7 +20,7 @@
               size = "4G";
               content = {
                 type = "swap";
-                resumeDevice = "true";
+                resumeDevice = true;
               };
             };
             root = {
