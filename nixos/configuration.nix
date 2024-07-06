@@ -81,16 +81,6 @@
           };
         };
       };
-      packages = [
-        "net.xmind.XMind"
-        "com.github.tchx84.Flatseal"
-        "io.github.peazip.PeaZip"
-        "org.qbittorrent.qBittorrent"
-        "org.telegram.desktop"
-        "com.dec05eba.gpu_screen_recorder"
-        "io.github.giantpinkrobots.flatsweep"
-        "com.usebottles.bottles"
-      ];
     };
   };
 
@@ -156,57 +146,9 @@
       neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wl-clipboard # neovim requiring this
       unzip
-      rustdesk-flutter # remote desktop
-      (pkgs.callPackage (import ./bun-baseline.nix) { })
-      obs-studio # screen capture
-      thunderbird # mail
-      bitwarden # password manager
-      localsend # files sharing
-      bisq-desktop # open source cryptoexchange
-      # nixos related
-      nixpkgs-fmt
-      appimage-run # workaround for appimages
-      # computer info
-      neofetch # os info
-      lshw # extended hardware info
-      # media
-      vlc # music & video player
-      stremio # movies & anime & shows
-      spotube # music
-      kdePackages.kdenlive # video editing
-      bitwig-studio
-      # related to languages
-      nodejs_20
-      python3
-      rustup
-      gcc
-      sqlite
-      # browsers
-      google-chrome
-      ungoogled-chromium
-      brave
-      opera # Browser with VPN
-      firefox
-      # coding
-      vscode-fhs
-      vscodium-fhs
-      # notes related
-      logseq
-      obsidian
-      rclone
-      # games related
-      lutris
-      mangohud
-      wineWowPackages.waylandFull
-      zulu17
-      godot_4
-      steamPackages.steamcmd
+      telegram-desktop
     ];
   };
-
-  fonts.packages = with pkgs; [
-    fira-code-nerdfont
-  ];
 
   nix = {
     optimise = {
