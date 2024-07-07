@@ -14,6 +14,8 @@ On each new installation either generate new hardware-configuration.nix and push
 
 If you formatted disk with disko, it will be better to generate nixos-config like this: `nixos-generate-config --no-filesystems --root /mnt`, [and then add disko configs to configuration.nix](https://github.com/nix-community/disko/blob/master/docs/quickstart.md#step-7-complete-the-nixos-installation)
 
+`ssh-keygen -t ed25519 -C "ukikatuki@gmail.com" && eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519 && cat ~/.ssh/id_ed25519.pub` and then add result to github ssh keys
+
 ## Useful links
 - https://nixos.org/manual/nixos/stable/
 - https://nixos.org/manual/nix/stable/introduction
