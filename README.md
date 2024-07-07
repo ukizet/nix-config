@@ -1,9 +1,16 @@
-In the root directory (with flake.nix file): `sudo nixos-rebuild switch --flake .`, this command will rebuilt whole nixos system and switch to created generation.
+## Rebuilding the system
+
+In the root directory (with flake.nix file): `sudo nixos-rebuild switch --flake .`, this command will rebuilt whole nixos system and switch to created generation. Or, if you still don't have flakes: `sudo nixos-rebuild switch`.
+
 Git needs to track all files in root directory, otherwise nix will give errors.
 
-On each new installation either generate new hardware-configuration.nix and push it to github, or [use disko for this](https://github.com/nix-community/disko/blob/master/docs/quickstart.md#step-7-complete-the-nixos-installation).
+## New install of nixos
+
+Let's asume that you would use minimum nixos iso.
 
 `curl "https://raw.githubusercontent.com/ukizet/nix-config/stable(24.05)/newinstall.sh" -o ~/newinstall.sh && chmod +x newinstall.sh && ./newinstall.sh`
+
+On each new installation either generate new hardware-configuration.nix and push it to github, or [use disko for this](https://github.com/nix-community/disko/blob/master/docs/quickstart.md#step-7-complete-the-nixos-installation).
 
 ## Useful links
 - https://nixos.org/manual/nixos/stable/
