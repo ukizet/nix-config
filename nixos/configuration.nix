@@ -156,7 +156,6 @@
       rustdesk-flutter # remote desktop
       (pkgs.callPackage (import ./bun-baseline.nix) { })
       obs-studio # screen capture
-      thunderbird # mail
       bitwarden # password manager
       localsend # files sharing
       telegram-desktop
@@ -179,7 +178,6 @@
       sqlite
       # browsers
       google-chrome
-      ungoogled-chromium
       brave
       opera # Browser with VPN
       firefox
@@ -194,8 +192,6 @@
       lutris
       mangohud
       wineWowPackages.waylandFull
-      zulu17
-      godot_4
       steamPackages.steamcmd
     ];
   };
