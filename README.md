@@ -12,6 +12,8 @@ Let's asume that you would use minimum nixos iso.
 
 On each new installation either generate new hardware-configuration.nix and push it to github, or [use disko for this](https://github.com/nix-community/disko/blob/master/docs/quickstart.md#step-7-complete-the-nixos-installation).
 
+If you formatted disk with disko, it will be better to generate nixos-config like this: `nixos-generate-config --no-filesystems --root /mnt`, [and then add disko configs to configuration.nix](https://github.com/nix-community/disko/blob/master/docs/quickstart.md#step-7-complete-the-nixos-installation)
+
 ## Useful links
 - https://nixos.org/manual/nixos/stable/
 - https://nixos.org/manual/nix/stable/introduction
