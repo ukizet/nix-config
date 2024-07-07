@@ -1,8 +1,29 @@
+{ pkgs, ... }:
+
 {
   home = {
     username = "sas";
     homeDirectory = "/home/sas";
     stateVersion = "23.11";
+  };
+  home.packages = with pkgs.gnomeExtensions; [
+    wintile-windows-10-window-tiling-for-gnome
+    appindicator
+  ];
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        # `gnome-extensions list` for a list
+        enabled-extensions = [
+          "wintile@nowsci.com"
+          "appindicatorsupport@rgcjonas.gmail.com"
+        ];
+      };
+    };
+
   };
   programs = {
     git = {
@@ -35,9 +56,5 @@
         vim = "nvim";
       };
     };
-  };
-  dconf = {
-    enable = true;
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 }
