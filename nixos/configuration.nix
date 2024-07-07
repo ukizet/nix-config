@@ -81,6 +81,13 @@
           };
         };
       };
+      packages = [
+        "com.github.tchx84.Flatseal"
+        "io.github.peazip.PeaZip"
+        "com.dec05eba.gpu_screen_recorder"
+        "io.github.giantpinkrobots.flatsweep"
+        "org.kde.kdenlive"
+      ];
     };
   };
 
@@ -143,7 +150,7 @@
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
-      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      neovim # Do not forget to add an editor to edit configuration.nix!
       wl-clipboard # neovim requiring this
       unzip
       rustdesk-flutter # remote desktop
@@ -155,7 +162,7 @@
       telegram-desktop
       bottles # wineprefix manager
       # nixos related
-      nixpkgs-fmt
+      nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
       # computer info
       neofetch # os info
@@ -164,7 +171,6 @@
       vlc # music & video player
       stremio # movies & anime & shows
       spotube # music
-      kdePackages.kdenlive # video editing
       # related to languages
       nodejs_20
       python3
