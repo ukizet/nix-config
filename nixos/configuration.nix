@@ -129,8 +129,11 @@
       };
       open = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
       prime = {
+        reverseSync.enable = true;
+        # Enable if using an external GPU
+        allowExternalGpu = false;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };

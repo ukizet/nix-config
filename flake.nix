@@ -19,7 +19,10 @@
         specialArgs = {
           pkgs = import nixpkgs {
             inherit system;
-            config.allowUnfree = true;
+            config = {
+              allowUnfree = true;
+              nvidia.acceptLicense = true;
+            };
           };
           inherit inputs system;
         };

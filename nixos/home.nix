@@ -34,8 +34,8 @@
     bash = {
       enable = true;
       shellAliases = {
-        rebuild = "cd ~/mysystem/ && sudo nixos-rebuild switch --flake .";
-        rebuildboot = "cd ~/mysystem/ && sudo nixos-rebuild boot --flake .";
+        rebuild = "cd ~/nix-config && sudo nixos-rebuild switch --flake .";
+        rebuildboot = "cd ~/nix-config && sudo nixos-rebuild boot --flake .";
         upgraderebuild = "
           cd ~/mysystem/ &&
           nix flake update &&
