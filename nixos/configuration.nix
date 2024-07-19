@@ -129,11 +129,8 @@
       };
       open = false;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
-        reverseSync.enable = true;
-        # Enable if using an external GPU
-        allowExternalGpu = false;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
@@ -173,6 +170,7 @@
       vlc # music & video player
       stremio # movies & anime & shows
       spotube # music
+      reaper
       # related to languages
       nodejs_20
       python3
@@ -187,6 +185,7 @@
       # coding
       vscode-fhs
       vscodium-fhs
+      zed-editor
       # notes related
       logseq
       obsidian
