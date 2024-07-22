@@ -11,6 +11,7 @@
     # https://extensions.gnome.org/extension/1723/wintile-windows-10-window-tiling-for-gnome/
     gtile
     appindicator
+    clipboard-indicator
   ];
   dconf = {
     enable = true;
@@ -22,6 +23,7 @@
         enabled-extensions = [
           "gTile@vibou"
           "appindicatorsupport@rgcjonas.gmail.com"
+          "clipboard-indicator@tudmotu.com"
         ];
       };
     };
