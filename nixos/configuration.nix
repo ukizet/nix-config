@@ -159,6 +159,7 @@
       bitwarden # password manager
       localsend # files sharing
       telegram-desktop
+      discord
       bottles # wineprefix manager
       # nixos related
       nixpkgs-fmt # nix code formatter
