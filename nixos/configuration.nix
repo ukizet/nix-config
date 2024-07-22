@@ -191,10 +191,11 @@
       obsidian
       rclone
       # games related
-      lutris
       mangohud
       wineWowPackages.waylandFull
       steamPackages.steamcmd
+      element-desktop
+      lutris
     ];
   };
 

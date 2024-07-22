@@ -7,7 +7,9 @@
     stateVersion = "23.11";
   };
   home.packages = with pkgs.gnomeExtensions; [
-    wintile-windows-10-window-tiling-for-gnome
+    # may be part of url, like here:
+    # https://extensions.gnome.org/extension/1723/wintile-windows-10-window-tiling-for-gnome/
+    gtile
     appindicator
   ];
   dconf = {
@@ -18,7 +20,7 @@
         disable-user-extensions = false;
         # `gnome-extensions list` for a list
         enabled-extensions = [
-          "wintile@nowsci.com"
+          "gTile@vibou"
           "appindicatorsupport@rgcjonas.gmail.com"
         ];
       };
