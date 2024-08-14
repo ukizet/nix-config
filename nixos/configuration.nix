@@ -172,6 +172,7 @@
       stremio # movies & anime & shows
       spotube # music
       reaper
+      qbittorrent
       # related to languages
       nodejs_20
       python3
@@ -197,6 +198,8 @@
       steamPackages.steamcmd
       element-desktop
       lutris
+      antimicrox
+      resources
     ];
   };
 

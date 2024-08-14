@@ -58,6 +58,7 @@
         gad = "git add .";
         scmd = "steamcmd";
         vim = "nvim";
+        rclientbisync = "~/Documents/repos/rclone_scripts/rclient.sh bisync";
       };
     };
   };
