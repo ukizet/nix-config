@@ -12,6 +12,7 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_6_8;
+    initrd.kernelModules = [ "amdgpu" ];
   };
 
   networking = {
@@ -47,9 +48,7 @@
         };
       };
       desktopManager.gnome.enable = true;
-
-      # Enable nvidia drivers
-      videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
+      videoDrivers = [ "amdgpu" ];
     };
     printing.enable = true;
     pipewire = {
@@ -109,7 +108,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    nvidia.acceptLicense = true;
   };
 
   hardware = {
@@ -120,20 +118,6 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-    };
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement = {
-        enable = false;
-        finegrained = false;
-      };
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      prime = {
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
     };
   };
 
