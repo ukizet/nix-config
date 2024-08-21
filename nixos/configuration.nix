@@ -86,6 +86,12 @@
         "com.dec05eba.gpu_screen_recorder"
         "io.github.giantpinkrobots.flatsweep"
         "org.kde.kdenlive"
+        #{ appId = "com.bitwig.BitwigStudio"; commit = "6af2b9a";  }
+        {
+          appId = "com.bitwig.BitwigStudio";
+          origin = "flathub";
+          commit = "ed6df303105a6b31aa87570c403dcb3fcaa70209b88f47c81f9fd0ea24609865";
+        }
       ];
     };
   };
@@ -150,11 +156,14 @@
       # computer info
       neofetch # os info
       lshw # extended hardware info
+      resources
+      htop
       # media
       vlc # music & video player
       stremio # movies & anime & shows
       spotube # music
       reaper
+      qbittorrent
       # related to languages
       nodejs_20
       python3
@@ -179,6 +188,8 @@
       mangohud
       wineWowPackages.waylandFull
       steamPackages.steamcmd
+      jdk
+      #jdk17
     ];
   };
 
