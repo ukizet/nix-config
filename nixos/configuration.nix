@@ -86,12 +86,9 @@
         "com.dec05eba.gpu_screen_recorder"
         "io.github.giantpinkrobots.flatsweep"
         "org.kde.kdenlive"
-        #{ appId = "com.bitwig.BitwigStudio"; commit = "6af2b9a";  }
-        {
-          appId = "com.bitwig.BitwigStudio";
-          origin = "flathub";
-          commit = "ed6df303105a6b31aa87570c403dcb3fcaa70209b88f47c81f9fd0ea24609865";
-        }
+        "com.bitwig.BitwigStudio"
+        "net.waterfox.waterfox"
+        "com.usebottles.bottles"
       ];
     };
   };
@@ -144,12 +141,11 @@
       wl-clipboard # neovim requiring this
       unzip
       rustdesk-flutter # remote desktop
-      (pkgs.callPackage (import ./bun-baseline.nix) { })
+      bun
       obs-studio # screen capture
       bitwarden # password manager
       localsend # files sharing
       telegram-desktop
-      bottles # wineprefix manager
       # nixos related
       nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
@@ -173,7 +169,6 @@
       # browsers
       google-chrome
       brave
-      opera # Browser with VPN
       firefox
       # coding
       vscode-fhs
