@@ -34,10 +34,14 @@
     bash = {
       enable = true;
       shellAliases = {
-        rebuild = "cd ~/nix-config && sudo nixos-rebuild switch --flake .";
+        rebuild = "cd ~/nix-config &&
+          sudo nixos-rebuild switch --flake . &&
+          gcam 'backup' &&
+          gpush
+        ";
         rebuildboot = "cd ~/nix-config && sudo nixos-rebuild boot --flake .";
         upgraderebuild = "
-          cd ~/mysystem/ &&
+          cd ~/nix-config/ &&
           nix flake update &&
           sudo nixos-rebuild boot --flake .
         ";
