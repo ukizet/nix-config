@@ -31,12 +31,17 @@
       userName = "ukizet";
       userEmail = "ukikatuki@gmail.com";
     };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
     bash = {
       enable = true;
       shellAliases = {
         rebuild = "cd ~/nix-config &&
           sudo nixos-rebuild switch --flake . &&
-          gcam 'backup' &&
+          gcam 'backup after rebuild' &&
           gpush
         ";
         rebuildboot = "cd ~/nix-config && sudo nixos-rebuild boot --flake .";
