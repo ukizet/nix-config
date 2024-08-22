@@ -88,6 +88,7 @@
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.usebottles.bottles"
+        "com.obsproject.Studio"
       ];
     };
   };
@@ -141,7 +142,6 @@
       unzip
       rustdesk-flutter # remote desktop
       bun
-      obs-studio # screen capture
       bitwarden # password manager
       localsend # files sharing
       telegram-desktop
@@ -184,6 +184,7 @@
       steamPackages.steamcmd
       jdk
       #jdk17
+      airshipper
     ];
   };
 
