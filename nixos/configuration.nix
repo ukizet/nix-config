@@ -106,6 +106,16 @@
   systemd.services = {
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false;
+    steam = {
+      enable = true;
+      description = "Open Steam in the background at boot";
+      serviceConfig = {
+        ExecStart = "${pkgs.steam} -nochatui -nofriendsui -silent %U";
+        wantedBy = [ "multi-user.target" ];
+        Restart = "on-failure";
+        RestartSec = "5s";
+      };
+    };
   };
 
   nixpkgs.config = {
