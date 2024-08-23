@@ -87,7 +87,6 @@
         "org.kde.kdenlive"
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
-        "com.usebottles.bottles"
         "com.obsproject.Studio"
       ];
     };
@@ -145,6 +144,7 @@
       bitwarden # password manager
       localsend # files sharing
       telegram-desktop
+      bottles
       # nixos related
       nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
