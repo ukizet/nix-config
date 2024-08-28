@@ -103,17 +103,21 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
-  systemd.services = {
+  systemd = {
+    services = {
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false;
-    steam = {
-      enable = true;
-      description = "Open Steam in the background at boot";
-      serviceConfig = {
-        ExecStart = "${pkgs.steam}/bin/steam -nochatui -nofriendsui -silent %U";
-        wantedBy = [ "multi-user.target" ];
-        Restart = "on-failure";
-        RestartSec = "5s";
+  };
+    user.services = {
+      steam = {
+        enable = true;
+        description = "Open Steam in the background at boot";
+        serviceConfig = {
+          ExecStart = "${pkgs.steam}/bin/steam -nochatui -nofriendsui -silent %U";
+          wantedBy = [ "multi-user.target" ];
+          Restart = "on-failure";
+          RestartSec = "5s";
+        };
       };
     };
   };
@@ -130,6 +134,10 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
     };
   };
 
