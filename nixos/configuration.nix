@@ -203,6 +203,8 @@
       jdk
       #jdk17
       airshipper
+      bluez
+      usbutils
     ];
   };
 
