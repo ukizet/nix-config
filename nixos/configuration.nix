@@ -176,6 +176,8 @@
       stremio # movies & anime & shows
       spotube # music
       reaper
+      lmms
+      ardour
       qbittorrent
       # related to languages
       nodejs_20
