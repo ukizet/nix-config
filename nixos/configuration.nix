@@ -213,6 +213,7 @@
   fonts.packages = with pkgs; [
     fira-code-nerdfont
   ];
+
   xdg = {
     enable = true;
     portal = {
@@ -223,6 +224,16 @@
       };
     };
   };
+
+  fileSystems."/mnt/Kingston 1TB" = {
+   device = "/dev/nvme0n1";
+   fsType = "ext4";
+   options = [ # If you don't have this options attribute, it'll default to "defaults" 
+     "users" # Allows any user to mount and unmount
+     "nofail" # Prevent system from failing if this drive doesn't mount
+     "x-gvfs-show"
+   ];
+ };
 
   nix = {
     optimise = {
