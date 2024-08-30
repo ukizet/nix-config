@@ -88,6 +88,7 @@
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
+        "com.valvesoftware.Steam"
       ];
     };
   };
@@ -213,17 +214,6 @@
   fonts.packages = with pkgs; [
     fira-code-nerdfont
   ];
-
-  xdg = {
-    enable = true;
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
-      config = {
-        common.default = ["gtk"];
-      };
-    };
-  };
 
   fileSystems."/mnt/Kingston 1TB" = {
    device = "/dev/nvme0n1";
