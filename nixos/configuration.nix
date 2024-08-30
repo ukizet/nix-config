@@ -88,7 +88,6 @@
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
-        "com.valvesoftware.Steam"
       ];
     };
   };
