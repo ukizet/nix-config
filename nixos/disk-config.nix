@@ -1,23 +1,6 @@
 {
   disko.devices = {
     disk = {
-      Patriot = {
-        device = "/dev/sda";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            data = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/mnt/Patriot";
-              };
-            };
-          };
-        };
-      };
       Kingston = {
         device = "/dev/nvme0n1";
         type = "disk";
@@ -39,6 +22,23 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+              };
+            };
+          };
+        };
+      };
+      Patriot = {
+        device = "/dev/sda";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            data = {
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/mnt/Patriot";
               };
             };
           };
