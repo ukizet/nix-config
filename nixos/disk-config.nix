@@ -1,6 +1,7 @@
 {
   disko.devices = {
-    disk.Patriot = {
+    disk = {
+      Patriot = {
       device = "/dev/sda";
       type = "disk";
       content = {
@@ -17,7 +18,7 @@
         };
       };
     };
-    disk.Kingston = {
+    Kingston = {
       device = "/dev/nvme0n1";
       type = "disk";
       content = {
