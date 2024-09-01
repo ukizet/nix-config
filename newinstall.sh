@@ -4,7 +4,7 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 echo "Disk was formatted..."
 mount | grep /mnt
 
-sudo nixos-generate-config --no-filesystems --root /mnt &&
+nixos-generate-config --no-filesystems --root /mnt &&
 cd /mnt/etc/nixos &&
 sudo mv ~/disk-config.nix /mnt/etc/nixos &&
 sudo nixos-install && reboot
