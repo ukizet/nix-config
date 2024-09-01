@@ -8,7 +8,7 @@ read -n 1 -s -r -p "Press any key to generate config..."
 
 sudo nixos-generate-config --no-filesystems --root /mnt &&
 cd /mnt/etc/nixos &&
-mv ~/disk-config.nix /mnt/etc/nixos &&
+sudo mv ~/disk-config.nix /mnt/etc/nixos &&
 curl "https://raw.githubusercontent.com/ukizet/nix-config/stable(24.05)/freshinstall/configuration.nix" -o /mnt/etc/nixos/configuration.nix
 read -n 1 -s -r -p "Press any key to install nixos..."
 sudo nixos-install && reboot
