@@ -203,10 +203,6 @@
       wineWowPackages.waylandFull
       steamPackages.steamcmd
       jdk
-      #jdk17
-      airshipper
-      bluez
-      usbutils
     ];
   };
 
