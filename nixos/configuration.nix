@@ -179,6 +179,8 @@
       lmms
       ardour
       qbittorrent
+      yabridge
+      yabridgectl
       # related to languages
       nodejs_20
       python3
@@ -209,8 +211,6 @@
   fonts.packages = with pkgs; [
     fira-code-nerdfont
   ];
-  
-  
   
   nix = {
     optimise = {
