@@ -102,7 +102,7 @@
   users.users.sas = {
     isNormalUser = true;
     description = "sas";
-    extraGroups = [ "networkmanager" "wheel" "docker" "realtime" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "realtime" "audio" "jackuser" ];
   };
 
   users.groups.realtime = {};
