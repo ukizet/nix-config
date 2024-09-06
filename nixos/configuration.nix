@@ -96,12 +96,16 @@
   sound.enable = true;
 
   security.rtkit.enable = true;
+  
+  security.pam.services.login.limits = [ { domain = "@realtime"; type = "-"; item = "rtprio"; value = "99"; } { domain = "@realtime"; type = "-"; item = "memlock"; value = "unlimited"; } ];
 
   users.users.sas = {
     isNormalUser = true;
     description = "sas";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "realtime" "audio" ];
   };
+
+  users.groups.realtime = {};
 
   systemd = {
     services = {
