@@ -199,6 +199,7 @@
       yabridge
       yabridgectl
       clap
+      winetricks
       # related to languages
       nodejs_20
       python3
