@@ -95,7 +95,7 @@
   # Enable sound with pipewire.
   sound.enable = true;
 
-  security.rtkit.enable = true;
+  security.rtkit.enable = false;
   
   security.pam.loginLimits = [
     {
