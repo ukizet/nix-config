@@ -99,13 +99,13 @@
   
   security.pam.loginLimits = [
     {
-      domain = "@realtime";
+      domain = "@audio";
       item = "rtprio";
       type = "-";
       value = "95";
     }
     {
-      domain = "@realtime";
+      domain = "@audio";
       item = "memlock";
       type = "-";
       value = "unlimited";
