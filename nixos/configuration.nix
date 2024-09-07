@@ -221,7 +221,7 @@
       # games related
       lutris
       mangohud
-      wineWowPackages.waylandFull
+      wine
       steamPackages.steamcmd
       jdk
     ];
