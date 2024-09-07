@@ -97,7 +97,20 @@
 
   security.rtkit.enable = true;
   
-  security.pam.services.login.limits = [ { domain = "@realtime"; type = "-"; item = "rtprio"; value = "99"; } { domain = "@realtime"; type = "-"; item = "memlock"; value = "unlimited"; } ];
+  security.pam.loginLimits = [
+    {
+      domain = "@realtime";
+      item = "rtprio";
+      type = "-";
+      value = "95";
+    }
+    {
+      domain = "@realtime";
+      item = "memlock";
+      type = "-";
+      value = "unlimited";
+    }
+  ];
 
   users.users.sas = {
     isNormalUser = true;
