@@ -200,6 +200,7 @@
       yabridgectl
       clap
       winetricks
+      samplv1
       # related to languages
       nodejs_20
       python3
