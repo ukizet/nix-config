@@ -92,10 +92,7 @@
     };
   };
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-
-  security.rtkit.enable = false;
+  security.rtkit.enable = true;
   
   security.pam.loginLimits = [
     {
@@ -180,6 +177,7 @@
       localsend # files sharing
       telegram-desktop
       bottles
+      ollama
       # nixos related
       nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
