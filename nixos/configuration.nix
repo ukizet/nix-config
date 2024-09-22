@@ -224,6 +224,7 @@
       wine
       steamPackages.steamcmd
       jdk
+      piper
     ];
   };
 
