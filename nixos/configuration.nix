@@ -225,6 +225,7 @@
       steamPackages.steamcmd
       jdk
       piper
+      libratbag
     ];
   };
 
