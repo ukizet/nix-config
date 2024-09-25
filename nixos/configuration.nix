@@ -94,7 +94,7 @@
     };
   };
 
-  security.rtkit.enable = true;
+  security.rtkit.enable = false;
   
   security.pam.loginLimits = [
     {
@@ -222,11 +222,13 @@
       # games related
       lutris
       mangohud
-      wine
+      wine64
+      wineasio
       steamPackages.steamcmd
       jdk
       piper
       libratbag
+      protonup-qt
     ];
   };
 
