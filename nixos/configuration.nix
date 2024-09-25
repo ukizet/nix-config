@@ -89,6 +89,7 @@
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
         "com.jeffser.Alpaca"
+        "com.github.KRTirtho.Spotube"
       ];
     };
   };
@@ -122,6 +123,7 @@
     services = {
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false;
+    "ratbagd".enable = true;
   };
     user.services = {
       steam = {
@@ -190,7 +192,6 @@
       # media
       vlc # music & video player
       stremio # movies & anime & shows
-      spotube # music
       reaper
       lmms
       ardour

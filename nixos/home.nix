@@ -41,9 +41,7 @@
       bashrcExtra = "eval \"$(direnv hook bash)\"";
       shellAliases = {
         rebuild = "cd ~/nix-config &&
-          sudo nixos-rebuild switch --flake . &&
-          gcam 'backup after rebuild' &&
-          gpush
+          sudo nixos-rebuild switch --flake .
         ";
         rebuildboot = "cd ~/nix-config && sudo nixos-rebuild boot --flake .";
         upgraderebuild = "
