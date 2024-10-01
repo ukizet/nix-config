@@ -94,22 +94,23 @@
     };
   };
 
-  security.rtkit.enable = false;
-  
-  security.pam.loginLimits = [
-    {
-      domain = "@audio";
-      item = "rtprio";
-      type = "-";
-      value = "95";
-    }
-    {
-      domain = "@audio";
-      item = "memlock";
-      type = "-";
-      value = "unlimited";
-    }
-  ];
+  security = {
+    rtkit.enable = false;
+    pam.loginLimits = [
+      {
+        domain = "@audio";
+        item = "rtprio";
+        type = "-";
+        value = "95";
+      }
+      {
+        domain = "@audio";
+        item = "memlock";
+        type = "-";
+        value = "unlimited";
+      }
+    ];
+  };
 
   users.users.sas = {
     isNormalUser = true;
@@ -117,24 +118,20 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "realtime" "audio" "jackuser" ];
   };
 
-  users.groups.realtime = {};
-
   systemd = {
     services = {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-    "ratbagd".enable = true;
-  };
+      "getty@tty1".enable = false;
+      "autovt@tty1".enable = false;
+      "ratbagd".enable = true;
+    };
     user.services = {
-      steam = {
-        enable = true;
-        description = "Open Steam in the background at boot";
-        serviceConfig = {
-          ExecStart = "${pkgs.steam}/bin/steam -nochatui -nofriendsui -silent %U";
-          wantedBy = [ "multi-user.target" ];
-          Restart = "on-failure";
-          RestartSec = "5s";
-        };
+      autorn = {
+        description = "...";
+        serviceConfig.PassEnvironment = "DISPLAY";
+        script = ''
+          qbittorrent
+        '';
+        wantedBy = [ "multi-user.target" ]; # starts after login
       };
     };
   };
@@ -198,6 +195,7 @@
       qbittorrent
       yabridge
       yabridgectl
+      alsa-lib
       clap
       winetricks
       samplv1
@@ -235,7 +233,7 @@
   fonts.packages = with pkgs; [
     fira-code-nerdfont
   ];
-  
+
   nix = {
     optimise = {
       automatic = true;
