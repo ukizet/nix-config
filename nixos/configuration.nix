@@ -90,6 +90,9 @@
         "com.obsproject.Studio"
         "com.jeffser.Alpaca"
         "com.github.KRTirtho.Spotube"
+        "io.gitlab.elescoute.spacelaunch"
+        "de.uni_heidelberg.zah.GaiaSky"
+        "org.learningequality.Kolibri"
       ];
     };
   };
@@ -228,6 +231,14 @@
       libratbag
       protonup-qt
       element-desktop
+      antimicrox
+      dissent
+      calls
+      zrythm
+      weather
+      imaginer
+      parabolic
+      shortwave
     ];
   };
 
