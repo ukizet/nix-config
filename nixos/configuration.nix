@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <unstable> { inherit config pkgs; };
+in
 {
   imports =
     [
@@ -180,7 +183,6 @@
       localsend # files sharing
       telegram-desktop
       bottles
-      ollama
       # nixos related
       nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
@@ -239,6 +241,7 @@
       imaginer
       parabolic
       shortwave
+      unstable.ollama
     ];
   };
 
