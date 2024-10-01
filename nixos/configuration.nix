@@ -227,6 +227,7 @@
       piper
       libratbag
       protonup-qt
+      element-desktop
     ];
   };
 
