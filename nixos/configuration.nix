@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
-  unstable = import <unstable> { inherit config pkgs; };
+  unstable = inputs.unstable.legacyPackages.x86_64-linux;
 in
 {
   imports =
@@ -91,7 +91,6 @@ in
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
-        "com.jeffser.Alpaca"
         "com.github.KRTirtho.Spotube"
         "io.gitlab.elescoute.spacelaunch"
         "de.uni_heidelberg.zah.GaiaSky"
@@ -129,16 +128,6 @@ in
       "getty@tty1".enable = false;
       "autovt@tty1".enable = false;
       "ratbagd".enable = true;
-    };
-    user.services = {
-      autorn = {
-        description = "...";
-        serviceConfig.PassEnvironment = "DISPLAY";
-        script = ''
-          qbittorrent
-        '';
-        wantedBy = [ "multi-user.target" ]; # starts after login
-      };
     };
   };
 
@@ -217,7 +206,7 @@ in
       # coding
       vscode-fhs
       vscodium-fhs
-      zed-editor
+      unstable.zed-editor
       # notes related
       logseq
       obsidian
@@ -242,6 +231,7 @@ in
       parabolic
       shortwave
       unstable.ollama
+      unstable.alpaca
     ];
   };
 

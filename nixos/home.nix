@@ -5,10 +5,24 @@
     username = "sas";
     homeDirectory = "/home/sas";
     stateVersion = "23.11";
+    packages = with pkgs; [
+      gnomeExtensions.appindicator
+      telegram-desktop
+    ];
+    sessionVariables = {
+      XDG_CONFIG_HOME = "$HOME/.config";
+    };
+    file.".config/autostart/telegram-desktop.desktop".text = ''
+      [Desktop Entry]
+      Type=Application
+      Exec=${pkgs.telegram-desktop}/bin/telegram-desktop
+      Hidden=false
+      NoDisplay=false
+      X-GNOME-Autostart-enabled=true
+      Name=Telegram
+      Comment=Launch Telegram on startup
+    '';
   };
-  home.packages = with pkgs.gnomeExtensions; [
-    appindicator
-  ];
   dconf = {
     enable = true;
     settings = {
