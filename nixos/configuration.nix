@@ -20,6 +20,12 @@ in
   networking = {
     hostName = "nixos"; # Define your hostname.
     networkmanager.enable = true;
+    nameservers = [
+      "45.90.28.0#25611f.dns.nextdns.io"
+      "2a07:a8c0::#25611f.dns.nextdns.io"
+      "45.90.30.0#25611f.dns.nextdns.io"
+      "2a07:a8c1::#25611f.dns.nextdns.io"
+    ];
   };
 
   time.timeZone = "Europe/Kyiv";
@@ -40,6 +46,19 @@ in
   };
 
   services = {
+    resolved = {
+      enable = true;
+      dnssec = "allow-downgrade";
+      domains = [ "~." ];
+      fallbackDns = [
+        "45.90.28.0#25611f.dns.nextdns.io"
+        "2a07:a8c0::#25611f.dns.nextdns.io"
+        "45.90.30.0#25611f.dns.nextdns.io"
+        "2a07:a8c1::#25611f.dns.nextdns.io"
+      ];
+      dnsovertls = "true";
+    };
+
     xserver = {
       enable = true;
       # Enable the GNOME Desktop Environment.
@@ -91,7 +110,6 @@ in
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
-        "com.github.KRTirtho.Spotube"
         "io.gitlab.elescoute.spacelaunch"
         "de.uni_heidelberg.zah.GaiaSky"
         "org.learningequality.Kolibri"
@@ -232,6 +250,7 @@ in
       shortwave
       unstable.ollama
       unstable.alpaca
+      spotube
     ];
   };
 
