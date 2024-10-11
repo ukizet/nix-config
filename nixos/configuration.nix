@@ -46,18 +46,6 @@ in
   };
 
   services = {
-    resolved = {
-      enable = true;
-      dnssec = "allow-downgrade";
-      domains = [ "~." ];
-      fallbackDns = [
-        "45.90.28.0#25611f.dns.nextdns.io"
-        "2a07:a8c0::#25611f.dns.nextdns.io"
-        "45.90.30.0#25611f.dns.nextdns.io"
-        "2a07:a8c1::#25611f.dns.nextdns.io"
-      ];
-      dnsovertls = "true";
-    };
 
     xserver = {
       enable = true;
