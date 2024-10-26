@@ -101,6 +101,7 @@ in
         "io.gitlab.elescoute.spacelaunch"
         "de.uni_heidelberg.zah.GaiaSky"
         "org.learningequality.Kolibri"
+        "com.github.KRTirtho.Spotube"
       ];
     };
   };
@@ -238,7 +239,6 @@ in
       shortwave
       unstable.ollama
       unstable.alpaca
-      unstable.spotube
     ];
   };
 
