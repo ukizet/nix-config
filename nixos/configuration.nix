@@ -238,7 +238,7 @@ in
       shortwave
       unstable.ollama
       unstable.alpaca
-      spotube
+      unstable.spotube
     ];
   };
 
