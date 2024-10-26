@@ -98,10 +98,7 @@ in
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
-        "io.gitlab.elescoute.spacelaunch"
-        "de.uni_heidelberg.zah.GaiaSky"
-        "org.learningequality.Kolibri"
-        "com.github.KRTirtho.Spotube"
+        "so.libdb.dissent"
       ];
     };
   };
@@ -230,15 +227,14 @@ in
       protonup-qt
       element-desktop
       antimicrox
-      dissent
       calls
       zrythm
       weather
-      imaginer
       parabolic
       shortwave
       unstable.ollama
       unstable.alpaca
+      peazip
     ];
   };
 
