@@ -95,7 +95,12 @@
         gad = "git add .";
         scmd = "steamcmd";
         vim = "nvim";
-        rclientbisync = "~/Documents/repos/rclone_scripts/rclient.sh bisync";
+        rclientbisync = "
+          cd ~/Documents/Vault &&
+          gcam \"date +'%Y-%m-%d %H:%M:%S'\" &&
+          gpush &&
+          ~/Documents/repos/rclone_scripts/rclient.sh bisync
+        ";
       };
     };
   };

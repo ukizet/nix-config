@@ -234,7 +234,6 @@ in
       shortwave
       unstable.ollama
       unstable.alpaca
-      peazip
     ];
   };
 
