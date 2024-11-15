@@ -195,7 +195,6 @@ in
       yabridgectl
       alsa-lib
       clap
-      winetricks
       samplv1
       # related to languages
       nodejs_20
