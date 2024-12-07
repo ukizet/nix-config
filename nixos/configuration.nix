@@ -138,10 +138,6 @@ in
   nixpkgs.config = {
     allowUnfree = true;
   };
-  nixpkgs.config.permittedInsecurePackages = [
-    "qbittorrent-4.6.4"
-  ];
-
 
   hardware = {
     pulseaudio.enable = false;
@@ -178,6 +174,7 @@ in
       bun
       bitwarden # password manager
       localsend # files sharing
+      telegram-desktop
       bottles
       # nixos related
       nixpkgs-fmt # nix code formatter
@@ -193,6 +190,7 @@ in
       reaper
       lmms
       ardour
+      qbittorrent
       yabridge
       yabridgectl
       alsa-lib
@@ -216,22 +214,17 @@ in
       logseq
       obsidian
       rclone
-      # messengers
-      telegram-desktop
-      element-desktop
       # games related
-      ## proton
-      protonup-qt
-      protontricks
       lutris
       mangohud
-      ## wine
       wine64
       wineasio
       steamPackages.steamcmd
       jdk
       piper
       libratbag
+      protonup-qt
+      element-desktop
       antimicrox
       calls
       zrythm
