@@ -190,7 +190,6 @@ in
       reaper
       lmms
       ardour
-      qbittorrent
       yabridge
       yabridgectl
       alsa-lib
@@ -233,6 +232,12 @@ in
       shortwave
       unstable.ollama
       unstable.alpaca
+      unstable.protontricks
+      wget
+      xdotool
+      unixtools.xxd
+      xorg.xwininfo
+      yad
     ];
   };
 

@@ -11,26 +11,6 @@
     sessionVariables = {
       XDG_CONFIG_HOME = "$HOME/.config";
     };
-    file.".config/autostart/telegram-desktop.desktop".text = ''
-      [Desktop Entry]
-      Type=Application
-      Exec=${pkgs.telegram-desktop}/bin/telegram-desktop
-      Hidden=false
-      NoDisplay=false
-      X-GNOME-Autostart-enabled=true
-      Name=Telegram
-      Comment=Launch Telegram on startup
-    '';
-    file.".config/autostart/qbittorrent.desktop".text = ''
-      [Desktop Entry]
-      Type=Application
-      Exec=${pkgs.qbittorrent}/bin/qbittorrent
-      Hidden=false
-      NoDisplay=false
-      X-GNOME-Autostart-enabled=true
-      Name=qBittorrent
-      Comment=Launch qBittorrent minimized to tray
-    '';
     file.".config/autostart/steam.desktop".text = ''
       [Desktop Entry]
       Type=Application
