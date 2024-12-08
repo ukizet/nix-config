@@ -99,6 +99,10 @@ in
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
         "so.libdb.dissent"
+        "com.endlessnetwork.fablemaker"
+        "com.ktechpit.torrhunt"
+        "org.qbittorrent.qBittorrent"
+        "org.gnome.Boxes"
       ];
     };
   };
