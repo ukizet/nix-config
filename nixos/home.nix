@@ -57,7 +57,7 @@
           sudo nixos-rebuild switch --flake .
         ";
         rebuildboot = "cd ~/nix-config && sudo nixos-rebuild boot --flake .";
-        upgraderebuild = "
+        upgraderebuildboot = "
           cd ~/nix-config/ &&
           nix flake update &&
           sudo nixos-rebuild boot --flake .

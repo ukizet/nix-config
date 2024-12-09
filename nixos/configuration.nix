@@ -143,6 +143,10 @@ in
     allowUnfree = true;
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
+
   hardware = {
     pulseaudio.enable = false;
 
@@ -234,9 +238,7 @@ in
       weather
       parabolic
       shortwave
-      unstable.ollama
-      unstable.alpaca
-      unstable.protontricks
+      protontricks
       wget
       xdotool
       unixtools.xxd

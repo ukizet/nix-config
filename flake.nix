@@ -30,6 +30,11 @@
 
         modules = [
           ./nixos/configuration.nix
+          {
+            nixpkgs.config.permittedInsecurePackages = [
+              "electron-27.3.11"
+            ];
+          }
           nix-flatpak.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
           {
