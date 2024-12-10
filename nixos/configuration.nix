@@ -218,7 +218,6 @@ in
       vscodium-fhs
       unstable.zed-editor
       # notes related
-      logseq
       obsidian
       rclone
       # games related
