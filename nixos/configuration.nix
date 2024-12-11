@@ -103,6 +103,7 @@ in
         "com.ktechpit.torrhunt"
         "org.qbittorrent.qBittorrent"
         "org.gnome.Boxes"
+        "com.usebottles.bottles"
       ];
     };
   };
@@ -183,7 +184,6 @@ in
       bitwarden # password manager
       localsend # files sharing
       telegram-desktop
-      bottles
       # nixos related
       nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
