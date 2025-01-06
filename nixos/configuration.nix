@@ -46,7 +46,6 @@ in
   };
 
   services = {
-
     xserver = {
       enable = true;
       # Enable the GNOME Desktop Environment.
@@ -98,12 +97,14 @@ in
         "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
-        "so.libdb.dissent"
-        "com.endlessnetwork.fablemaker"
         "com.ktechpit.torrhunt"
         "org.qbittorrent.qBittorrent"
         "org.gnome.Boxes"
         "com.usebottles.bottles"
+        "io.github.davidoc26.wallpaper_selector"
+        "com.authormore.penpotdesktop"
+        "io.frama.tractor.carburetor"
+        "io.github.zen_browser.zen"
       ];
     };
   };
@@ -184,6 +185,7 @@ in
       bitwarden # password manager
       localsend # files sharing
       telegram-desktop
+      discord
       # nixos related
       nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
@@ -223,7 +225,7 @@ in
       # games related
       lutris
       mangohud
-      wine64
+      wineWowPackages.waylandFull
       wineasio
       steamPackages.steamcmd
       jdk
@@ -243,6 +245,10 @@ in
       unixtools.xxd
       xorg.xwininfo
       yad
+      gnumake
+      pkg-config
+      libgcc
+      blender
     ];
   };
 
