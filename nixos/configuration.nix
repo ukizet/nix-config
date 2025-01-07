@@ -139,6 +139,11 @@ in
       "autovt@tty1".enable = false;
       "ratbagd".enable = true;
     };
+    tmpfiles = {
+      rules = [
+        "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+      ];
+    };
   };
 
   nixpkgs.config = {
@@ -226,6 +231,7 @@ in
       lutris
       mangohud
       wineWowPackages.waylandFull
+      winetricks
       wineasio
       steamPackages.steamcmd
       jdk
@@ -248,7 +254,7 @@ in
       gnumake
       pkg-config
       libgcc
-      blender
+      blender-hip
     ];
   };
 
