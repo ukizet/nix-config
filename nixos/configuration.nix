@@ -162,6 +162,13 @@ in
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        rocmPackages.clr.icd
+        amdvlk
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
     };
     bluetooth = {
       enable = true;
@@ -180,6 +187,9 @@ in
   virtualisation.docker.enable = true;
 
   environment = {
+    variables = {
+      ROC_ENABLE_PRE_VEGA = "1";
+    };
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       neovim # Do not forget to add an editor to edit configuration.nix!
@@ -255,6 +265,10 @@ in
       pkg-config
       libgcc
       blender-hip
+      clinfo
+      mesa
+      mesa-demos
+      podman
     ];
   };
 
