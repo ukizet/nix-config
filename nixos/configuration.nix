@@ -184,7 +184,19 @@ in
     gamemode.enable = true;
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    containers.enable = true;
+    docker.enable = true;
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 
   environment = {
     variables = {
@@ -192,48 +204,66 @@ in
     };
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
-      neovim # Do not forget to add an editor to edit configuration.nix!
-      wl-clipboard # neovim requiring this
       unzip
       rustdesk-flutter # remote desktop
-      bun
+
       bitwarden # password manager
-      localsend # files sharing
-      telegram-desktop
-      discord
       # nixos related
       nixpkgs-fmt # nix code formatter
       appimage-run # workaround for appimages
       # computer info
-      neofetch # os info
+      fastfetch # os info
       lshw # extended hardware info
       resources
       htop
+      xorg.xwininfo
+      clinfo
+      mesa
+      mesa-demos
       # media
       vlc # music & video player
       stremio # movies & anime & shows
-      reaper
-      lmms
-      ardour
-      yabridge
+      reaper # daw
+      zrythm # daw
+      lmms # open source daw
+      ardour # open source daw
+      yabridge # bridge to make vst plugins installed in wine instance accesable in linux daws
       yabridgectl
       alsa-lib
       clap
       samplv1
-      # related to languages
+      parabolic # download media from youtube
+      localsend # files sharing
+      weather
+      shortwave # internet radio
+      blender-hip
+      # messaging
+      element-desktop
+      telegram-desktop
+      discord
+      # coding
+      neovim # Do not forget to add an editor to edit configuration.nix!
+      wl-clipboard # neovim requiring this
+      vscode-fhs
+      vscodium-fhs
+      unstable.zed-editor
+      xdotool
+      unixtools.xxd
+      yad
+      wget
+      gnumake
+      libgcc
       nodejs_20
       python3
       rustup
       gcc
       sqlite
+      podman-compose
+      bun # javascript thing (runtime)
       # browsers
       google-chrome
       brave
       firefox
-      # coding
-      vscode-fhs
-      vscodium-fhs
-      unstable.zed-editor
       # notes related
       obsidian
       rclone
@@ -248,27 +278,9 @@ in
       piper
       libratbag
       protonup-qt
-      element-desktop
       antimicrox
-      calls
-      zrythm
-      weather
-      parabolic
-      shortwave
       protontricks
-      wget
-      xdotool
-      unixtools.xxd
-      xorg.xwininfo
-      yad
-      gnumake
       pkg-config
-      libgcc
-      blender-hip
-      clinfo
-      mesa
-      mesa-demos
-      podman
     ];
   };
 
