@@ -260,6 +260,7 @@ in
       sqlite
       podman-compose
       bun # javascript thing (runtime)
+      ollama-rocm
       # browsers
       google-chrome
       brave
