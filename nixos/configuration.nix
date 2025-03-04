@@ -50,14 +50,9 @@ in
       enable = true;
       # Enable the GNOME Desktop Environment.
       displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
         sddm.enable = true;
       };
       desktopManager = {
-        gnome.enable = true;
         plasma6.enable = true;
       };
       videoDrivers = [ "amdgpu" ];
