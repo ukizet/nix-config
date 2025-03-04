@@ -54,8 +54,12 @@ in
           enable = true;
           wayland = true;
         };
+        sddm.enable = true;
       };
-      desktopManager.gnome.enable = true;
+      desktopManager = {
+        gnome.enable = true;
+        plasma6.enable = true;
+      };
       videoDrivers = [ "amdgpu" ];
     };
     printing.enable = true;
@@ -101,10 +105,10 @@ in
         "org.qbittorrent.qBittorrent"
         "org.gnome.Boxes"
         "com.usebottles.bottles"
-        "io.github.davidoc26.wallpaper_selector"
         "com.authormore.penpotdesktop"
         "io.frama.tractor.carburetor"
         "io.github.zen_browser.zen"
+        "com.jeffser.Alpaca"
       ];
     };
   };
@@ -190,9 +194,6 @@ in
     podman = {
       enable = true;
 
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
@@ -260,7 +261,6 @@ in
       sqlite
       podman-compose
       bun # javascript thing (runtime)
-      ollama-rocm
       # browsers
       google-chrome
       brave
