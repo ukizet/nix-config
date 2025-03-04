@@ -46,18 +46,17 @@ in
   };
 
   services = {
+    desktopManager = {
+        plasma6.enable = true;
+      };
+    displayManager = {
+        sddm.enable = true;
+      };
     xserver = {
       enable = true;
       # Enable the GNOME Desktop Environment.
-      displayManager = {
-        sddm.enable = true;
-      };
-      desktopManager = {
-        plasma6.enable = true;
-      };
       videoDrivers = [ "amdgpu" ];
     };
-    printing.enable = true;
     pipewire = {
       enable = true;
       alsa = {
