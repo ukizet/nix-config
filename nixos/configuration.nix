@@ -215,6 +215,8 @@ in
       clinfo
       mesa
       mesa-demos
+      wayland-utils
+      vulkan-tools
       # media
       vlc # music & video player
       stremio # movies & anime & shows
@@ -250,7 +252,6 @@ in
       libgcc
       nodejs_20
       python3
-      rustup
       gcc
       sqlite
       podman-compose
