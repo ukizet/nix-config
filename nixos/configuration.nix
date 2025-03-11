@@ -248,18 +248,10 @@ in
       unixtools.xxd
       yad
       wget
-      gnumake
-      libgcc
-      nodejs_20
       python3
-      gcc
-      sqlite
       podman-compose
       bun # javascript thing (runtime)
       # browsers
-      google-chrome
-      brave
-      firefox
       # notes related
       obsidian
       rclone
