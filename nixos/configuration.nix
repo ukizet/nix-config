@@ -102,6 +102,7 @@ in
         "com.authormore.penpotdesktop"
         "io.frama.tractor.carburetor"
         "io.github.zen_browser.zen"
+        "com.jeffser.Alpaca"
       ];
     };
   };
@@ -241,7 +242,6 @@ in
       python3
       podman-compose
       bun # javascript thing (runtime)
-      alpaca
       android-studio
       # browsers
       # notes related
