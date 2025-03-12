@@ -102,7 +102,6 @@ in
         "com.authormore.penpotdesktop"
         "io.frama.tractor.carburetor"
         "io.github.zen_browser.zen"
-        "com.jeffser.Alpaca"
       ];
     };
   };
@@ -132,15 +131,13 @@ in
   };
 
   systemd = {
+    tmpfiles.rules = [
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    ];
     services = {
       "getty@tty1".enable = false;
       "autovt@tty1".enable = false;
       "ratbagd".enable = true;
-    };
-    tmpfiles = {
-      rules = [
-        "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-      ];
     };
   };
 
@@ -155,18 +152,10 @@ in
   hardware = {
     pulseaudio.enable = false;
 
-    # Enable OpenGL
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        rocmPackages.clr.icd
-        amdvlk
-      ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-      ];
+      enable32Bit = true;
+      extraPackages = with pkgs; [ rocmPackages.clr.icd ];
     };
     bluetooth = {
       enable = true;
@@ -195,6 +184,7 @@ in
 
   environment = {
     variables = {
+      # enable opencl on polaris
       ROC_ENABLE_PRE_VEGA = "1";
     };
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -251,6 +241,7 @@ in
       python3
       podman-compose
       bun # javascript thing (runtime)
+      alpaca
       # browsers
       # notes related
       obsidian
@@ -261,7 +252,7 @@ in
       wineWowPackages.waylandFull
       winetricks
       wineasio
-      steamPackages.steamcmd
+      steamcmd
       jdk
       piper
       libratbag
