@@ -242,6 +242,7 @@ in
       podman-compose
       bun # javascript thing (runtime)
       alpaca
+      android-studio
       # browsers
       # notes related
       obsidian
