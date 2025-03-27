@@ -12,7 +12,16 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, nix-flatpak, home-manager, nvf, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      unstable,
+      nix-flatpak,
+      home-manager,
+      nvf,
+      ...
+    }:
     let
       system = "x86_64-linux";
     in

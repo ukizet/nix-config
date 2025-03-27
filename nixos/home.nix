@@ -5,9 +5,6 @@
     username = "sas";
     homeDirectory = "/home/sas";
     stateVersion = "23.11";
-    packages = with pkgs; [
-      gnomeExtensions.appindicator
-    ];
     sessionVariables = {
       XDG_CONFIG_HOME = "$HOME/.config";
     };
@@ -21,22 +18,6 @@
       Name=Steam
       Comment=Launch Steam on startup
     '';
-  };
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-      "org/gnome/shell" = {
-        disable-user-extensions = false;
-        # `gnome-extensions list` for a list
-        enabled-extensions = [
-          "appindicatorsupport@rgcjonas.gmail.com"
-          "apps-menu@gnome-shell-extensions.gcampax.github.com"
-          "system-monitor@gnome-shell-extensions.gcampax.github.com"
-        ];
-      };
-    };
-
   };
   programs = {
     git = {

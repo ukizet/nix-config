@@ -1,13 +1,17 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   unstable = inputs.unstable.legacyPackages.x86_64-linux;
 in
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     loader = {
@@ -47,11 +51,11 @@ in
 
   services = {
     desktopManager = {
-        plasma6.enable = true;
-      };
+      plasma6.enable = true;
+    };
     displayManager = {
-        sddm.enable = true;
-      };
+      sddm.enable = true;
+    };
     xserver = {
       enable = true;
       # Enable the GNOME Desktop Environment.
@@ -75,7 +79,11 @@ in
       overrides = {
         global = {
           # Force Wayland by default
-          Context.sockets = [ "wayland" "!x11" "!fallback-x11" ];
+          Context.sockets = [
+            "wayland"
+            "!x11"
+            "!fallback-x11"
+          ];
 
           Environment = {
             # Fix un-themed cursor in some Wayland apps
@@ -131,8 +139,15 @@ in
     users.sas = {
       isNormalUser = true;
       description = "sas";
-      extraGroups = [ "networkmanager" "wheel" "docker" "realtime" "audio" "jackuser" ];
-      };
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "realtime"
+        "audio"
+        "jackuser"
+      ];
+    };
     defaultUserShell = pkgs.zsh;
   };
 
@@ -232,7 +247,7 @@ in
 
       bitwarden # password manager
       # nixos related
-      nixpkgs-fmt # nix code formatter
+      nixfmt-rfc-style
       appimage-run # workaround for appimages
       # computer info
       fastfetch # os info
@@ -310,7 +325,10 @@ in
       automatic = true;
       dates = [ "weekly" ];
     };
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
   system.stateVersion = "23.05";
 }
