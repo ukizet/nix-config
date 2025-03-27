@@ -9,13 +9,19 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, nix-flatpak, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, unstable, nix-flatpak, home-manager, nvf, ... }:
     let
       system = "x86_64-linux";
     in
     {
+      packages."x86_64-linux".default = 
+        (nvf.lib.neovimConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [ ./nixos/nvf-configuration.nix ]
+        });
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           pkgs = import nixpkgs {
@@ -45,6 +51,7 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
+          nvf.nixosModules.default
         ];
       };
     };

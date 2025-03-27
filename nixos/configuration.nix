@@ -103,6 +103,8 @@ in
         "io.frama.tractor.carburetor"
         "io.github.zen_browser.zen"
         "com.jeffser.Alpaca"
+        "com.jeffser.Alpaca.Plugins.Ollama"
+        "com.jeffser.Alpaca.Plugins.AMD"
       ];
     };
   };
@@ -170,6 +172,7 @@ in
       gamescopeSession.enable = true;
     };
     gamemode.enable = true;
+    nix-ld.enable = true;
   };
 
   virtualisation = {
@@ -225,6 +228,7 @@ in
       weather
       shortwave # internet radio
       blender-hip
+      ani-cli
       # messaging
       element-desktop
       telegram-desktop
