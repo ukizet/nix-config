@@ -127,10 +127,13 @@ in
     ];
   };
 
-  users.users.sas = {
-    isNormalUser = true;
-    description = "sas";
-    extraGroups = [ "networkmanager" "wheel" "docker" "realtime" "audio" "jackuser" ];
+  users = {
+    users.sas = {
+      isNormalUser = true;
+      description = "sas";
+      extraGroups = [ "networkmanager" "wheel" "docker" "realtime" "audio" "jackuser" ];
+      };
+    defaultUserShell = pkgs.zsh;
   };
 
   systemd = {
@@ -173,6 +176,28 @@ in
     };
     gamemode.enable = true;
     nix-ld.enable = true;
+    nvf = {
+      enable = true;
+      settings = {
+        vim = {
+          viAlias = false;
+          vimAlias = true;
+          lsp.enable = true;
+          languages = {
+            nix.enable = true;
+            rust.enable = true;
+            python.enable = true;
+            markdown.enable = true;
+            ts.enable = true;
+          };
+          options = {
+            shiftwidth = 2;
+            tabstop = 2;
+          };
+        };
+      };
+    };
+    zsh.enable = true;
   };
 
   virtualisation = {
@@ -234,7 +259,6 @@ in
       telegram-desktop
       discord
       # coding
-      neovim # Do not forget to add an editor to edit configuration.nix!
       wl-clipboard # neovim requiring this
       vscode-fhs
       vscodium-fhs

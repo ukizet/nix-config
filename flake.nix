@@ -17,11 +17,6 @@
       system = "x86_64-linux";
     in
     {
-      packages."x86_64-linux".default = 
-        (nvf.lib.neovimConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          modules = [ ./nixos/nvf-configuration.nix ]
-        });
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           pkgs = import nixpkgs {
@@ -35,7 +30,6 @@
         };
 
         modules = [
-          ./nixos/configuration.nix
           {
             nixpkgs.config.permittedInsecurePackages = [
               "electron-27.3.11"
@@ -52,8 +46,8 @@
             # arguments to home.nix
           }
           nvf.nixosModules.default
+          ./nixos/configuration.nix
         ];
       };
     };
 }
-  

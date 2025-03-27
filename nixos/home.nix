@@ -49,9 +49,11 @@
       enableBashIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
-    bash = {
+    zsh = {
       enable = true;
-      bashrcExtra = "eval \"$(direnv hook bash)\"";
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
       shellAliases = {
         rebuild = "cd ~/nix-config &&
           sudo nixos-rebuild switch --flake .
