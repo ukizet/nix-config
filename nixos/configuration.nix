@@ -176,6 +176,12 @@ in
     };
     gamemode.enable = true;
     nix-ld.enable = true;
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/sas/nix-config";
+    };
     nvf = {
       enable = true;
       settings = {
@@ -216,7 +222,10 @@ in
       # enable opencl on polaris
       ROC_ENABLE_PRE_VEGA = "1";
     };
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      FLAKE = "/home/sas/nix-config";
+    };
     systemPackages = with pkgs; [
       unzip
       rustdesk-flutter # remote desktop
@@ -300,11 +309,6 @@ in
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
     };
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
