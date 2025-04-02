@@ -19,6 +19,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     initrd.kernelModules = [ "amdgpu" ];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking = {
@@ -81,8 +82,6 @@ in
           # Force Wayland by default
           Context.sockets = [
             "wayland"
-            "!x11"
-            "!fallback-x11"
           ];
 
           Environment = {
@@ -199,23 +198,24 @@ in
     };
     nvf = {
       enable = true;
-      settings = {
-        vim = {
-          viAlias = false;
-          vimAlias = true;
-          lsp.enable = true;
-          languages = {
-            nix.enable = true;
-            rust.enable = true;
-            python.enable = true;
-            markdown.enable = true;
-            ts.enable = true;
-          };
-          options = {
-            shiftwidth = 2;
-            tabstop = 2;
-          };
+      settings.vim = {
+        viAlias = false;
+        vimAlias = true;
+        lsp.enable = true;
+        languages = {
+          nix.enable = true;
+          rust.enable = true;
+          python.enable = true;
+          markdown.enable = true;
+          ts.enable = true;
         };
+        options = {
+          shiftwidth = 2;
+          tabstop = 2;
+        };
+        telescope.enable = true;
+        autopairs.nvim-autopairs.enable = true;
+        autocomplete.nvim-cmp.enable = true;
       };
     };
     zsh.enable = true;
