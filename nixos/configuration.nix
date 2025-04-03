@@ -282,6 +282,7 @@ in
       shortwave # internet radio
       blender-hip
       ani-cli
+      spotube
       # messaging
       element-desktop
       telegram-desktop
