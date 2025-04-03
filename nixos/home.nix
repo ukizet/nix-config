@@ -73,5 +73,8 @@
     alacritty = {
       enable = true;
     };
+    ghostty = {
+      enable = true;
+    };
   };
 }
