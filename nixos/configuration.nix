@@ -203,7 +203,11 @@ in
         vimAlias = true;
         lsp.enable = true;
         languages = {
-          nix.enable = true;
+          nix = {
+            enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+          };
           rust.enable = true;
           python.enable = true;
           markdown.enable = true;
@@ -291,10 +295,10 @@ in
       unixtools.xxd
       yad
       wget
-      python3
       podman-compose
-      bun # javascript thing (runtime)
       android-studio
+      tmux
+      alacritty
       # browsers
       # notes related
       obsidian

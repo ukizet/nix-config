@@ -65,6 +65,10 @@
           ~/Documents/repos/rclone_scripts/rclient.sh bisync
         ";
       };
+      oh-my-zsh = {
+        enable = true;
+        theme = "agnoster";
+      };
     };
   };
 }
