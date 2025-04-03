@@ -70,5 +70,8 @@
         theme = "agnoster";
       };
     };
+    alacritty = {
+      enable = true;
+    };
   };
 }

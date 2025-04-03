@@ -298,7 +298,6 @@ in
       podman-compose
       android-studio
       tmux
-      alacritty
       # browsers
       # notes related
       obsidian
