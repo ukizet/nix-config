@@ -282,7 +282,7 @@ in
       shortwave # internet radio
       blender-hip
       ani-cli
-      spotube
+      unstable.spotube
       # messaging
       element-desktop
       telegram-desktop
@@ -300,6 +300,10 @@ in
       android-studio
       tmux
       # browsers
+      lynx
+      links2
+      browsh
+      elinks
       # notes related
       obsidian
       rclone
