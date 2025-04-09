@@ -248,6 +248,8 @@ in
     systemPackages = with pkgs; [
       unzip
       rustdesk-flutter # remote desktop
+      kdePackages.filelight
+      kdePackages.kontact
 
       bitwarden # password manager
       # nixos related
@@ -298,12 +300,8 @@ in
       wget
       podman-compose
       android-studio
-      tmux
+      waydroid
       # browsers
-      lynx
-      links2
-      browsh
-      elinks
       # notes related
       obsidian
       rclone

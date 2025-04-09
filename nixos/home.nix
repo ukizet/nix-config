@@ -69,11 +69,15 @@
         enable = true;
         theme = "agnoster";
       };
+      initExtra = "tmux a || tmux";
     };
     alacritty = {
       enable = true;
     };
     ghostty = {
+      enable = true;
+    };
+    tmux = {
       enable = true;
     };
   };
