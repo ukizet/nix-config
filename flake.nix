@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -16,47 +16,35 @@
     inputs@{
       self,
       nixpkgs,
-      unstable,
-      nix-flatpak,
+      nixpkgs-unstable,
       home-manager,
-      nvf,
       ...
     }:
     let
       system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          pkgs = import nixpkgs {
-            inherit system;
-            config = {
-              allowUnfree = true;
-              nvidia.acceptLicense = true;
-            };
-          };
-          inherit inputs system;
-        };
-
+      nixosConfigurations.nixos = lib.nixosSystem {
+        inherit system;
         modules = [
-          {
-            nixpkgs.config.permittedInsecurePackages = [
-              "electron-27.3.11"
-            ];
-          }
-          nix-flatpak.nixosModules.nix-flatpak
+          inputs.nix-flatpak.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.sas = import nixos/home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.sas = import nixos/home.nix;
+            };
           }
-          nvf.nixosModules.default
+          inputs.nvf.nixosModules.default
           ./nixos/configuration.nix
         ];
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
       };
     };
 }

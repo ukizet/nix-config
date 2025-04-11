@@ -79,6 +79,8 @@
     };
     tmux = {
       enable = true;
+      keyMode = "vi";
+      disableConfirmationPrompt = true;
     };
   };
 }

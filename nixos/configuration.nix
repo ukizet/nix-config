@@ -1,17 +1,16 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   inputs,
   ...
 }:
-
-let
-  unstable = inputs.unstable.legacyPackages.x86_64-linux;
-in
 {
   imports = [
     ./hardware-configuration.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   boot = {
     loader = {
@@ -95,18 +94,14 @@ in
       };
       packages = [
         "com.github.tchx84.Flatseal"
-        "io.github.peazip.PeaZip"
         "com.dec05eba.gpu_screen_recorder"
         "io.github.giantpinkrobots.flatsweep"
-        "org.kde.kdenlive"
-        "com.bitwig.BitwigStudio"
         "net.waterfox.waterfox"
         "com.obsproject.Studio"
         "com.ktechpit.torrhunt"
         "org.qbittorrent.qBittorrent"
         "org.gnome.Boxes"
         "com.usebottles.bottles"
-        "com.authormore.penpotdesktop"
         "io.frama.tractor.carburetor"
         "io.github.zen_browser.zen"
         "com.jeffser.Alpaca"
@@ -161,13 +156,6 @@ in
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-27.3.11"
-  ];
 
   hardware = {
     pulseaudio.enable = false;
@@ -220,6 +208,7 @@ in
         telescope.enable = true;
         autopairs.nvim-autopairs.enable = true;
         autocomplete.nvim-cmp.enable = true;
+        fzf-lua.enable = true;
       };
     };
     zsh.enable = true;
@@ -244,8 +233,10 @@ in
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       FLAKE = "/home/sas/nix-config";
+      NIXPKGS_ALLOW_UNFREE = 1;
     };
-    systemPackages = with pkgs; [
+    systemPackages = 
+    (with pkgs; [
       unzip
       rustdesk-flutter # remote desktop
       kdePackages.filelight
@@ -273,7 +264,7 @@ in
       zrythm # daw
       lmms # open source daw
       ardour # open source daw
-      yabridge # bridge to make vst plugins installed in wine instance accesable in linux daws
+      yabridge
       yabridgectl
       alsa-lib
       clap
@@ -284,7 +275,6 @@ in
       shortwave # internet radio
       blender-hip
       ani-cli
-      unstable.spotube
       # messaging
       element-desktop
       telegram-desktop
@@ -293,7 +283,6 @@ in
       wl-clipboard # neovim requiring this
       vscode-fhs
       vscodium-fhs
-      unstable.zed-editor
       xdotool
       unixtools.xxd
       yad
@@ -302,14 +291,14 @@ in
       android-studio
       waydroid
       # browsers
+      librewolf
       # notes related
       obsidian
       rclone
       # games related
       lutris
       mangohud
-      wineWowPackages.waylandFull
-      winetricks
+      wineWowPackages.stagingFull
       wineasio
       steamcmd
       jdk
@@ -319,7 +308,16 @@ in
       antimicrox
       protontricks
       pkg-config
-    ];
+    ])
+
+    ++ 
+
+    (with pkgs-unstable; [
+      zed-editor
+      spotube
+      bitwig-studio
+      winetricks
+    ]);
   };
 
   fonts.packages = with pkgs; [
