@@ -8,6 +8,9 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./flatpak.nix
+    ./programs.nix
+    ./packages.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -70,45 +73,6 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    flatpak = {
-      enable = true;
-      update.auto = {
-        enable = true;
-        onCalendar = "monthly"; # Default value
-      };
-      overrides = {
-        global = {
-          # Force Wayland by default
-          Context.sockets = [
-            "wayland"
-          ];
-
-          Environment = {
-            # Fix un-themed cursor in some Wayland apps
-            XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-
-            # Force correct theme for some GTK apps
-            GTK_THEME = "Adwaita:dark";
-          };
-        };
-      };
-      packages = [
-        "com.github.tchx84.Flatseal"
-        "com.dec05eba.gpu_screen_recorder"
-        "io.github.giantpinkrobots.flatsweep"
-        "net.waterfox.waterfox"
-        "com.obsproject.Studio"
-        "com.ktechpit.torrhunt"
-        "org.qbittorrent.qBittorrent"
-        "org.gnome.Boxes"
-        "com.usebottles.bottles"
-        "io.frama.tractor.carburetor"
-        "io.github.zen_browser.zen"
-        "com.jeffser.Alpaca"
-        "com.jeffser.Alpaca.Plugins.Ollama"
-        "com.jeffser.Alpaca.Plugins.AMD"
-      ];
-    };
   };
 
   security = {
@@ -156,7 +120,6 @@
     };
   };
 
-
   hardware = {
     pulseaudio.enable = false;
 
@@ -171,49 +134,6 @@
     };
   };
 
-  programs = {
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-    gamemode.enable = true;
-    nix-ld.enable = true;
-    nh = {
-      enable = true;
-      clean.enable = true;
-      clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/sas/nix-config";
-    };
-    nvf = {
-      enable = true;
-      settings.vim = {
-        viAlias = false;
-        vimAlias = true;
-        lsp.enable = true;
-        languages = {
-          nix = {
-            enable = true;
-            lsp.enable = true;
-            treesitter.enable = true;
-          };
-          rust.enable = true;
-          python.enable = true;
-          markdown.enable = true;
-          ts.enable = true;
-        };
-        options = {
-          shiftwidth = 2;
-          tabstop = 2;
-        };
-        telescope.enable = true;
-        autopairs.nvim-autopairs.enable = true;
-        autocomplete.nvim-cmp.enable = true;
-        fzf-lua.enable = true;
-      };
-    };
-    zsh.enable = true;
-  };
-
   virtualisation = {
     containers.enable = true;
     docker.enable = true;
@@ -223,6 +143,7 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
+    waydroid.enable = true;
   };
 
   environment = {
@@ -235,90 +156,8 @@
       FLAKE = "/home/sas/nix-config";
       NIXPKGS_ALLOW_UNFREE = 1;
     };
-    systemPackages = 
-    (with pkgs; [
-      unzip
-      rustdesk-flutter # remote desktop
-      kdePackages.filelight
-      kdePackages.kontact
-
-      bitwarden # password manager
-      # nixos related
-      nixfmt-rfc-style
-      appimage-run # workaround for appimages
-      # computer info
-      fastfetch # os info
-      lshw # extended hardware info
-      resources
-      htop
-      xorg.xwininfo
-      clinfo
-      mesa
-      mesa-demos
-      wayland-utils
-      vulkan-tools
-      # media
-      vlc # music & video player
-      stremio # movies & anime & shows
-      reaper # daw
-      zrythm # daw
-      lmms # open source daw
-      ardour # open source daw
-      yabridge
-      yabridgectl
-      alsa-lib
-      clap
-      samplv1
-      parabolic # download media from youtube
-      localsend # files sharing
-      weather
-      shortwave # internet radio
-      blender-hip
-      ani-cli
-      # messaging
-      element-desktop
-      telegram-desktop
-      discord
-      # coding
-      wl-clipboard # neovim requiring this
-      vscode-fhs
-      vscodium-fhs
-      xdotool
-      unixtools.xxd
-      yad
-      wget
-      podman-compose
-      android-studio
-      waydroid
-      # browsers
-      librewolf
-      # notes related
-      obsidian
-      rclone
-      # games related
-      lutris
-      mangohud
-      wineWowPackages.stagingFull
-      wineasio
-      steamcmd
-      jdk
-      piper
-      libratbag
-      protonup-qt
-      antimicrox
-      protontricks
-      pkg-config
-    ])
-
-    ++ 
-
-    (with pkgs-unstable; [
-      zed-editor
-      spotube
-      bitwig-studio
-      winetricks
-    ]);
   };
+   
 
   fonts.packages = with pkgs; [
     fira-code-nerdfont
@@ -333,6 +172,9 @@
       "nix-command"
       "flakes"
     ];
+    extraOptions = ''
+        trusted-users = root sas
+    '';
   };
   system.stateVersion = "23.05";
 }

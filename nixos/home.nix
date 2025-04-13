@@ -74,9 +74,6 @@
     alacritty = {
       enable = true;
     };
-    ghostty = {
-      enable = true;
-    };
     tmux = {
       enable = true;
       keyMode = "vi";
