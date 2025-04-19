@@ -8,16 +8,6 @@
     sessionVariables = {
       XDG_CONFIG_HOME = "$HOME/.config";
     };
-    file.".config/autostart/steam.desktop".text = ''
-      [Desktop Entry]
-      Type=Application
-      Exec=${pkgs.steam}/bin/steam
-      Hidden=false
-      NoDisplay=false
-      X-GNOME-Autostart-enabled=true
-      Name=Steam
-      Comment=Launch Steam on startup
-    '';
   };
   programs = {
     git = {
@@ -27,8 +17,8 @@
     };
     direnv = {
       enable = true;
-      enableBashIntegration = true; # see note on other shells below
-      nix-direnv.enable = true;
+      enableZshIntegration = true;
+      # nix-direnv.enable = true;
     };
     zsh = {
       enable = true;
@@ -64,6 +54,9 @@
           gpush &&
           ~/Documents/repos/rclone_scripts/rclient.sh bisync
         ";
+        sw = "nh os switch -- --impure";
+        swu = "nh os switch -u -- --impure";
+        dv = "devenv shell";
       };
       oh-my-zsh = {
         enable = true;
@@ -73,6 +66,10 @@
     };
     alacritty = {
       enable = true;
+    };
+    ghostty = {
+      enable = true;
+      enableZshIntegration = true;
     };
     tmux = {
       enable = true;
