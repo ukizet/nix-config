@@ -36,6 +36,7 @@
       nixosConfigurations.nixos = lib.nixosSystem {
         inherit system;
         modules = [
+          ./nixos/configuration.nix
           inputs.nix-flatpak.nixosModules.nix-flatpak
           home-manager.nixosModules.home-manager
           {
@@ -46,7 +47,6 @@
             };
           }
           inputs.nvf.nixosModules.default
-          ./nixos/configuration.nix
         ];
         specialArgs = {
           inherit pkgs-unstable;
