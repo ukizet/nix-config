@@ -50,7 +50,6 @@
         ];
         specialArgs = {
           inherit pkgs;
-          inherit pkgs-unstable;
         };
       };
     };
