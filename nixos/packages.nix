@@ -1,8 +1,7 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  environment.systemPackages = 
-    (with pkgs; [
+  environment.systemPackages = with pkgs; [
       unzip
       rustdesk-flutter # remote desktop
       kdePackages.filelight
@@ -71,16 +70,5 @@
       minetestclient
       jdk23
       peazip
-    ])
-
-    ++ 
-
-    (with pkgs-unstable; [
-      zed-editor
-      spotube
-      bitwig-studio
-      winetricks
-      devenv
-      direnv
-    ]);
+    ];
 }

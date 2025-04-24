@@ -1,0 +1,120 @@
+> Building NixOS configuration
+warning: Git tree '/home/sas/nix-config' is dirty
+error:
+       … while calling the 'head' builtin
+         at /nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/lib/attrsets.nix:1534:13:
+         1533|           if length values == 1 || pred here (elemAt values 1) (head values) then
+         1534|             head values
+             |             ^
+         1535|           else
+
+       … while evaluating the attribute 'value'
+         at /nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/lib/modules.nix:991:7:
+          990|     // {
+          991|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+          992|       inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `system.build.toplevel':
+
+       … while evaluating definitions from `/nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/nixos/modules/system/activation/top-level.nix':
+
+       … while evaluating the option `system.systemBuilderArgs':
+
+       … while evaluating definitions from `/nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/nixos/modules/system/activation/activatable-system.nix':
+
+       … while evaluating the option `system.activationScripts.etc.text':
+
+       … while evaluating definitions from `/nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/nixos/modules/system/etc/etc-activation.nix':
+
+       … while evaluating definitions from `/nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/nixos/modules/system/etc/etc.nix':
+
+       … while evaluating the option `environment.etc.dbus-1.source':
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: Package ‘archiver-3.5.1’ in /nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/pkgs/by-name/ar/archiver/package.nix:31 is marked as insecure, refusing to evaluate.
+
+
+       Known issues:
+        - CVE-2024-0406
+        - Package is unmaintained upstream
+
+       You can install it anyway by allowing this package, using the
+       following methods:
+
+       a) To temporarily allow all insecure packages, you can use an environment
+          variable for a single invocation of the nix tools:
+
+            $ export NIXPKGS_ALLOW_INSECURE=1
+
+          Note: When using `nix shell`, `nix build`, `nix develop`, etc with a flake,
+                then pass `--impure` in order to allow use of environment variables.
+
+       b) for `nixos-rebuild` you can add ‘archiver-3.5.1’ to
+          `nixpkgs.config.permittedInsecurePackages` in the configuration.nix,
+          like so:
+
+            {
+              nixpkgs.config.permittedInsecurePackages = [
+                "archiver-3.5.1"
+              ];
+            }
+
+       c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
+          ‘archiver-3.5.1’ to `permittedInsecurePackages` in
+          ~/.config/nixpkgs/config.nix, like so:
+
+            {
+              permittedInsecurePackages = [
+                "archiver-3.5.1"
+              ];
+            }
+┏━ 1 Errors:
+ ⋮
+┃        error: Package ‘archiver-3.5.1’ in /nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source/pkgs/by-name/ar/archiver/package.nix:31 is marked as insecure, refusing to evaluate.
+┃
+┃
+┃        Known issues:
+┃         - CVE-2024-0406
+┃         - Package is unmaintained upstream
+┃
+┃        You can install it anyway by allowing this package, using the
+┃        following methods:
+┃
+┃        a) To temporarily allow all insecure packages, you can use an environment
+┃           variable for a single invocation of the nix tools:
+┃
+┃             $ export NIXPKGS_ALLOW_INSECURE=1
+┃
+┃           Note: When using `nix shell`, `nix build`, `nix develop`, etc with a flake,
+┃                 then pass `--impure` in order to allow use of environment variables.
+┃
+┃        b) for `nixos-rebuild` you can add ‘archiver-3.5.1’ to
+┃           `nixpkgs.config.permittedInsecurePackages` in the configuration.nix,
+┃           like so:
+┃
+┃             {
+┃               nixpkgs.config.permittedInsecurePackages = [
+┃                 "archiver-3.5.1"
+┃               ];
+┃             }
+┃
+┃        c) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
+┃           ‘archiver-3.5.1’ to `permittedInsecurePackages` in
+┃           ~/.config/nixpkgs/config.nix, like so:
+┃
+┃             {
+┃               permittedInsecurePackages = [
+┃                 "archiver-3.5.1"
+┃               ];
+┃             }
+┣━━━
+┗━ ∑ ⚠ Exited with 1 errors reported by nix at 00:48:32 after 10s
+Error:
+   0: Command exited with status Exited(1)
+
+Location:
+   src/commands.rs:151
+ ✘ sas@nixos  ~ 
+

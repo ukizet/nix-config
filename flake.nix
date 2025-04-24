@@ -49,6 +49,7 @@
           inputs.nvf.nixosModules.default
         ];
         specialArgs = {
+          inherit pkgs;
           inherit pkgs-unstable;
         };
       };
