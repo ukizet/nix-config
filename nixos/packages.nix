@@ -25,6 +25,7 @@
       vulkan-tools
       # media
       vlc # music & video player
+      mpv
       stremio # movies & anime & shows
       reaper # daw
       zrythm # daw
@@ -42,7 +43,7 @@
       # messaging
       element-desktop
       telegram-desktop
-      discord
+      vesktop
       # coding
       wl-clipboard # neovim requiring this
       vscodium-fhs
@@ -69,6 +70,7 @@
       pkg-config
       minetestclient
       jdk23
+      peazip
     ])
 
     ++ 

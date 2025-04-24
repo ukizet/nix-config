@@ -7,6 +7,7 @@
     stateVersion = "23.11";
     sessionVariables = {
       XDG_CONFIG_HOME = "$HOME/.config";
+      NIXOS_OZONE_WL = "1";
     };
   };
   programs = {
@@ -55,8 +56,9 @@
           ~/Documents/repos/rclone_scripts/rclient.sh bisync
         ";
         sw = "nh os switch -- --impure";
-        swu = "nh os switch -u -- --impure";
+        swup = "nh os boot -u -- --impure";
         dv = "devenv shell";
+        ys = "yabridgectl sync";
       };
       oh-my-zsh = {
         enable = true;
@@ -76,5 +78,30 @@
       keyMode = "vi";
       disableConfirmationPrompt = true;
     };
+    kitty = {
+      enable = true;
+    };
+    
+  };
+  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.settings = {
+  "$mod" = "SUPER";
+  bind =
+    [
+      "$mod, F, exec, librewolf"
+      ", Print, exec, grimblast copy area"
+    ]
+    ++ (
+      # workspaces
+      # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+      builtins.concatLists (builtins.genList (i:
+          let ws = i + 1;
+          in [
+            "$mod, code:1${toString i}, workspace, ${toString ws}"
+            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          ]
+        )
+        9)
+    );
   };
 }

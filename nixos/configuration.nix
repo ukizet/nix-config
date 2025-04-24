@@ -13,7 +13,6 @@
     ./packages.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
 
   boot = {
     loader = {
@@ -27,12 +26,6 @@
   networking = {
     hostName = "nixos"; # Define your hostname.
     networkmanager.enable = true;
-    nameservers = [
-      "45.90.28.0#25611f.dns.nextdns.io"
-      "2a07:a8c0::#25611f.dns.nextdns.io"
-      "45.90.30.0#25611f.dns.nextdns.io"
-      "2a07:a8c1::#25611f.dns.nextdns.io"
-    ];
   };
 
   time.timeZone = "Europe/Kyiv";

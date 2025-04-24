@@ -39,8 +39,13 @@
         autopairs.nvim-autopairs.enable = true;
         autocomplete.nvim-cmp.enable = true;
         fzf-lua.enable = true;
+        filetree.neo-tree.enable = true;
       };
     };
     zsh.enable = true;
+    # hyprland = {
+    #  enable = true;
+    #  xwayland.enable = true;
+    # };
   };
 }
