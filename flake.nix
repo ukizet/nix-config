@@ -28,9 +28,21 @@
         config = {
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
+          permittedInsecurePackages = [
+            "archiver-3.5.1"
+          ];
         };
       });
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+      pkgs-unstable = (import nixpkgs-unstable {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = (_: true);
+          permittedInsecurePackages = [
+            "archiver-3.5.1"
+          ];
+        };
+      });
     in
     {
       nixosConfigurations.nixos = lib.nixosSystem {
@@ -50,6 +62,7 @@
         ];
         specialArgs = {
           inherit pkgs;
+          inherit pkgs-unstable;
         };
       };
     };
