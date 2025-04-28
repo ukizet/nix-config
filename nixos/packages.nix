@@ -71,6 +71,8 @@
       minetestclient
       jdk23
       peazip
+      gnome-boxes
+      qbittorrent-nox
     ])
 
     ++ 

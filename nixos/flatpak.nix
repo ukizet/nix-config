@@ -25,19 +25,9 @@
     };
     packages = [
       "com.github.tchx84.Flatseal"
-      "com.dec05eba.gpu_screen_recorder"
       "io.github.giantpinkrobots.flatsweep"
-      "net.waterfox.waterfox"
-      "com.obsproject.Studio"
       "com.ktechpit.torrhunt"
-      "org.qbittorrent.qBittorrent"
-      "org.gnome.Boxes"
-      "com.usebottles.bottles"
       "io.frama.tractor.carburetor"
-      "io.github.zen_browser.zen"
-      "com.jeffser.Alpaca"
-      "com.jeffser.Alpaca.Plugins.Ollama"
-      "com.jeffser.Alpaca.Plugins.AMD"
     ];
   };
 }

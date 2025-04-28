@@ -7,11 +7,9 @@
     stateVersion = "23.11";
     sessionVariables = {
       XDG_CONFIG_HOME = "$HOME/.config";
-      NIXOS_OZONE_WL = "1";
     };
     # packages = with pkgs; [];
   };
-  # programs.home-manager.enable = true;
   programs = {
     git = {
       enable = true;
@@ -21,7 +19,6 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
-      # nix-direnv.enable = true;
     };
     zsh = {
       enable = true;
@@ -48,7 +45,7 @@
           ~/Documents/repos/rclone_scripts/rclient.sh bisync
         ";
         hm = "home-manager switch --flake $FLAKE";
-        sw = "nh os switch -- --impure && hm";
+        sw = "nh os switch -- --impure";
         swup = "nh os boot -u -- --impure";
         dv = "devenv shell";
         ys = "yabridgectl sync";
@@ -75,9 +72,13 @@
     kitty = {
       enable = true;
     };
+    obs-studio = {
+      enable = true;
+    };
   };
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     settings = {
       "$mod" = "SUPER";
       bind =

@@ -46,6 +46,7 @@
   };
 
   services = {
+    pulseaudio.enable = false;
     desktopManager = {
       plasma6.enable = true;
     };
@@ -114,7 +115,6 @@
   };
 
   hardware = {
-    pulseaudio.enable = false;
 
     graphics = {
       enable = true;
@@ -146,14 +146,13 @@
     };
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
+      NH_FLAKE = "/home/sas/nix-config";
       FLAKE = "/home/sas/nix-config";
-      NIXPKGS_ALLOW_UNFREE = 1;
     };
   };
    
-
   fonts.packages = with pkgs; [
-    fira-code-nerdfont
+    nerd-fonts.fira-code
   ];
 
   nix = {
