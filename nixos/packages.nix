@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-stable, ... }:
 
 {
   environment.systemPackages = 
@@ -75,12 +75,7 @@
 
     ++ 
 
-    (with pkgs-unstable; [
-      zed-editor
-      spotube
-      bitwig-studio
-      winetricks
-      devenv
-      direnv
+    (with pkgs-stable; [
+      hello
     ]);
 }
