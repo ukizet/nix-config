@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
+let
+ startupScript = pkgs.writeShellScriptBin "start" ''
+   waybar & 
+   sww init &
 
+   sleep 1
+ '';
+in
 {
   home = {
     username = "sas";
@@ -75,16 +82,37 @@
     obs-studio = {
       enable = true;
     };
+    waybar = {
+      enable = true;
+    };
+    rofi = {
+      enable = true;
+    };
   };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     settings = {
       "$mod" = "SUPER";
+      "$browser" = "librewolf";
+      "$terminal" = "kitty";
+      "$runner" = "rofi";
+      "$explorer" = "dolphin";
       bind =
         [
-          "$mod, F, exec, librewolf"
-          ", Print, exec, grimblast copy area"
+          "$mod ALT, h, movefocus, l"
+          "$mod ALT, l, movefocus, r"
+          "$mod ALT, k, movefocus, u"
+          "$mod ALT, j, movefocus, d"
+          "$mod, B, exec, $browser"
+          "$mod, T, exec, $terminal"
+          "$mod, E, exec, $explorer"
+          "$mod, S, exec, $runner -show drun -show-icons"
+          "$mod, C, killactive"
+          "$mod, M, exit"
+          "$mod, V, togglefloating"
+          "$mod, P, pseudo"
+          "$mod, J, togglesplit"
         ]
         ++ (
           # workspaces
@@ -98,6 +126,18 @@
             )
             9)
         );
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
+      ];
+      exec-once = ''${startupScript}/bin/start'';
     };
+  };
+  services = {
+    dunst = {
+      enable = true;
+    };
+    swww.enable = true;
   };
 }

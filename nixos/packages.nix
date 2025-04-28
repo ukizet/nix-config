@@ -73,6 +73,7 @@
       peazip
       gnome-boxes
       qbittorrent-nox
+      libnotify
     ])
 
     ++ 
