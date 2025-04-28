@@ -20,6 +20,10 @@
         viAlias = false;
         vimAlias = true;
         lsp.enable = true;
+        options = {
+          shiftwidth = 2;
+          tabstop = 2;
+        };
         languages = {
           nix = {
             enable = true;
@@ -31,15 +35,20 @@
           markdown.enable = true;
           ts.enable = true;
         };
-        options = {
-          shiftwidth = 2;
-          tabstop = 2;
-        };
         telescope.enable = true;
         autopairs.nvim-autopairs.enable = true;
         autocomplete.nvim-cmp.enable = true;
         fzf-lua.enable = true;
         filetree.neo-tree.enable = true;
+        keymaps = [
+          {
+            key    = "<leader>e";               
+            mode   = ["n"];                     
+            action = "<cmd>Neotree toggle<CR>"; 
+            desc   = "Toggle Neo-Tree";         
+            silent = true;
+          }
+        ];
       };
     };
     zsh.enable = true;
