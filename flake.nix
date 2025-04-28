@@ -52,7 +52,7 @@
         };
       };
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs-unstable;
+        pkgs = pkgs-unstable;
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.

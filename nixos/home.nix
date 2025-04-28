@@ -1,4 +1,4 @@
-{ config, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   home = {
@@ -47,7 +47,8 @@
           gpush &&
           ~/Documents/repos/rclone_scripts/rclient.sh bisync
         ";
-        sw = "nh os switch -- --impure";
+        hm = "home-manager switch --flake $FLAKE";
+        sw = "nh os switch -- --impure && hm";
         swup = "nh os boot -u -- --impure";
         dv = "devenv shell";
         ys = "yabridgectl sync";
@@ -57,7 +58,7 @@
         enable = true;
         theme = "agnoster";
       };
-      initExtra = "tmux a || tmux";
+      initContent = "tmux a || tmux";
     };
     alacritty = {
       enable = true;
