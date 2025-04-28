@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs-unstable, ... }:
 
 {
   home = {
@@ -9,7 +9,9 @@
       XDG_CONFIG_HOME = "$HOME/.config";
       NIXOS_OZONE_WL = "1";
     };
+    # packages = with pkgs; [];
   };
+  programs.home-manager.enable = true;
   programs = {
     git = {
       enable = true;
@@ -27,15 +29,6 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        rebuild = "cd ~/nix-config &&
-          sudo nixos-rebuild switch --flake .
-        ";
-        rebuildboot = "cd ~/nix-config && sudo nixos-rebuild boot --flake .";
-        upgraderebuildboot = "
-          cd ~/nix-config/ &&
-          nix flake update &&
-          sudo nixos-rebuild boot --flake .
-        ";
         nixclean = "
           sudo nix-collect-garbage -d &&
           sudo nix-store --gc &&
@@ -48,7 +41,6 @@
         gpull = "git pull";
         gad = "git add .";
         scmd = "steamcmd";
-        vim = "nvim";
         rclientbisync = "
           cd ~/Documents/Vault &&
           gcam \"date +'%Y-%m-%d %H:%M:%S'\" &&
@@ -59,6 +51,7 @@
         swup = "nh os boot -u -- --impure";
         dv = "devenv shell";
         ys = "yabridgectl sync";
+        en = "cd ~/nix-config && nvim";
       };
       oh-my-zsh = {
         enable = true;
@@ -81,27 +74,28 @@
     kitty = {
       enable = true;
     };
-    
   };
-  wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.settings = {
-  "$mod" = "SUPER";
-  bind =
-    [
-      "$mod, F, exec, librewolf"
-      ", Print, exec, grimblast copy area"
-    ]
-    ++ (
-      # workspaces
-      # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-      builtins.concatLists (builtins.genList (i:
-          let ws = i + 1;
-          in [
-            "$mod, code:1${toString i}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-          ]
-        )
-        9)
-    );
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      "$mod" = "SUPER";
+      bind =
+        [
+          "$mod, F, exec, librewolf"
+          ", Print, exec, grimblast copy area"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+          builtins.concatLists (builtins.genList (i:
+              let ws = i + 1;
+              in [
+                "$mod, code:1${toString i}, workspace, ${toString ws}"
+                "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+              ]
+            )
+            9)
+        );
+    };
   };
 }
