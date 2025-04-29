@@ -3,12 +3,6 @@
 {
   environment.systemPackages = 
     (with pkgs; [
-      unzip
-      rustdesk-flutter # remote desktop
-      kdePackages.filelight
-      evolution
-      sweet
-      bitwarden # password manager
       # nixos related
       nixfmt-rfc-style
       appimage-run # workaround for appimages
@@ -55,7 +49,8 @@
       librewolf
       # notes related
       obsidian
-      rclone
+      rclone # sync tool
+      qownnotes
       # games related
       lutris
       mangohud
@@ -70,10 +65,19 @@
       pkg-config
       minetestclient
       jdk23
+      # hyprland
+      libnotify
+      # unsorted
       peazip
       gnome-boxes
       qbittorrent-nox
-      libnotify
+      gpu-screen-recorder
+      unzip
+      rustdesk-flutter # remote desktop
+      kdePackages.filelight
+      evolution
+      sweet
+      bitwarden # password manager
     ])
 
     ++ 

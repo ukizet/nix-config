@@ -53,6 +53,5 @@
     };
     zsh.enable = true;
     hyprland.enable = true;
-    gpu-screen-recorder.enable = true;
   };
 }
