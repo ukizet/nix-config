@@ -1,0 +1,77 @@
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Could not resolve keysym XF86RefreshRateToggle
+> Warning:          Could not resolve keysym XF86Accessibility
+> Warning:          Could not resolve keysym XF86DoNotDisturb
+Errors from xkbcomp are not fatal to the X server
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+> Warning:          Could not resolve keysym XF86RefreshRateToggle
+> Warning:          Could not resolve keysym XF86Accessibility
+> Warning:          Could not resolve keysym XF86DoNotDisturb
+Errors from xkbcomp are not fatal to the X server
+(EE) could not connect to wayland server
+Welcome to Hyprland!
+[LOG] Instance Signature: 29e2e59fdbab8ed2cc23a20e3c6043d5decb5cdc_1745926450_608967758
+[LOG] Runtime directory: /run/user/1000/hypr/29e2e59fdbab8ed2cc23a20e3c6043d5decb5cdc_1745926450_608967758
+[LOG] Hyprland PID: 8147
+[LOG] ===== SYSTEM INFO: =====
+[LOG] System name: Linux
+[LOG] Node name: nixos
+[LOG] Release: 6.14.3
+[LOG] Version: #1-NixOS SMP PREEMPT_DYNAMIC Sun Apr 20 08:23:22 UTC 2025
+
+
+[LOG] GPU information:
+10:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] [1002:67df] (rev e7) (prog-if 00 [VGA controller])
+30:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Cezanne [Radeon Vega Series / Radeon Vega Mobile Series] [1002:1638] (rev c9) (prog-if 00 [VGA controller])
+
+
+[LOG] os-release:
+ANSI_COLOR="0;38;2;126;186;228"
+BUG_REPORT_URL="https://github.com/NixOS/nixpkgs/issues"
+BUILD_ID="25.05.20250424.f771eb4"
+CPE_NAME="cpe:/o:nixos:nixos:25.05"
+DEFAULT_HOSTNAME=nixos
+DOCUMENTATION_URL="https://nixos.org/learn.html"
+HOME_URL="https://nixos.org/"
+ID=nixos
+ID_LIKE=""
+IMAGE_ID=""
+IMAGE_VERSION=""
+LOGO="nix-snowflake"
+NAME=NixOS
+PRETTY_NAME="NixOS 25.05 (Warbler)"
+SUPPORT_URL="https://nixos.org/community.html"
+VARIANT=""
+VARIANT_ID=""
+VENDOR_NAME=NixOS
+VENDOR_URL="https://nixos.org/"
+VERSION="25.05 (Warbler)"
+VERSION_CODENAME=warbler
+VERSION_ID="25.05"
+[LOG] ========================
+
+
+
+[1;32m[INFO] If you are crashing, or encounter any bugs, please consult https://wiki.hyprland.org/Crashes-and-Bugs/
+
+[0m
+[LOG] 
+Current splash: Why is there code??? Make a damn .exe file and give it to me.
+
+
+[LOG] Old rlimit: soft -> 1024, hard -> 524288
+[LOG] New rlimit: soft -> 524288, hard -> 524288
+[LOG] Creating the EventLoopManager!
+[LOG] Creating the HookSystem!
+[LOG] Creating the KeybindManager!
+[LOG] Creating the AnimationManager!
+[LOG] Creating the ConfigManager!
+[LOG] Using config: /home/sas/.config/hypr/hyprland.conf
+[1;32m[INFO] !!!!HEY YOU, YES YOU!!!!: further logs to stdout / logfile are disabled by default. BEFORE SENDING THIS LOG, ENABLE THEM. Use debug:disable_logs = false to do so: https://wiki.hyprland.org/Configuring/Variables/#debug[0m
+[LOG] Creating the CHyprError!
+[LOG] Creating the LayoutManager!
+[LOG] Creating the TokenManager!
+[LOG] [hookSystem] New hook event registered: preConfigReload
+[LOG] Using config: /home/sas/.config/hypr/hyprland.conf
