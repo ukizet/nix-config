@@ -2,9 +2,10 @@
 let
  startupScript = pkgs.writeShellScriptBin "start" ''
    waybar & 
-   sww init &
+   swww init &
 
    sleep 1
+   swww img /home/sas/Pictures/dsr.jpg
  '';
 in
 {
@@ -28,7 +29,9 @@ in
       "$terminal" = "kitty";
       "$runner" = "rofi";
       "$explorer" = "dolphin";
-      "monitor" = ", preferred, auto, 1";
+      monitor = [
+        "DP-1, preferred, auto, 1"
+      ];
       bind =
         [
           "$mod ALT, h, movefocus, l"

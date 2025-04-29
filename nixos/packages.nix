@@ -78,6 +78,7 @@
       evolution
       sweet
       bitwarden # password manager
+      socat
     ])
 
     ++ 
