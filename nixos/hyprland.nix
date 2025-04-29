@@ -24,7 +24,7 @@ in
     enable = true;
     xwayland.enable = true;
     settings = {
-      debug:disable_logs" = "false";
+      "debug:disable_logs" = "false";
       "$mod" = "SUPER";
       "$browser" = "librewolf";
       "$terminal" = "kitty";
