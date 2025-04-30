@@ -37,6 +37,10 @@
       # messaging
       element-desktop
       telegram-desktop
+      paper-plane
+      kotatogram-desktop
+      materialgram
+      ayugram-desktop
       vesktop
       # coding
       wl-clipboard # neovim requiring this

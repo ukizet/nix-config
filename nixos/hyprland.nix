@@ -31,8 +31,7 @@ in
       "$runner" = "rofi";
       "$explorer" = "dolphin";
       monitor = [
-        "DP-1, 1920x1080@60, 0x0, 1"
-        "VGA-1, 1920x1080@60, 0x0, 1"
+        ", preferred, auto, 1"
       ];
       bind =
         [
