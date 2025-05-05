@@ -28,6 +28,7 @@
       "io.github.giantpinkrobots.flatsweep"
       "com.ktechpit.torrhunt"
       "io.frama.tractor.carburetor"
+      "org.videolan.VLC"
     ];
   };
 }

@@ -18,7 +18,6 @@
       wayland-utils
       vulkan-tools
       # media
-      vlc # music & video player
       mpv
       stremio # movies & anime & shows
       reaper # daw
@@ -39,9 +38,9 @@
       telegram-desktop
       paper-plane
       kotatogram-desktop
-      materialgram
       ayugram-desktop
       vesktop
+      signal-desktop
       # coding
       wl-clipboard # neovim requiring this
       vscodium-fhs
@@ -74,7 +73,7 @@
       # unsorted
       peazip
       gnome-boxes
-      qbittorrent-nox
+      qbittorrent-enhanced
       gpu-screen-recorder
       unzip
       rustdesk-flutter # remote desktop
