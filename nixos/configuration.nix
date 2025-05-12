@@ -11,6 +11,7 @@
     ./flatpak.nix
     ./programs.nix
     ./packages.nix
+    ./nextcloud.nix
   ];
 
   boot = {
@@ -100,7 +101,6 @@
   };
 
   hardware = {
-
     graphics = {
       enable = true;
       enable32Bit = true;

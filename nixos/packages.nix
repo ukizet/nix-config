@@ -81,7 +81,9 @@
       evolution
       sweet
       bitwarden # password manager
-      socat
+      jan
+      lmstudio
+      winetricks
     ])
 
     ++ 
