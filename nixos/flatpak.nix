@@ -29,6 +29,8 @@
       "com.ktechpit.torrhunt"
       "io.frama.tractor.carburetor"
       "org.videolan.VLC"
+      "io.gitlab.theevilskeleton.Upscaler"
+      "org.upscayl.Upscayl"
     ];
   };
 }

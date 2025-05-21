@@ -11,7 +11,7 @@
     ./flatpak.nix
     ./programs.nix
     ./packages.nix
-    ./nextcloud.nix
+    # ./nextcloud.nix
   ];
 
   boot = {

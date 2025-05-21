@@ -33,6 +33,7 @@
       shortwave # internet radio
       blender-hip # blender with amd support
       ani-cli # anime in terminal
+      spotube
       # messaging
       element-desktop
       telegram-desktop
@@ -53,7 +54,6 @@
       # notes related
       obsidian
       rclone # sync tool
-      qownnotes
       # games related
       lutris
       mangohud
@@ -78,12 +78,17 @@
       unzip
       rustdesk-flutter # remote desktop
       kdePackages.filelight
+      kdePackages.kaccounts-integration
+      kdePackages.kaccounts-providers
+      kdePackages.kdeconnect-kde
+      kdePackages.kweathercore
       evolution
       sweet
       bitwarden # password manager
       jan
       lmstudio
       winetricks
+      upscaler
     ])
 
     ++ 
