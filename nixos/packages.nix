@@ -47,7 +47,6 @@
       vscodium-fhs
       wget
       podman-compose
-      android-studio
       waydroid
       # browsers
       librewolf
@@ -68,8 +67,6 @@
       pkg-config
       minetestclient
       jdk23
-      # hyprland
-      libnotify
       # unsorted
       peazip
       gnome-boxes

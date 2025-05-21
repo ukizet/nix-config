@@ -1,4 +1,4 @@
-curl "https://raw.githubusercontent.com/ukizet/nix-config/ryzen-5/nixos/disk-config.nix" -o ~/disk-config.nix &&
+curl "https://raw.githubusercontent.com/ukizet/nix-config/ryzen-5/freshinstall/disk-config.nix" -o ~/disk-config.nix &&
 echo "Downloaded disk-config.nix..."
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ~/disk-config.nix
 echo "Disk was formatted..."

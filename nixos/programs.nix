@@ -7,7 +7,6 @@
       gamescopeSession.enable = true;
     };
     gamemode.enable = true;
-    nix-ld.enable = true;
     nh = {
       enable = true;
       clean.enable = true;
@@ -52,6 +51,5 @@
       };
     };
     zsh.enable = true;
-    hyprland.enable = true;
   };
 }

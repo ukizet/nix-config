@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./hyprland.nix
+    # ./hyprland.nix
   ];
 
   home = {

@@ -48,7 +48,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.sas = ./nixos/home.nix;
+              users.sas = ./nixos/home/home.nix;
             };
           }
           inputs.nvf.nixosModules.default

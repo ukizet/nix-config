@@ -55,7 +55,6 @@
     };
     xserver = {
       enable = true;
-      # Enable the GNOME Desktop Environment.
       videoDrivers = [ "amdgpu" ];
     };
     pipewire = {
@@ -73,8 +72,8 @@
     rtkit.enable = true;
   };
 
-  users = {
-    users.sas = {
+  users.users = {
+    sas = {
       isNormalUser = true;
       description = "sas";
       extraGroups = [
@@ -114,7 +113,6 @@
 
   virtualisation = {
     containers.enable = true;
-    docker.enable = true;
     podman = {
       enable = true;
 
