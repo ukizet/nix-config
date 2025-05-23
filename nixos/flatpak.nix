@@ -31,6 +31,11 @@
       "org.videolan.VLC"
       "io.gitlab.theevilskeleton.Upscaler"
       "org.upscayl.Upscayl"
+      "com.basemark.BasemarkGPU"
+      "io.github.ilya_zlobintsev.LACT"
+      "com.geeks3d.furmark"
+      "io.github.arunsivaramanneo.GPUViewer"
+      "com.dec05eba.gpu_screen_recorder"
     ];
   };
 }

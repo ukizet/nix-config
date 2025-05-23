@@ -51,7 +51,10 @@
       plasma6.enable = true;
     };
     displayManager = {
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
     };
     xserver = {
       enable = true;
@@ -72,8 +75,8 @@
     rtkit.enable = true;
   };
 
-  users.users = {
-    sas = {
+  users= {
+    users.sas = {
       isNormalUser = true;
       description = "sas";
       extraGroups = [
@@ -103,7 +106,13 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [ rocmPackages.clr.icd ];
+      extraPackages = with pkgs;[ 
+        rocmPackages.clr.icd
+        amdvlk
+      ];
+      extraPackages32 = with pkgs;[ 
+        driversi686Linux.amdvlk
+      ];
     };
     bluetooth = {
       enable = true;
@@ -126,6 +135,7 @@
     variables = {
       # enable opencl on polaris
       ROC_ENABLE_PRE_VEGA = "1";
+      AMD_VULKAN_ICD = "RADV";
     };
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

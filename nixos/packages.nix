@@ -56,7 +56,8 @@
       # games related
       lutris
       mangohud
-      wineWowPackages.stagingFull
+      wineWowPackages.stable
+      wineWowPackages.fonts
       wineasio
       steamcmd
       piper
@@ -71,14 +72,8 @@
       peazip
       gnome-boxes
       qbittorrent-enhanced
-      gpu-screen-recorder
       unzip
       rustdesk-flutter # remote desktop
-      kdePackages.filelight
-      kdePackages.kaccounts-integration
-      kdePackages.kaccounts-providers
-      kdePackages.kdeconnect-kde
-      kdePackages.kweathercore
       evolution
       sweet
       bitwarden # password manager
@@ -86,9 +81,21 @@
       lmstudio
       winetricks
       upscaler
+      devenv
     ])
 
     ++ 
+    
+    (with pkgs.kdePackages; [
+      filelight
+      kaccounts-integration
+      kaccounts-providers
+      kdeconnect-kde
+      kweathercore
+      kcalc
+    ])
+
+    ++
 
     (with pkgs-stable; [
       hello

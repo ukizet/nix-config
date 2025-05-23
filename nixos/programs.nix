@@ -48,8 +48,12 @@
             silent = true;
           }
         ];
+        utility.oil-nvim.enable = true;
       };
     };
     zsh.enable = true;
+    obs-studio = {
+      enable = true;
+    };
   };
 }

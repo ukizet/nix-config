@@ -2,6 +2,7 @@
 {
   imports = [
     # ./hyprland.nix
+    ./wineasio.nix
   ];
 
   home = {
@@ -10,6 +11,7 @@
     stateVersion = "23.11";
     sessionVariables = {
       XDG_CONFIG_HOME = "$HOME/.config";
+      testy = "mommy?";
     };
     # packages = with pkgs; [];
   };
@@ -59,9 +61,6 @@
         theme = "agnoster";
       };
       initContent = "tmux a || tmux";
-    };
-    alacritty = {
-      enable = true;
     };
     ghostty = {
       enable = true;
