@@ -2,7 +2,7 @@
 {
   imports = [
     # ./hyprland.nix
-    ./wineasio.nix
+    # ./wineasio.nix
   ];
 
   home = {
@@ -53,7 +53,7 @@
         sw = "nh os switch -- --impure";
         swup = "nh os boot -u -- --impure";
         dv = "devenv shell";
-        ys = "yabridgectl sync";
+        ys = "yabridgectl sync --prune";
         en = "cd ~/nix-config && nvim";
       };
       oh-my-zsh = {

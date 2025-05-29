@@ -25,9 +25,8 @@
     };
     packages = [
       "com.github.tchx84.Flatseal"
-      "io.github.giantpinkrobots.flatsweep"
+      "io.github.flattool.Warehouse"
       "com.ktechpit.torrhunt"
-      "io.frama.tractor.carburetor"
       "org.videolan.VLC"
       "io.gitlab.theevilskeleton.Upscaler"
       "org.upscayl.Upscayl"
@@ -36,6 +35,7 @@
       "com.geeks3d.furmark"
       "io.github.arunsivaramanneo.GPUViewer"
       "com.dec05eba.gpu_screen_recorder"
+      "com.usebottles.bottles"
     ];
   };
 }

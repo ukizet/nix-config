@@ -1,7 +1,9 @@
-{ pkgs, pkgs-stable, ... }:
-
 {
-  environment.systemPackages = 
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
+  environment.systemPackages =
     (with pkgs; [
       # nixos related
       nixfmt-rfc-style
@@ -83,10 +85,7 @@
       upscaler
       devenv
     ])
-
-    ++ 
-    
-    (with pkgs.kdePackages; [
+    ++ (with pkgs.kdePackages; [
       filelight
       kaccounts-integration
       kaccounts-providers
@@ -94,10 +93,7 @@
       kweathercore
       kcalc
     ])
-
-    ++
-
-    (with pkgs-stable; [
+    ++ (with pkgs-stable; [
       hello
     ]);
 }

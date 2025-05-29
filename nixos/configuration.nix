@@ -4,8 +4,7 @@
   pkgs-stable,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ./flatpak.nix
@@ -19,7 +18,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    initrd.kernelModules = [ "amdgpu" ];
+    initrd.kernelModules = ["amdgpu"];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -58,7 +57,7 @@
     };
     xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" ];
+      videoDrivers = ["amdgpu"];
     };
     pipewire = {
       enable = true;
@@ -75,7 +74,7 @@
     rtkit.enable = true;
   };
 
-  users= {
+  users = {
     users.sas = {
       isNormalUser = true;
       description = "sas";
@@ -106,14 +105,16 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs;[ 
+      extraPackages = with pkgs; [
         rocmPackages.clr.icd
         amdvlk
+        # ocl-icd
       ];
-      extraPackages32 = with pkgs;[ 
+      extraPackages32 = with pkgs; [
         driversi686Linux.amdvlk
       ];
     };
+    amdgpu.opencl.enable = true;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -141,9 +142,10 @@
       NIXOS_OZONE_WL = "1";
       NH_FLAKE = "/home/sas/nix-config";
       FLAKE = "/home/sas/nix-config";
+      # WINEPREFIX = "not defined. Install ableton somewhere first";
     };
   };
-   
+
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
@@ -151,14 +153,14 @@
   nix = {
     optimise = {
       automatic = true;
-      dates = [ "weekly" ];
+      dates = ["weekly"];
     };
     settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
     extraOptions = ''
-        trusted-users = root sas
+      trusted-users = root sas
     '';
   };
   system.stateVersion = "23.05";
