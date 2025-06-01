@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     # ./hyprland.nix
     # ./wineasio.nix
@@ -60,7 +63,10 @@
         enable = true;
         theme = "agnoster";
       };
-      initContent = "tmux a || tmux";
+      initContent = ''
+        bindkey -v
+        tmux a || tmux
+      '';
     };
     ghostty = {
       enable = true;

@@ -38,15 +38,13 @@
       spotube
       # messaging
       element-desktop
-      telegram-desktop
-      paper-plane
-      kotatogram-desktop
       ayugram-desktop
       vesktop
       signal-desktop
       # coding
       wl-clipboard # neovim requiring this
       vscodium-fhs
+      zed-editor
       wget
       podman-compose
       waydroid
@@ -79,8 +77,6 @@
       evolution
       sweet
       bitwarden # password manager
-      jan
-      lmstudio
       winetricks
       upscaler
       devenv
@@ -95,5 +91,8 @@
     ])
     ++ (with pkgs-stable; [
       hello
+      # llm
+      jan
+      lmstudio
     ]);
 }
