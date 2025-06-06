@@ -1,10 +1,21 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs = {
     steam = {
       enable = true;
       gamescopeSession.enable = true;
+      protontricks.enable = true;
+      remotePlay.openFirewall = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+      extraPackages = with pkgs; [
+        steamtinkerlaunch
+      ];
     };
     gamemode.enable = true;
     nh = {
@@ -59,10 +70,10 @@
         utility.oil-nvim.enable = true;
         keymaps = [
           {
-            key    = "<leader>e";               
-            mode   = ["n"];                     
-            action = "<cmd>Oil<CR>"; 
-            desc   = "Toggle Oil (explorer)";         
+            key = "<leader>e";
+            mode = ["n"];
+            action = "<cmd>Oil<CR>";
+            desc = "Toggle Oil (explorer)";
             silent = true;
           }
         ];

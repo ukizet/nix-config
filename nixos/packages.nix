@@ -45,13 +45,14 @@
       wl-clipboard # neovim requiring this
       vscodium-fhs
       zed-editor
+      code-cursor
       wget
       podman-compose
       waydroid
       # browsers
       librewolf
+      tor-browser
       # notes related
-      obsidian
       rclone # sync tool
       # games related
       lutris
@@ -94,5 +95,6 @@
       # llm
       jan
       lmstudio
+      obsidian
     ]);
 }

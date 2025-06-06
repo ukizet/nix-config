@@ -15,7 +15,13 @@
 
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot.enable = false;
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        # efiInstallAsRemovable = true;
+      };
       efi.canTouchEfiVariables = true;
     };
     initrd.kernelModules = ["amdgpu"];

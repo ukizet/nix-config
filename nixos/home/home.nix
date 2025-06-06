@@ -48,8 +48,9 @@
         scmd = "steamcmd";
         rclientbisync = "
           cd ~/Documents/Vault &&
-          gcam \"date +'%Y-%m-%d %H:%M:%S'\" &&
-          gpush &&
+          gpull ;
+          gcam \"date +'%Y-%m-%d %H:%M:%S'\" ;
+          gpush ;
           ~/Documents/repos/rclone_scripts/rclient.sh bisync
         ";
         hm = "home-manager switch --flake $FLAKE";

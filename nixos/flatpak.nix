@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   services.flatpak = {
     enable = true;
     update.auto = {
@@ -28,8 +31,8 @@
       "io.github.flattool.Warehouse"
       "com.ktechpit.torrhunt"
       "org.videolan.VLC"
-      "io.gitlab.theevilskeleton.Upscaler"
-      "org.upscayl.Upscayl"
+      # "io.gitlab.theevilskeleton.Upscaler"
+      # "org.upscayl.Upscayl"
       "com.basemark.BasemarkGPU"
       "io.github.ilya_zlobintsev.LACT"
       "com.geeks3d.furmark"
