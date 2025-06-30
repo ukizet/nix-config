@@ -81,6 +81,7 @@
       winetricks
       upscaler
       devenv
+      obsidian
     ])
     ++ (with pkgs.kdePackages; [
       filelight
@@ -95,6 +96,5 @@
       # llm
       jan
       lmstudio
-      obsidian
     ]);
 }
