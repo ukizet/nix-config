@@ -12,51 +12,55 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      nixpkgs-stable,
-      home-manager,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-      lib = nixpkgs.lib;
-      pkgs = (import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-          permittedInsecurePackages = [
-            "archiver-3.5.1"
-          ];
-        };
-      });
-      pkgs-stable = (import nixpkgs-stable {
-        inherit system;
-        config = pkgs.config;
-      });
-    in {
-      nixosConfigurations.nixos = lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./nixos/configuration.nix
-          inputs.nix-flatpak.nixosModules.nix-flatpak
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.sas = ./nixos/home/home.nix;
-            };
-          }
-          inputs.nvf.nixosModules.default
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    ...
+  }: let
+    system = "x86_64-linux";
+    lib = nixpkgs.lib;
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [
+        (final: prev: {
+          python3 = prev.python312; # Переключаемся на Python 3.12
+          python3Packages = prev.python312Packages;
+        })
+      ];
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+        permittedInsecurePackages = [
+          "archiver-3.5.1"
         ];
-        specialArgs = {
-          inherit pkgs;
-          inherit pkgs-stable;
-        };
       };
     };
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config = pkgs.config;
+    };
+  in {
+    nixosConfigurations.nixos = lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./nixos/configuration.nix
+        inputs.nix-flatpak.nixosModules.nix-flatpak
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.sas = ./nixos/home/home.nix;
+          };
+        }
+        inputs.nvf.nixosModules.default
+      ];
+      specialArgs = {
+        inherit pkgs;
+        inherit pkgs-stable;
+      };
+    };
+  };
 }

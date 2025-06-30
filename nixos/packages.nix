@@ -51,6 +51,7 @@
       waydroid
       # browsers
       librewolf
+      ungoogled-chromium
       tor-browser
       # notes related
       rclone # sync tool
@@ -61,14 +62,14 @@
       wineWowPackages.fonts
       wineasio
       steamcmd
-      piper
-      libratbag
+      piper # some shit for mouse
+      libratbag # some shit for mouse
       protonup-qt
       antimicrox
       protontricks
       pkg-config
       minetestclient
-      jdk23
+      jdk23 # for minecraft
       # unsorted
       peazip
       gnome-boxes
