@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -23,18 +23,12 @@
     lib = nixpkgs.lib;
     pkgs = import nixpkgs {
       inherit system;
-      overlays = [
-        (final: prev: {
-          python3 = prev.python312; # Переключаемся на Python 3.12
-          python3Packages = prev.python312Packages;
-        })
-      ];
       config = {
         allowUnfree = true;
-        allowUnfreePredicate = _: true;
-        permittedInsecurePackages = [
-          "archiver-3.5.1"
-        ];
+        allowUnfreePredicate = true;
+        #permittedInsecurePackages = [
+        #"archiver-3.5.1"
+        #];
       };
     };
     pkgs-stable = import nixpkgs-stable {
@@ -47,14 +41,6 @@
       modules = [
         ./nixos/configuration.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.sas = ./nixos/home/home.nix;
-          };
-        }
         inputs.nvf.nixosModules.default
       ];
       specialArgs = {

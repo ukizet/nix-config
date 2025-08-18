@@ -83,6 +83,8 @@
       upscaler
       devenv
       obsidian
+      hardinfo2
+      morgen
     ])
     ++ (with pkgs.kdePackages; [
       filelight
@@ -91,6 +93,11 @@
       kdeconnect-kde
       kweathercore
       kcalc
+      kolourpaint
+      ksystemlog
+      sddm-kcm
+      partitionmanager
+      isoimagewriter
     ])
     ++ (with pkgs-stable; [
       hello

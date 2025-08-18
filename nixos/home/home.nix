@@ -48,14 +48,20 @@
         scmd = "steamcmd";
         rclientbisync = "
           cd ~/Documents/Vault &&
-          gpull ;
-          gcam \"date +'%Y-%m-%d %H:%M:%S'\" ;
-          gpush ;
           ~/Documents/repos/rclone_scripts/rclient.sh bisync
         ";
         hm = "home-manager switch --flake $FLAKE";
-        sw = "nh os switch -- --impure";
-        swup = "nh os boot -u -- --impure";
+        sw = "nh os switch";
+        oldsw = "
+          cd ~/nix-config/ &&
+          sudo nixos-rebuild boot --flake .
+        ";
+        oldup = "
+          cd ~/nix-config/ &&
+          nix flake update &&
+          sudo nixos-rebuild boot --flake .
+        ";
+        up = "nh os boot -u";
         dv = "devenv shell";
         ys = "yabridgectl sync --prune";
         en = "cd ~/nix-config && nvim";
@@ -66,7 +72,7 @@
       };
       initContent = ''
         bindkey -v
-        tmux a || tmux
+        tmux
       '';
     };
     ghostty = {

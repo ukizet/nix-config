@@ -15,13 +15,14 @@
 
   boot = {
     loader = {
-      systemd-boot.enable = false;
-      grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-        # efiInstallAsRemovable = true;
-      };
+      systemd-boot.enable = true;
+      # grub = {
+      # enable = true;
+      # efiSupport = true;
+      # device = "nodev";
+      ## efiInstallAsRemovable = true;
+      # useOSProber = true;
+      # };
       efi.canTouchEfiVariables = true;
     };
     initrd.kernelModules = ["amdgpu"];
@@ -161,10 +162,14 @@
       automatic = true;
       dates = ["weekly"];
     };
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      cores = 6;
+      max-jobs = 2;
+    };
     extraOptions = ''
       trusted-users = root sas
     '';
