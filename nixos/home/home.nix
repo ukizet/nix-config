@@ -14,7 +14,6 @@
     stateVersion = "23.11";
     sessionVariables = {
       XDG_CONFIG_HOME = "$HOME/.config";
-      testy = "mommy?";
     };
     # packages = with pkgs; [];
   };
