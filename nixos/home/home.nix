@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    # ./hyprland.nix
+    ./hyprland.nix
     # ./wineasio.nix
   ];
 
