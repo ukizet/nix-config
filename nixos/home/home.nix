@@ -4,19 +4,18 @@
   ...
 }: {
   imports = [
-    # ./hyprland.nix
+    ./hyprland.nix
     # ./wineasio.nix
   ];
 
   home = {
     username = "sas";
     homeDirectory = "/home/sas";
-    stateVersion = "23.11";
-    sessionVariables = {
-      XDG_CONFIG_HOME = "$HOME/.config";
-      testy = "mommy?";
-    };
-    # packages = with pkgs; [];
+    stateVersion = "25.05";
+  };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
   programs = {
     git = {

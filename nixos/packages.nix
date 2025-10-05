@@ -14,26 +14,9 @@
       resources
       htop
       xorg.xwininfo
-      clinfo
-      mesa
-      mesa-demos
-      wayland-utils
-      vulkan-tools
       # media
       mpv
       stremio # movies & anime & shows
-      reaper # daw
-      zrythm # daw
-      lmms # open source daw
-      yabridge
-      yabridgectl
-      alsa-lib
-      clap
-      samplv1
-      parabolic # download media from youtube
-      localsend # files sharing
-      shortwave # internet radio
-      blender-hip # blender with amd support
       ani-cli # anime in terminal
       spotube
       # messaging
@@ -49,10 +32,10 @@
       wget
       podman-compose
       waydroid
+      ghostty
       # browsers
       librewolf
-      ungoogled-chromium
-      tor-browser
+      surf
       # notes related
       rclone # sync tool
       # games related
@@ -60,7 +43,6 @@
       mangohud
       wineWowPackages.stable
       wineWowPackages.fonts
-      wineasio
       steamcmd
       piper # some shit for mouse
       libratbag # some shit for mouse
@@ -69,40 +51,19 @@
       protontricks
       pkg-config
       minetestclient
-      jdk23 # for minecraft
       # unsorted
       peazip
-      gnome-boxes
       qbittorrent-enhanced
       unzip
       rustdesk-flutter # remote desktop
-      evolution
       sweet
       bitwarden # password manager
       winetricks
-      upscaler
       devenv
       obsidian
       hardinfo2
-      morgen
-    ])
-    ++ (with pkgs.kdePackages; [
-      filelight
-      kaccounts-integration
-      kaccounts-providers
-      kdeconnect-kde
-      kweathercore
-      kcalc
-      kolourpaint
-      ksystemlog
-      sddm-kcm
-      partitionmanager
-      isoimagewriter
     ])
     ++ (with pkgs-stable; [
       hello
-      # llm
-      jan
-      lmstudio
     ]);
 }

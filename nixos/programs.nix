@@ -3,6 +3,7 @@
     ./nvf.nix
   ];
   programs = {
+    hyprland.enable = true;
     steam = {
       enable = true;
       gamescopeSession.enable = true;

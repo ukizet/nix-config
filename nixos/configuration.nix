@@ -27,6 +27,7 @@
     };
     initrd.kernelModules = ["amdgpu"];
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = ["psmouse.synaptics_intertouch=0"];
   };
 
   networking = {
@@ -34,7 +35,7 @@
     networkmanager.enable = true;
   };
 
-  time.timeZone = "Europe/Kyiv";
+  time.timeZone = "Europe/Oslo";
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -52,6 +53,7 @@
   };
 
   services = {
+    blueman.enable = true;
     pulseaudio.enable = false;
     desktopManager = {
       plasma6.enable = true;
@@ -112,16 +114,7 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        rocmPackages.clr.icd
-        amdvlk
-        # ocl-icd
-      ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-      ];
     };
-    amdgpu.opencl.enable = true;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -167,7 +160,7 @@
         "nix-command"
         "flakes"
       ];
-      cores = 6;
+      cores = 4;
       max-jobs = 2;
     };
     extraOptions = ''
