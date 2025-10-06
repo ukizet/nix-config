@@ -6,29 +6,19 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
+    ./audio.nix
+    ./bluetooth.nix
+    ./boot.nix
     ./flatpak.nix
-    ./programs.nix
+    ./graphics.nix
+    ./hardware-configuration.nix
+    ./kde.nix
     ./packages.nix
+    ./programs.nix
+    ./variables.nix
+    ./virtualisation.nix
     # ./nextcloud.nix
   ];
-
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      # grub = {
-      # enable = true;
-      # efiSupport = true;
-      # device = "nodev";
-      ## efiInstallAsRemovable = true;
-      # useOSProber = true;
-      # };
-      efi.canTouchEfiVariables = true;
-    };
-    initrd.kernelModules = ["amdgpu"];
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["psmouse.synaptics_intertouch=0"];
-  };
 
   networking = {
     hostName = "nixos"; # Define your hostname.
@@ -52,33 +42,6 @@
     };
   };
 
-  services = {
-    blueman.enable = true;
-    pulseaudio.enable = false;
-    desktopManager = {
-      plasma6.enable = true;
-    };
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-    };
-    xserver = {
-      enable = true;
-      videoDrivers = ["amdgpu"];
-    };
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse.enable = true;
-      jack.enable = true;
-    };
-  };
-
   security = {
     rtkit.enable = true;
   };
@@ -99,51 +62,10 @@
     defaultUserShell = pkgs.zsh;
   };
 
-  systemd = {
-    tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
-    services = {
-      "getty@tty1".enable = false;
-      "autovt@tty1".enable = false;
-      "ratbagd".enable = true;
-    };
-  };
-
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-  };
-
-  virtualisation = {
-    containers.enable = true;
-    podman = {
-      enable = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    waydroid.enable = true;
-  };
-
-  environment = {
-    variables = {
-      # enable opencl on polaris
-      ROC_ENABLE_PRE_VEGA = "1";
-      AMD_VULKAN_ICD = "RADV";
-    };
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      NH_FLAKE = "/home/sas/nix-config";
-      FLAKE = "/home/sas/nix-config";
-      # WINEPREFIX = "not defined. Install ableton somewhere first";
-    };
+  systemd.services = {
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
+    "ratbagd".enable = true;
   };
 
   fonts.packages = with pkgs; [

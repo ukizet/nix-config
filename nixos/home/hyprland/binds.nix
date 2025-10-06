@@ -1,5 +1,13 @@
 {pkgs, ...}: {
   wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    "$browser" = "librewolf";
+    "$terminal" = "ghostty";
+    "$runner" = "rofi";
+    "$explorer" = "dolphin";
+    "$network" = "ghostty -e nmtui";
+    "$bar" = "pkill waybar; waybar";
+    "$anime" = "ghostty -e ani-cli";
     bind =
       [
         "$mod ALT, h, movefocus, l"
@@ -7,6 +15,7 @@
         "$mod ALT, k, movefocus, u"
         "$mod ALT, j, movefocus, d"
         "$mod, B, exec, $browser"
+        "$mod ALT, B, exec, $bar"
         "$mod, T, exec, $terminal"
         "$mod, E, exec, $explorer"
         "$mod, S, exec, $runner -show drun -show-icons"
@@ -16,6 +25,7 @@
         "$mod, V, togglefloating"
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
+        "$mod, A, exec, $anime"
         ",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
         ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
         ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -23,8 +33,6 @@
         ",XF86MonBrightnessUp, exec, brightnessctl set +5%"
       ]
       ++ (
-        # workspaces
-        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
         builtins.concatLists (builtins.genList (
             i: let
               ws = i + 1;

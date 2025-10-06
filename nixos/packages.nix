@@ -19,6 +19,7 @@
       stremio # movies & anime & shows
       ani-cli # anime in terminal
       spotube
+      vlc
       # messaging
       element-desktop
       ayugram-desktop
@@ -34,7 +35,6 @@
       waydroid
       ghostty
       # browsers
-      librewolf
       surf
       # notes related
       rclone # sync tool

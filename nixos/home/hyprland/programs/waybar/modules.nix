@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   programs.waybar.settings.mainBar = {
+    # Modules
     "hyprland/workspaces" = {
       disable-scroll = true;
       all-outputs = true;
@@ -32,7 +33,7 @@
     };
     "network" = {
       format = "{ifname}";
-      format-wifi = " {signalStrength}%";
+      format-wifi = "   {signalStrength}%";
       format-ethernet = "{ipaddr}/{cidr} 󰊗";
       format-disconnected = "";
       tooltip-format = "{ifname} via {gwaddr} 󰊗";
@@ -40,7 +41,7 @@
       tooltip-format-ethernet = " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}";
       tooltip-format-disconnected = "Disconnected";
       max-length = 50;
-      on-click = "nmtui-connect";
+      on-click = "ghostty -e nmtui";
     };
     "backlight/slider" = {
       min = 10;
@@ -48,14 +49,14 @@
       orientation = "horizontal";
     };
     "power-profiles-daemon" = {
-      format = "{icon} {profile}";
+      format = "{icon}  {profile}";
       tooltip-format = "Power profile: {profile}\nDriver: {driver}";
       tooltip = true;
       format-icons = {
-        default = "";
-        performance = "";
-        balanced = "";
-        power-saver = "";
+        default = " ";
+        performance = " ";
+        balanced = " ";
+        power-saver = " ";
       };
     };
     "gamemode" = {
@@ -75,7 +76,7 @@
       format-bluetooth = "{volume}% {icon}";
       format-muted = "";
       format-icons = {
-        "alsa_output.pci-0000_00_1f.3.analog-stereo" = "";
+        "alsa_output.pci-0000_00_1f.3.analog-stereo" = "";
         "alsa_output.pci-0000_00_1f.3.analog-stereo-muted" = "";
         headphone = "";
         "hands-free" = "";

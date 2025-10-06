@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    sleep 1
+    sleep 5
 
     waybar &
     swww init &
@@ -21,12 +21,6 @@ in {
     xwayland.enable = true;
     settings = {
       "debug:disable_logs" = "false";
-      "$mod" = "SUPER";
-      "$browser" = "librewolf";
-      "$terminal" = "ghostty";
-      "$runner" = "rofi";
-      "$explorer" = "dolphin";
-      "$network" = "nmtui-connect";
       monitor = [
         ", preferred, auto, 1"
       ];

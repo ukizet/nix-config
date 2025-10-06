@@ -18,6 +18,12 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
   programs = {
+    librewolf = {
+      enable = true;
+      settings = {
+        "privacy.resistFingerprinting" = false;
+      };
+    };
     git = {
       enable = true;
       userName = "ukizet";
@@ -71,12 +77,16 @@
       };
       initContent = ''
         bindkey -v
-        tmux
       '';
     };
     ghostty = {
       enable = true;
       enableZshIntegration = true;
+      installVimSyntax = true;
+      settings = {
+        theme = "catppuccin-mocha";
+        font-size = 18;
+      };
     };
     tmux = {
       enable = true;
