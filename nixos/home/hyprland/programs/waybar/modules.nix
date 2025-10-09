@@ -6,8 +6,8 @@
       all-outputs = true;
     };
     "mpris" = {
-      format = "DEFAULT: {player_icon} {dynamic}";
-      format-paused = "DEFAULT: {status_icon} <i>{dynamic}</i>";
+      format = "{player_icon} {dynamic}";
+      format-paused = "{status_icon} <i>{dynamic}</i>";
       player-icons = {
         default = "▶";
         mpv = "🎵";
@@ -100,6 +100,12 @@
     "temperature" = {
       thermal-zone = 5;
       format = "{temperatureC}°C ";
+    };
+    "custom/exit" = {
+      format = " ";
+      on-click = "wlogout";
+      on-click-right = "hyprlock";
+      tooltip-format = "Left: Power menu\nRight: Lock screen";
     };
   };
 }

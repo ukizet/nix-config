@@ -10,6 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yt-x = {
+      url = "github:Benexl/yt-x";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -17,6 +25,7 @@
     nixpkgs,
     nixpkgs-stable,
     home-manager,
+    nur,
     ...
   }: let
     system = "x86_64-linux";
@@ -27,6 +36,7 @@
         allowUnfree = true;
         allowUnfreePredicate = true;
       };
+      overlays = [nur.overlays.default];
     }; # just conifguration of pkgs (unstable) to allowUnfree
     pkgs-stable = import nixpkgs-stable {
       inherit system;
@@ -48,10 +58,15 @@
         }
         inputs.nix-flatpak.nixosModules.nix-flatpak
         inputs.nvf.nixosModules.default
+        # Adds the NUR overlay
+        nur.modules.nixos.default
+        # NUR modules to import
+        nur.legacyPackages."${system}".repos.iopq.modules.xraya
       ];
       specialArgs = {
         inherit pkgs;
         inherit pkgs-stable;
+        inherit inputs;
       };
     };
   };

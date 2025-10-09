@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    playerctl
     waybar-mpris
     brightnessctl
     pavucontrol
@@ -10,5 +11,7 @@
     dunst
     libnotify
     wev
+    grimblast
+    wlogout
   ];
 }

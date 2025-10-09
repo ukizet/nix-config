@@ -20,6 +20,10 @@
     # ./nextcloud.nix
   ];
 
+  # laptop related settings
+  powerManagement.enable = true;
+  services.thermald.enable = true;
+
   networking = {
     hostName = "nixos"; # Define your hostname.
     networkmanager.enable = true;
@@ -71,6 +75,12 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
+      inherit pkgs;
+    };
+  };
 
   nix = {
     optimise = {

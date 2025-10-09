@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-stable,
+  inputs,
   ...
 }: {
   environment.systemPackages =
@@ -15,16 +16,18 @@
       htop
       xorg.xwininfo
       # media
-      mpv
+      mpv # media player
       stremio # movies & anime & shows
       ani-cli # anime in terminal
       spotube
-      vlc
+      vlc # media player
+      pqiv # image viewer
       # messaging
       element-desktop
       ayugram-desktop
       vesktop
       signal-desktop
+      tmpmail
       # coding
       wl-clipboard # neovim requiring this
       vscodium-fhs
@@ -59,9 +62,12 @@
       sweet
       bitwarden # password manager
       winetricks
-      devenv
-      obsidian
+      devenv # dev environment
+      obsidian # notes
       hardinfo2
+      astroterm # stars
+      inputs.yt-x.packages."${system}".default # youtube in terminal
+      duf # disk usage util
     ])
     ++ (with pkgs-stable; [
       hello

@@ -7,6 +7,7 @@
 
     sleep 1
 
+    swww img "~/Pictures/wallpaper.png"
   '';
 in {
   imports = [
@@ -14,6 +15,7 @@ in {
     ./services.nix
     ./packages.nix
     ./binds.nix
+    ./looks.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -24,6 +26,14 @@ in {
       monitor = [
         ", preferred, auto, 1"
       ];
+      input = {
+        kb_layout = "us, ru";
+        kb_options = "grp:win_space_toggle";
+      };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
+      };
       exec-once = ''${startupScript}/bin/start'';
     };
   };

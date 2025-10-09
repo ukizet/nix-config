@@ -10,6 +10,8 @@
     mpd = {
       enable = true;
       musicDirectory = "true";
+      network.startWhenNeeded = true;
     };
+    playerctld.enable = true;
   };
 }
