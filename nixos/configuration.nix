@@ -70,28 +70,6 @@
     };
   };
 
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-  };
-
-  virtualisation = {
-    containers.enable = true;
-    podman = {
-      enable = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    # waydroid.enable = true;
-  };
-
   environment = {
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

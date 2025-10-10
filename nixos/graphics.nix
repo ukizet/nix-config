@@ -1,21 +1,8 @@
 {pkgs, ...}: {
-  services = {
-    xserver = {
-      enable = true;
-      # videoDrivers = ["amdgpu"];
-    };
-  };
+  services.xserver.enable = true;
 
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-  };
-
-  systemd = {
-    tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 }

@@ -5,6 +5,5 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["psmouse.synaptics_intertouch=0"];
   };
 }

@@ -36,7 +36,6 @@
       wget
       podman-compose
       waydroid
-      ghostty
       # browsers
       # notes related
       rclone # sync tool

@@ -23,9 +23,5 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/sas/nix-config";
     };
-    zsh.enable = true;
-    obs-studio = {
-      enable = true;
-    };
   };
 }
