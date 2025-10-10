@@ -29,6 +29,9 @@ in {
       input = {
         kb_layout = "us, ru";
         kb_options = "grp:win_space_toggle";
+        sensitivity = 0;
+        accel_profile = "flat";
+        follow_mouse = 1;
       };
       gestures = {
         workspace_swipe = true;

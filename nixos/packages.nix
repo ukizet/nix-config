@@ -24,8 +24,8 @@
       pqiv # image viewer
       # messaging
       element-desktop
-      ayugram-desktop
-      vesktop
+      ayugram-desktop # telegram client
+      vesktop # discord client
       signal-desktop
       tmpmail
       # coding
@@ -42,7 +42,6 @@
       # notes related
       rclone # sync tool
       # games related
-      lutris
       mangohud
       wineWowPackages.stable
       wineWowPackages.fonts
@@ -71,5 +70,7 @@
     ])
     ++ (with pkgs-stable; [
       hello
+      lutris
+      # gamescope
     ]);
 }

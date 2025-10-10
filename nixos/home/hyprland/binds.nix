@@ -9,6 +9,9 @@
     "$network" = "ghostty -e nmtui";
     "$bar" = "pkill waybar; waybar";
     "$anime" = "ghostty -e ani-cli";
+    "$task-manager" = "ghostty -e htop";
+    "$discord" = "vesktop";
+    "$telegram" = "ayugram-desktop";
     bind =
       [
         "$mod ALT, h, movefocus, l"
@@ -18,6 +21,7 @@
         "$mod, B, exec, $browser"
         "$mod ALT, B, exec, $bar"
         "$mod, T, exec, $terminal"
+        "$mod ALT, T, exec, $discord"
         "$mod, E, exec, $explorer"
         "$mod, S, exec, $runner -show drun -show-icons"
         "$mod, N, exec, $network"
@@ -27,6 +31,8 @@
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
         "$mod, A, exec, $anime"
+        "$mod, H, exec, $task-manager"
+        "$mod, D, exec, $discord"
         ",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
         ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
         ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
