@@ -46,10 +46,6 @@
     };
   };
 
-  security = {
-    rtkit.enable = true;
-  };
-
   users = {
     users.sas = {
       isNormalUser = true;
@@ -66,10 +62,42 @@
     defaultUserShell = pkgs.zsh;
   };
 
-  systemd.services = {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-    "ratbagd".enable = true;
+  systemd = {
+    services = {
+      "getty@tty1".enable = false;
+      "autovt@tty1".enable = false;
+      "ratbagd".enable = true;
+    };
+  };
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
+
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    # waydroid.enable = true;
+  };
+
+  environment = {
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      NH_FLAKE = "/home/sas/nix-config";
+      FLAKE = "/home/sas/nix-config";
+    };
   };
 
   fonts.packages = with pkgs; [

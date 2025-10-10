@@ -38,7 +38,6 @@
       waydroid
       ghostty
       # browsers
-      surf
       # notes related
       rclone # sync tool
       # games related
@@ -71,6 +70,6 @@
     ++ (with pkgs-stable; [
       hello
       lutris
-      # gamescope
+      gamescope
     ]);
 }
