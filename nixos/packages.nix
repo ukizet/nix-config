@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-stable,
+  inputs,
   ...
 }: {
   environment.systemPackages =
@@ -15,15 +16,18 @@
       htop
       xorg.xwininfo
       # media
-      mpv
+      mpv # media player
       stremio # movies & anime & shows
       ani-cli # anime in terminal
       spotube
+      vlc # media player
+      pqiv # image viewer
       # messaging
       element-desktop
-      ayugram-desktop
-      vesktop
+      ayugram-desktop # telegram client
+      vesktop # discord client
       signal-desktop
+      tmpmail
       # coding
       wl-clipboard # neovim requiring this
       vscodium-fhs
@@ -32,12 +36,11 @@
       wget
       podman-compose
       waydroid
+      ghostty
       # browsers
-      librewolf
       # notes related
       rclone # sync tool
       # games related
-      lutris
       mangohud
       wineWowPackages.stable
       wineWowPackages.fonts
@@ -57,11 +60,16 @@
       sweet
       bitwarden # password manager
       winetricks
-      devenv
-      obsidian
+      devenv # dev environment
+      obsidian # notes
       hardinfo2
+      astroterm # stars
+      inputs.yt-x.packages."${system}".default # youtube in terminal
+      duf # disk usage util
     ])
     ++ (with pkgs-stable; [
       hello
+      lutris
+      gamescope
     ]);
 }

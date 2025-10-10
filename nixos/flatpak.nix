@@ -30,7 +30,6 @@
       "com.github.tchx84.Flatseal"
       "io.github.flattool.Warehouse"
       "com.ktechpit.torrhunt"
-      "org.videolan.VLC"
       "com.basemark.BasemarkGPU"
       "io.github.ilya_zlobintsev.LACT"
       "com.geeks3d.furmark"

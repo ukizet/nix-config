@@ -10,6 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yt-x = {
+      url = "github:Benexl/yt-x";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -17,35 +25,48 @@
     nixpkgs,
     nixpkgs-stable,
     home-manager,
+    nur,
     ...
   }: let
     system = "x86_64-linux";
-    lib = nixpkgs.lib;
+    lib = nixpkgs.lib; # like some shortcut for lib
     pkgs = import nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
         allowUnfreePredicate = true;
-        #permittedInsecurePackages = [
-        #"archiver-3.5.1"
-        #];
       };
-    };
+      overlays = [nur.overlays.default];
+    }; # just conifguration of pkgs (unstable) to allowUnfree
     pkgs-stable = import nixpkgs-stable {
       inherit system;
       config = pkgs.config;
-    };
+    }; # just conifguration of pkgs to allowUnfree
   in {
     nixosConfigurations.nixos = lib.nixosSystem {
       inherit system;
       modules = [
         ./nixos/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.sas = import ./nixos/home/home.nix;
+          home-manager.backupFileExtension = "backup";
+
+          # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+        }
         inputs.nix-flatpak.nixosModules.nix-flatpak
         inputs.nvf.nixosModules.default
+        # Adds the NUR overlay
+        nur.modules.nixos.default
+        # NUR modules to import
+        nur.legacyPackages."${system}".repos.iopq.modules.xraya
       ];
       specialArgs = {
         inherit pkgs;
         inherit pkgs-stable;
+        inherit inputs;
       };
     };
   };
