@@ -49,10 +49,12 @@
         ./nixos/configuration.nix
         home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.sas = import ./nixos/home/home.nix;
-          home-manager.backupFileExtension = "backup";
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.sas = import ./home/home.nix;
+            backupFileExtension = "backup";
+          };
 
           # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
         }

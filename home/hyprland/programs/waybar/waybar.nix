@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./modules.nix
   ];
   programs.waybar = {
     enable = true;
+    style = builtins.readFile ./style.css;
     settings.mainBar = {
       layer = "top";
       position = "top";

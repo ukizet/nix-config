@@ -21,7 +21,7 @@
         "$mod, B, exec, $browser"
         "$mod ALT, B, exec, $bar"
         "$mod, T, exec, $terminal"
-        "$mod ALT, T, exec, $discord"
+        "$mod ALT, T, exec, $telegram"
         "$mod, E, exec, $explorer"
         "$mod, S, exec, $runner -show drun -show-icons"
         "$mod, N, exec, $network"

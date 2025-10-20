@@ -32,6 +32,7 @@ in {
         sensitivity = 0;
         accel_profile = "flat";
         follow_mouse = 1;
+        touchpad.disable_while_typing = false;
       };
       gestures = {
         workspace_swipe = true;
