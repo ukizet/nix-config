@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    sleep 5
+    sleep 1
 
     waybar &
     swww init &

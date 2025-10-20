@@ -1,81 +1,105 @@
+/* === Catppuccin Mocha Theme (GTK-compatible) === */
+@define-color bg-main rgba(24, 24, 37, 0.6); /* surface0 + transparency */
+@define-color bg-active #313244; /* surface1 */
+@define-color fg-normal #cdd6f4; /* text */
+@define-color fg-muted #a6adc8; /* subtext0 */
+@define-color fg-accent #f9e2af; /* yellow */
+@define-color fg-danger #f38ba8; /* red */
+@define-color fg-spotify #a6e3a1; /* green accent */
+
+/* === Base === */
 * {
   border: none;
   border-radius: 13px;
-  font-family: "Dejavu", mono;
+  font-family: "Dejavu Sans Mono", monospace;
   font-size: 15px;
+  color: @fg-normal;
+  transition: 200ms ease-in-out;
 }
 
+/* === Waybar Window === */
 window#waybar {
-  background: transparent;
-  color: #ebdbb3;
+  background: @bg-main;
+  color: @fg-normal;
 }
 
+/* === Module Containers === */
 .modules-left,
 .modules-center,
 .modules-right {
-  background: #4c3836;
-  border-radius: 13px;
-  padding: 1 8px;
+  background: transparent;
+  padding: 1px 8px;
   margin: 5px 4px 0 4px;
+  border-radius: 13px;
 }
 
+/* === Generic Modules === */
+label.module,
+#custom-spotify,
 #workspaces button {
-  padding: 0 5px;
   background: transparent;
-  color: #a89985;
+  padding: 0 10px;
+}
+
+/* Hover underline effect */
+label.module {
+  box-shadow: inset 0 -2px transparent;
+}
+label.module:hover {
+  box-shadow: inset 0 -2px @fg-accent;
+}
+
+/* === Workspaces === */
+#workspaces button {
+  color: @fg-muted;
   border-radius: 13px;
-  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-  background: #504946;
-  color: #d79922;
+  background: @bg-active;
+  color: @fg-accent;
   min-width: 34px;
-  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
-  color: #cc242d;
+  color: @fg-danger;
 }
 
+/* === Custom Modules === */
 #custom-appmenuicon {
   font-size: 23px;
-  color: #d79922;
-  padding: 1 20 1 0px;
+  color: @fg-accent;
+  padding: 1px 20px 1px 0;
 }
 
 #custom-spotify {
-  color: #d7c7a4;
-  padding: 1 12px;
+  color: @fg-spotify;
 }
-
 #custom-spotify:hover {
-  color: #cc242d;
-  transition: all 0.3s ease-in-out;
+  color: @fg-danger;
 }
 
+/* === Audio === */
 #pulseaudio {
-  padding: 1 12px;
-  color: #ebdbb3;
+  padding: 1px 12px;
+  color: @fg-normal;
+}
+#pulseaudio.muted {
+  color: @fg-danger;
 }
 
-#pulseaudio.muted {
-  color: #cc242d;
+/* === Clock / Tray / Keyboard === */
+#clock,
+#tray,
+#keyboard-state {
+  padding: 1px 8px;
 }
 
 #clock {
-  padding: 1 12px;
   font-weight: bold;
-}
-
-#tray {
-  padding: 1 8px;
-}
-
-#keyboard-state {
-  padding: 1 8px;
+  color: @fg-accent;
 }
 
 #keyboard-state label.locked {
-  color: #cc242d;
+  color: @fg-danger;
 }

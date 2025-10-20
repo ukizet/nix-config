@@ -6,8 +6,8 @@
       all-outputs = true;
     };
     "mpris" = {
-      format = "{player_icon} {dynamic}";
-      format-paused = "{status_icon} <i>{dynamic}</i>";
+      format = "{player_icon} ";
+      format-paused = "{status_icon} ";
       player-icons = {
         default = "▶";
         mpv = "🎵";
@@ -26,7 +26,7 @@
     };
     "bluetooth" = {
       format = " {status}";
-      format-connected = " {device_alias}";
+      format-connected = " 󰌷 ";
       tooltip = true;
       interval = 10;
       on-click = "blueman-manager";
