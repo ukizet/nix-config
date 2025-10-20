@@ -17,6 +17,10 @@
     ./programs.nix
     ./variables.nix
     ./virtualisation.nix
+    ./networking.nix
+    ./localisation.nix
+    ./sessionVariables.nix
+    ./font.nix
     # ./nextcloud.nix
   ];
 
@@ -24,27 +28,7 @@
   powerManagement.enable = true;
   services.thermald.enable = true;
 
-  networking = {
-    hostName = "nixos"; # Define your hostname.
-    networkmanager.enable = true;
-  };
-
   time.timeZone = "Europe/Oslo";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "uk_UA.UTF-8";
-      LC_IDENTIFICATION = "uk_UA.UTF-8";
-      LC_MEASUREMENT = "uk_UA.UTF-8";
-      LC_MONETARY = "uk_UA.UTF-8";
-      LC_NAME = "uk_UA.UTF-8";
-      LC_NUMERIC = "uk_UA.UTF-8";
-      LC_PAPER = "uk_UA.UTF-8";
-      LC_TELEPHONE = "uk_UA.UTF-8";
-      LC_TIME = "uk_UA.UTF-8";
-    };
-  };
 
   users = {
     users.sas = {
@@ -69,18 +53,6 @@
       "ratbagd".enable = true;
     };
   };
-
-  environment = {
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      NH_FLAKE = "/home/sas/nix-config";
-      FLAKE = "/home/sas/nix-config";
-    };
-  };
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
