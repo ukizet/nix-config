@@ -15,7 +15,6 @@
     ./kde.nix
     ./packages.nix
     ./programs.nix
-    ./variables.nix
     ./virtualisation.nix
     ./networking.nix
     ./localisation.nix
@@ -61,17 +60,20 @@
   };
 
   nix = {
-    optimise = {
+    optimise.automatic = true;
+    gc = {
       automatic = true;
-      dates = ["weekly"];
+      dates = "weekly";
+      options = "--delete-older-than 14d";
     };
     settings = {
+      auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      cores = 4;
-      max-jobs = 2;
+      # cores = 4;
+      # max-jobs = 2;
     };
     extraOptions = ''
       trusted-users = root sas
