@@ -4,11 +4,10 @@
   inputs,
   ...
 }: {
+  imports = [
+  ];
   environment.systemPackages =
     (with pkgs; [
-      # dwm
-      dmenu
-      dmenu-bluetooth
       # nixos related
       nixfmt-rfc-style
       appimage-run # workaround for appimages

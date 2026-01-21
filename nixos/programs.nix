@@ -3,7 +3,6 @@
     ./nvf.nix
   ];
   programs = {
-    hyprland.enable = true;
     steam = {
       enable = true;
       gamescopeSession.enable = true;
@@ -24,5 +23,6 @@
       flake = "/home/sas/nix-config";
     };
     zsh.enable = true;
+    gpu-screen-recorder.enable = true;
   };
 }

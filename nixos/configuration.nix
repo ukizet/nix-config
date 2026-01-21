@@ -20,8 +20,17 @@
     ./localisation.nix
     ./sessionVariables.nix
     ./font.nix
+    # ./hyprland.nix
+    # ./dwm/default.nix
     # ./nextcloud.nix
   ];
+
+  services.xserver.windowManager.dwm = {
+    enable = true;
+    package = pkgs.dwm.overrideAttrs {
+      src = ../dwm;
+    };
+  };
 
   # laptop related settings
   powerManagement.enable = true;
@@ -58,6 +67,7 @@
       inherit pkgs;
     };
   };
+  zramSwap.enable = true;
 
   nix = {
     optimise.automatic = true;
