@@ -12,7 +12,7 @@
     ./flatpak.nix
     ./graphics.nix
     ./hardware-configuration.nix
-    ./kde.nix
+    ./DE/kde.nix
     ./packages.nix
     ./programs.nix
     ./virtualisation.nix
@@ -20,7 +20,7 @@
     ./localisation.nix
     ./sessionVariables.nix
     ./font.nix
-    # ./hyprland.nix
+    # ./WM/hyprland.nix
     # ./dwm/default.nix
     # ./nextcloud.nix
   ];
@@ -49,6 +49,7 @@
         "realtime"
         "audio"
         "jackuser"
+        "kvm"
       ];
     };
     defaultUserShell = pkgs.zsh;

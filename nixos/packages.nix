@@ -7,8 +7,8 @@
   environment.systemPackages =
     (with pkgs; [
       # dwm
-      dmenu
-      dmenu-bluetooth
+      # dmenu
+      # dmenu-bluetooth
       # nixos related
       nixfmt-rfc-style
       appimage-run # workaround for appimages
@@ -20,7 +20,7 @@
       xorg.xwininfo
       # media
       mpv # media player
-      stremio # movies & anime & shows
+      # stremio # movies & anime & shows. And.. now it's uses old qtwebengine.. so I can't use it
       ani-cli # anime in terminal
       spotube
       vlc # media player
@@ -35,7 +35,6 @@
       wl-clipboard # neovim requiring this
       vscodium-fhs
       zed-editor
-      code-cursor
       wget
       podman-compose
       waydroid
@@ -53,14 +52,13 @@
       antimicrox
       protontricks
       pkg-config
-      minetestclient
       # unsorted
       peazip
-      qbittorrent-enhanced
+      # qbittorrent-enhanced
       unzip
       rustdesk-flutter # remote desktop
       sweet
-      bitwarden # password manager
+      bitwarden-desktop # password manager
       winetricks
       devenv # dev environment
       obsidian # notes
@@ -68,10 +66,13 @@
       astroterm # stars
       inputs.yt-x.packages."${system}".default # youtube in terminal
       duf # disk usage util
+      # flutter
+      baobab
     ])
     ++ (with pkgs-stable; [
       hello
       lutris
       gamescope
+      # android-studio-full
     ]);
 }

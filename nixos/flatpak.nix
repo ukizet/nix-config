@@ -29,8 +29,9 @@
     packages = [
       "com.github.tchx84.Flatseal"
       "io.github.flattool.Warehouse"
-      "com.usebottles.bottles"
-      "com.google.AndroidStudio"
+      "com.stremio.Stremio"
+      "dev.dergs.Tonearm"
+      "app.zen_browser.zen"
     ];
   };
 }

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -35,6 +35,7 @@
       config = {
         allowUnfree = true;
         allowUnfreePredicate = true;
+        android_sdk.accept_license = true;
       };
       overlays = [nur.overlays.default];
     }; # just conifguration of pkgs (unstable) to allowUnfree

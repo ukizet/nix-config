@@ -2,15 +2,15 @@
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
-      LC_ADDRESS = "uk_UA.UTF-8";
-      LC_IDENTIFICATION = "uk_UA.UTF-8";
-      LC_MEASUREMENT = "uk_UA.UTF-8";
-      LC_MONETARY = "uk_UA.UTF-8";
-      LC_NAME = "uk_UA.UTF-8";
-      LC_NUMERIC = "uk_UA.UTF-8";
-      LC_PAPER = "uk_UA.UTF-8";
-      LC_TELEPHONE = "uk_UA.UTF-8";
-      LC_TIME = "uk_UA.UTF-8";
+      LC_ADDRESS = "nb.UTF-8";
+      LC_IDENTIFICATION = "nb.UTF-8";
+      LC_MEASUREMENT = "nb.UTF-8";
+      LC_MONETARY = "nb.UTF-8";
+      LC_NAME = "nb.UTF-8";
+      LC_NUMERIC = "nb.UTF-8";
+      LC_PAPER = "nb.UTF-8";
+      LC_TELEPHONE = "nb.UTF-8";
+      LC_TIME = "nb.UTF-8";
     };
   };
 }
