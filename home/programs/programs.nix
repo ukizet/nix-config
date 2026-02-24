@@ -7,6 +7,7 @@
     ./librewolf.nix
     ./zsh.nix
     ./ghostty.nix
+    ./rio.nix
   ];
 
   programs = {
