@@ -7,10 +7,13 @@
     ./librewolf.nix
     ./zsh.nix
     ./ghostty.nix
-    ./rio.nix
   ];
 
   programs = {
+    alacritty = {
+      enable = true;
+      theme = "catppuccin_macchiato";
+    };
     yazi.enable = true;
     rmpc.enable = true;
     git = {

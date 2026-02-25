@@ -18,6 +18,10 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -45,9 +49,15 @@
     }; # just conifguration of pkgs to allowUnfree
   in {
     nixosConfigurations.nixos = lib.nixosSystem {
+      specialArgs = {
+        inherit pkgs;
+        inherit pkgs-stable;
+        inherit inputs;
+      };
       inherit system;
       modules = [
         ./nixos/configuration.nix
+        # ./home/niri/noctalia.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -66,11 +76,6 @@
         # NUR modules to import
         nur.legacyPackages."${system}".repos.iopq.modules.xraya
       ];
-      specialArgs = {
-        inherit pkgs;
-        inherit pkgs-stable;
-        inherit inputs;
-      };
     };
   };
 }

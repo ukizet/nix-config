@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./hyprland
+    # ./hyprland
     ./programs
     # ./wineasio.nix
   ];

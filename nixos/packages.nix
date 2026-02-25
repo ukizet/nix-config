@@ -43,7 +43,7 @@
       rclone # sync tool
       # games related
       mangohud
-      wineWowPackages.stable
+      # wineWowPackages.stable
       wineWowPackages.fonts
       steamcmd
       piper # some shit for mouse
@@ -68,11 +68,12 @@
       duf # disk usage util
       # flutter
       baobab
+      noctalia-shell
     ])
     ++ (with pkgs-stable; [
-      hello
-      lutris
-      gamescope
+      # hello
+      # lutris
+      # gamescope
       # android-studio-full
     ]);
 }
