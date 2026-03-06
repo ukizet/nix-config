@@ -1,9 +1,9 @@
 {pkgs, ...}: {
-  # home.file.".config/niri/config.kdl".source = ./config.kdl;
+  home.file.".config/niri/config.kdl".source = ./config.kdl;
 
   programs = {
     swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
-    # waybar.enable = true; # launch on startup in the default setting (bar)
+    fuzzel.enable = true;
   };
   services = {
     mako.enable = true; # notification daemon
@@ -12,6 +12,8 @@
   };
   home.packages = with pkgs; [
     swaybg # wallpaper
-    fuzzel
+    noctalia-shell
+    # fuzzel
+    # walker
   ];
 }

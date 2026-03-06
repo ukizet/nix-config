@@ -68,7 +68,6 @@
       duf # disk usage util
       # flutter
       baobab
-      noctalia-shell
     ])
     ++ (with pkgs-stable; [
       # hello
