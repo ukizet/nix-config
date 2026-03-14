@@ -10,14 +10,13 @@
       # dmenu
       # dmenu-bluetooth
       # nixos related
-      nixfmt-rfc-style
       appimage-run # workaround for appimages
       # computer info
       fastfetch # os info
       lshw # extended hardware info
       resources
       htop
-      xorg.xwininfo
+      xwininfo
       # media
       mpv # media player
       # stremio # movies & anime & shows. And.. now it's uses old qtwebengine.. so I can't use it
@@ -43,8 +42,8 @@
       rclone # sync tool
       # games related
       mangohud
-      # wineWowPackages.stable
-      wineWowPackages.fonts
+      wineWow64Packages.stable
+      # wineWow64Packages.fonts
       steamcmd
       piper # some shit for mouse
       libratbag # some shit for mouse
@@ -68,6 +67,32 @@
       duf # disk usage util
       # flutter
       baobab
+      hledger
+      hledger-ui
+      alacritty
+      alacritty-theme
+      noctalia-shell
+      mako
+      polkit_gnome
+      nil
+      alejandra
+      swaylock
+      zellij
+      dwarf-fortress
+      openmw
+      rqbit
+      blanket
+      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # inputs.zeroclaw.packages.x86_64-linux.default
+      # openclaw
+      zeroclaw
+      nodejs_25
+      python315
+      llama-cpp-vulkan
+      nvtopPackages.full
+      btop
+      # swayidle
+      # rmpc # TUI music player
     ])
     ++ (with pkgs-stable; [
       # hello

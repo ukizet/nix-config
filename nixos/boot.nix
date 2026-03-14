@@ -5,5 +5,6 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = ["kvm-intel"];
   };
 }

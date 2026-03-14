@@ -30,10 +30,28 @@
   powerManagement.enable = true;
   services.thermald.enable = true;
 
+  services.ollama.enable = true;
+  services.tailscale.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
+  };
+  services.logind = {
+    lidSwitchExternalPower = "ignore";
+  };
+  #  services.llama-cpp = {
+  #  enable = true;
+  #  package = pkgs.llama-cpp-vulkan;
+  #};
+
   time.timeZone = "Europe/Oslo";
 
   users = {
     users.sas = {
+      openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAD8QmN5irwr+2VFYj4GefgtE9oKAJIPZFyozvpn+yLT termux"];
       isNormalUser = true;
       description = "sas";
       extraGroups = [

@@ -26,17 +26,26 @@
         nix = {
           enable = true;
           extraDiagnostics.enable = true;
+          lsp.enable = true;
         };
-        rust.enable = true;
+        # rust.enable = true;
         python.enable = true;
         markdown.enable = true;
-        ts = {
-          enable = true;
-          format.type = "biome";
-        };
+        # ts = {
+        #   enable = true;
+        #   format.type = "biome";
+        # };
         html.enable = true;
-        css.enable = true;
-        tailwind.enable = true;
+        # css.enable = true;
+        # tailwind.enable = true;
+        dart = {
+          enable = true;
+          lsp.enable = true;
+          flutter-tools = {
+            enable = true;
+            color.enable = true;
+          };
+        };
       };
       telescope.enable = true;
       autopairs.nvim-autopairs.enable = true;

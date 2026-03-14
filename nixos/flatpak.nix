@@ -31,7 +31,6 @@
       "io.github.flattool.Warehouse"
       "com.stremio.Stremio"
       "dev.dergs.Tonearm"
-      "app.zen_browser.zen"
     ];
   };
 }
