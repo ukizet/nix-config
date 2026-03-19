@@ -12,7 +12,7 @@
     ./flatpak.nix
     ./graphics.nix
     ./hardware-configuration.nix
-    ./DE/kde.nix
+    # ./DE/kde.nix
     ./packages.nix
     ./programs.nix
     ./virtualisation.nix
@@ -21,6 +21,7 @@
     ./sessionVariables.nix
     ./font.nix
     ./WM/niri.nix
+    ./services.nix
     # ./WM/hyprland.nix
     # ./dwm/default.nix
     # ./nextcloud.nix
@@ -28,20 +29,6 @@
 
   # laptop related settings
   powerManagement.enable = true;
-  services.thermald.enable = true;
-
-  services.ollama.enable = true;
-  services.tailscale.enable = true;
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-    };
-  };
-  services.logind = {
-    lidSwitchExternalPower = "ignore";
-  };
   #  services.llama-cpp = {
   #  enable = true;
   #  package = pkgs.llama-cpp-vulkan;
@@ -50,7 +37,9 @@
   time.timeZone = "Europe/Oslo";
 
   users = {
+    mutableUsers = false;
     users.sas = {
+      hashedPassword = "$6$xTJiC6pPGBqUiUHe$XNM9CHPjlR4m.JMMdIAGME.A.A1XRzVA3siqZzChlTlRIjUyhVdnzDqS5y6Q3mYpGG1akPIj7D4HMuYQAhTcv0";
       openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAD8QmN5irwr+2VFYj4GefgtE9oKAJIPZFyozvpn+yLT termux"];
       isNormalUser = true;
       description = "sas";

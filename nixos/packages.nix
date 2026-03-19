@@ -21,22 +21,22 @@
       mpv # media player
       # stremio # movies & anime & shows. And.. now it's uses old qtwebengine.. so I can't use it
       ani-cli # anime in terminal
-      spotube
-      vlc # media player
+      # spotube
+      # vlc # media player
       pqiv # image viewer
       # messaging
       element-desktop
       ayugram-desktop # telegram client
-      vesktop # discord client
-      signal-desktop
+      # vesktop # discord client
+      # signal-desktop
       tmpmail
       # coding
       wl-clipboard # neovim requiring this
-      vscodium-fhs
+      # vscodium-fhs
       zed-editor
       wget
-      podman-compose
-      waydroid
+      # podman-compose
+      # waydroid
       # browsers
       # notes related
       rclone # sync tool
@@ -44,12 +44,12 @@
       mangohud
       wineWow64Packages.stable
       # wineWow64Packages.fonts
-      steamcmd
-      piper # some shit for mouse
-      libratbag # some shit for mouse
-      protonup-qt
-      antimicrox
-      protontricks
+      # steamcmd
+      # piper # some shit for mouse
+      # libratbag # some shit for mouse
+      # protonup-qt
+      # antimicrox
+      # protontricks
       pkg-config
       # unsorted
       peazip
@@ -57,8 +57,8 @@
       unzip
       rustdesk-flutter # remote desktop
       sweet
-      bitwarden-desktop # password manager
-      winetricks
+      # bitwarden-desktop # password manager
+      # winetricks
       devenv # dev environment
       obsidian # notes
       hardinfo2
@@ -66,9 +66,9 @@
       inputs.yt-x.packages."${system}".default # youtube in terminal
       duf # disk usage util
       # flutter
-      baobab
+      baobab # disk usage util
       hledger
-      hledger-ui
+      # hledger-ui
       alacritty
       alacritty-theme
       noctalia-shell
@@ -85,12 +85,14 @@
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       # inputs.zeroclaw.packages.x86_64-linux.default
       # openclaw
-      zeroclaw
-      nodejs_25
-      python315
-      llama-cpp-vulkan
+      # zeroclaw
+      # nodejs_25
+      # python315
+      # llama-cpp-vulkan
       nvtopPackages.full
       btop
+      lmstudio
+      nix-init
       # swayidle
       # rmpc # TUI music player
     ])

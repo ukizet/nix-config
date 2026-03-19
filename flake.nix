@@ -83,6 +83,7 @@
         nur.modules.nixos.default
         # NUR modules to import
         nur.legacyPackages."${system}".repos.iopq.modules.xraya
+        # zeroclaw.nixosModules.default
       ];
     };
   };

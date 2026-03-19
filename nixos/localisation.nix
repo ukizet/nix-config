@@ -1,6 +1,6 @@
 {...}: {
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "nb_NO.UTF-8";
     extraLocaleSettings = {
       LC_ADDRESS = "nb_NO.UTF-8";
       LC_IDENTIFICATION = "nb_NO.UTF-8";
