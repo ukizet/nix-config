@@ -9,4 +9,14 @@
       };
     };
   };
+  security = {
+    polkit.enable = true;
+    pam.services.swaylock = {};
+  };
+  services.gnome.gnome-keyring.enable = true;
+  environment.systemPackages = with pkgs; [
+    swaylock
+    mako
+    swayidle
+  ];
 }

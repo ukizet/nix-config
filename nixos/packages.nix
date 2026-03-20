@@ -3,7 +3,9 @@
   pkgs-stable,
   inputs,
   ...
-}: {
+}: let
+  zeroclaw = pkgs.callPackage ./zeroclaw.nix {};
+in {
   environment.systemPackages =
     (with pkgs; [
       # dwm
@@ -72,11 +74,9 @@
       alacritty
       alacritty-theme
       noctalia-shell
-      mako
       polkit_gnome
       nil
       alejandra
-      swaylock
       zellij
       dwarf-fortress
       openmw
@@ -93,7 +93,7 @@
       btop
       lmstudio
       nix-init
-      # swayidle
+      zeroclaw
       # rmpc # TUI music player
     ])
     ++ (with pkgs-stable; [

@@ -25,10 +25,9 @@
     # ./WM/hyprland.nix
     # ./dwm/default.nix
     # ./nextcloud.nix
+    ./laptop.nix
   ];
 
-  # laptop related settings
-  powerManagement.enable = true;
   #  services.llama-cpp = {
   #  enable = true;
   #  package = pkgs.llama-cpp-vulkan;
@@ -84,8 +83,8 @@
         "nix-command"
         "flakes"
       ];
-      # cores = 4;
-      # max-jobs = 2;
+      cores = 4;
+      max-jobs = 1;
     };
     extraOptions = ''
       trusted-users = root sas
